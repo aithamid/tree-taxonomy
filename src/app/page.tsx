@@ -1,6 +1,6 @@
 'use client'
 import { DataManager, Query } from '@syncfusion/ej2-data';
-import { StackPanel, TextElement, DataBinding, HierarchicalTree, DiagramComponent, Inject } from "@syncfusion/ej2-react-diagrams";
+import { StackPanel, TextElement, DataBinding, HierarchicalTree, DiagramComponent, Inject, ExpandTool } from "@syncfusion/ej2-react-diagrams";
 import { data } from '@/app/data/datasource';
 
 export default function Home() {
@@ -8,12 +8,11 @@ export default function Home() {
 
   return (
     <>
-      <h2>Syncfusion React Diagram Component</h2>
-      <DiagramComponent id="container" height={'450px'} layout={{
+      <DiagramComponent id="container" height={'1000px'} layout={{
         type: 'HierarchicalTree',
         margin: {
-          top: 20,
-        },
+          top: 150,
+        }
 
       }} dataSourceSettings={{
         id: 'Id',
@@ -33,6 +32,7 @@ export default function Home() {
         obj.targetDecorator.style.strokeColor = '#6BA5D7';
         obj.targetDecorator.shape = 'None';
         obj.type = 'Orthogonal';
+        obj.cornerRadius = 7;
         return obj;
       }} setNodeTemplate={(obj: any) => {
         let content = new StackPanel();
