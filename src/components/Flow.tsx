@@ -10,6 +10,7 @@ import ReactFlow, {
   OnNodesChange,
   OnEdgesChange,
   OnConnect,
+  ConnectionLineType,
 } from 'reactflow';
 import dagre from 'dagre';
 
@@ -20,7 +21,7 @@ const nodeSize = {
   height: 40,
 };
 
-const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => {
+const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'LR') => {
   const isHorizontal = direction === 'LR';
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -82,7 +83,7 @@ export default function Flow({
 
   const onConnect: OnConnect = useCallback(
     (params) => {
-      setEdges((eds) => addEdge(params, eds));
+      setEdges((eds) => addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds));
     },
     []
   );
@@ -95,6 +96,8 @@ export default function Flow({
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        connectionLineType={ConnectionLineType.SmoothStep}
+        fitView={true}
       />
     </div>
   );

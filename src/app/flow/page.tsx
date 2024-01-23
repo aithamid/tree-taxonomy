@@ -19,43 +19,36 @@ const initialNodes: Node[] = [
     type: 'input',
     data: { label: 'Node 1' },
     position: { x: 250, y: 5 },
-    size: nodeSize,
   },
   {
     id: '2',
     data: { label: 'Node 2' },
     position: { x: 100, y: 100 },
-    size: nodeSize,
   },
   {
     id: '3',
     data: { label: 'Node 3' },
     position: { x: 400, y: 100 },
-    size: nodeSize,
   },
   {
     id: '4',
     data: { label: 'Node 4' },
     position: { x: 400, y: 100 },
-    size: nodeSize,
   },
   {
     id: '5',
     data: { label: 'Node 5' },
     position: { x: 400, y: 100 },
-    size: nodeSize,
   },
   {
     id: '6',
     data: { label: 'Node 6' },
     position: { x: 400, y: 100 },
-    size: nodeSize,
   },
   {
     id: '7',
     data: { label: 'Node 7' },
     position: { x: 400, y: 100 },
-    size: nodeSize,
   },
 ];
 
@@ -78,7 +71,6 @@ async function fetchData(): Promise<{ nodes: Node[]; edges: Edge[] }> {
 
 export default async function App() {
   const { nodes, edges } = await fetchData();
-
   return (
     <main className={styles.main}>
       <ReactFlowProvider initialNodes={nodes} initialEdges={edges}>
