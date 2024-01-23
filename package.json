@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@syncfusion/ej2-react-diagrams": "^24.1.46",
+    "dagre": "^0.8.5",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "reactflow": "^11.10.2"
   },
   "devDependencies": {
     "@types/node": "^20",

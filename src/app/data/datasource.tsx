@@ -994,4 +994,68 @@ export let data: object[] = [
     'RatingColor': '#68C2DE',
     'ReportingPerson': 'l2-67'
 },
+{
+    'Id': 'l2-68',
+    'Name': 'Type of information',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l1-5'
+},
+{
+    'Id': 'l3-64',
+    'Name': 'GPS signal',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l2-68'
+},
+{
+    'Id': 'l3-65',
+    'Name': 'Radio landmark for geo positioning recalibration',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l2-68'
+},
+{
+    'Id': 'l3-66',
+    'Name': 'information expected by the vehicle ',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l2-68'
+},
+{
+    'Id': 'l2-69',
+    'Name': 'Radio access technology',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l1-5'
+},
+{
+    'Id': 'l2-70',
+    'Name': 'Service type',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l1-5'
+},
+{
+    'Id': 'l2-71',
+    'Name': 'Road side sensors',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l1-5'
+},
+{
+    'Id': 'l2-72',
+    'Name': 'HD maps',
+    'Designation': '',
+    'IsExpand': 'false',
+    'RatingColor': '#68C2DE',
+    'ReportingPerson': 'l1-5'
+},
 ];
