@@ -1,86 +1,81 @@
-'use client'
-import { DataManager, Query } from '@syncfusion/ej2-data';
-import { StackPanel, TextElement, DataBinding, HierarchicalTree, DiagramComponent, Inject, ExpandTool } from "@syncfusion/ej2-react-diagrams";
-import { data } from '@/app/data/datasource';
+'use client';
 
-export default function Home() {
-  let items: DataManager = new DataManager(data as JSON[], new Query().take(7));
+import { Edge, Node, Position, ReactFlowProvider } from 'reactflow';
 
+import styles from './page.module.css';
+import Flow from '@/components/Flow';
+
+const nodeSize = {
+  width: 100,
+  height: 40,
+};
+
+const edgeType = 'smoothstep';
+
+// this example uses some v12 features that are not released yet
+const initialNodes: Node[] = [
+  {
+    id: '1',
+    type: 'input',
+    data: { label: 'Node 1' },
+    position: { x: 250, y: 5 },
+  },
+  {
+    id: '2',
+    data: { label: 'Node 2' },
+    position: { x: 100, y: 100 },
+  },
+  {
+    id: '3',
+    data: { label: 'Node 3' },
+    position: { x: 400, y: 100 },
+  },
+  {
+    id: '4',
+    data: { label: 'Node 4' },
+    position: { x: 400, y: 100 },
+  },
+  {
+    id: '5',
+    data: { label: 'Node 5' },
+    position: { x: 400, y: 100 },
+  },
+  {
+    id: '6',
+    data: { label: 'Node 6' },
+    position: { x: 400, y: 100 },
+  },
+  {
+    id: '7',
+    data: { label: 'Node 7' },
+    position: { x: 400, y: 100 },
+  },
+];
+
+const initialEdges: Edge[] = [
+  { id: 'e1-2', source: '1', target: '2', type: edgeType, animated: true },
+  { id: 'e1-3', source: '1', target: '3', type: edgeType, animated: true },
+  { id: 'e2-4', source: '2', target: '4', type: edgeType, animated: true },
+  { id: 'e2-5', source: '2', target: '5', type: edgeType, animated: true },
+  { id: 'e3-6', source: '3', target: '6', type: edgeType, animated: true },
+  { id: 'e3-7', source: '3', target: '7', type: edgeType, animated: true },
+];
+
+async function fetchData(): Promise<{ nodes: Node[]; edges: Edge[] }> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ nodes: initialNodes, edges: initialEdges });
+    }, 1000);
+  });
+}
+
+export default async function App() {
+  const { nodes, edges } = await fetchData();
   return (
-    <>
-      <DiagramComponent id="container" height={'1000px'} layout={{
-        type: 'HierarchicalTree',
-        margin: {
-          top: 150,
-        }
-
-      }} dataSourceSettings={{
-        id: 'Id',
-        parentId: 'ReportingPerson',
-        dataManager: items,
-      }} getNodeDefaults={(node: any) => {
-        node.height = 50;
-        node.style.fill = '#6BA5D7';
-        node.borderColor = 'white';
-        node.style.strokeColor = 'white';
-        return node;
-      }} getConnectorDefaults={(obj: any) => {
-        obj.style.strokeColor = '#6BA5D7';
-        obj.style.fill = '#6BA5D7';
-        obj.style.strokeWidth = 2;
-        obj.targetDecorator.style.fill = '#6BA5D7';
-        obj.targetDecorator.style.strokeColor = '#6BA5D7';
-        obj.targetDecorator.shape = 'None';
-        obj.type = 'Orthogonal';
-        obj.cornerRadius = 7;
-        return obj;
-      }} setNodeTemplate={(obj: any) => {
-        let content = new StackPanel();
-        content.id = obj.id + '_outerstack';
-        content.style.strokeColor = 'darkgreen';
-        content.style.fill = '#6BA5D7';
-        content.orientation = 'Horizontal';
-        content.padding = {
-          left: 5,
-          right: 10,
-          top: 5,
-          bottom: 5,
-        };
-        let innerStack = new StackPanel();
-        innerStack.style.strokeColor = 'none';
-        innerStack.style.fill = '#6BA5D7';
-        innerStack.margin = {
-          left: 5,
-          right: 0,
-          top: 0,
-          bottom: 0,
-        };
-        innerStack.id = obj.id + '_innerstack';
-        let text = new TextElement();
-        text.content = obj.data['Name'];
-        text.style.color = 'white';
-        text.style.strokeColor = 'none';
-        text.style.fill = 'none';
-        text.id = obj.id + '_text1';
-        let desigText = new TextElement();
-        desigText.margin = {
-          left: 0,
-          right: 0,
-          top: 5,
-          bottom: 0,
-        };
-        desigText.content = obj.data['Designation'];
-        desigText.style.color = 'white';
-        desigText.style.strokeColor = 'none';
-        desigText.style.fill = 'none';
-        desigText.style.textWrapping = 'Wrap';
-        desigText.id = obj.id + '_desig';
-        innerStack.children = [text, desigText];
-        content.children = [innerStack];
-        return content;
-      }} >
-        <Inject services={[DataBinding, HierarchicalTree]} />
-      </DiagramComponent>
-    </>
-  )
+    <main className={styles.main}>
+      <ReactFlowProvider initialNodes={nodes} initialEdges={edges}>
+        <Flow nodes={nodes} edges={edges} />
+      </ReactFlowProvider>
+    </main>
+  );
 }
