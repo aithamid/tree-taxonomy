@@ -12,6 +12,7 @@ import ReactFlow, {
   OnConnect,
   ConnectionLineType,
   Position,
+  MiniMap,
 } from 'reactflow';
 import dagre from 'dagre';
 
@@ -99,7 +100,9 @@ export default function Flow({
         onConnect={onConnect}
         connectionLineType={ConnectionLineType.SmoothStep}
         fitView={true}
-      />
+      >
+        <MiniMap nodeStrokeWidth={3} zoomable pannable />
+      </ReactFlow>
     </div>
   );
 }

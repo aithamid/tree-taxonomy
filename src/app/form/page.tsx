@@ -1,4 +1,5 @@
 import { SwitchForm } from "@/components/form"
+import RealTimeForm from "@/components/realtimeform"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
@@ -15,6 +16,7 @@ export default function Page() {
         </Link>
       </nav>
       <div className="p-8 w-1/3">
+      <RealTimeForm />
         <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="illumination">
                 <AccordionTrigger>Illumination</AccordionTrigger>
