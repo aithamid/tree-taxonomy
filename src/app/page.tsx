@@ -1,7 +1,7 @@
 'use client';
 
 import { Edge, Node, Position, ReactFlowProvider } from 'reactflow';
-
+import React, { useState, useEffect } from 'react'; 
 import styles from './page.module.css';
 import Flow from '@/components/Flow';
 
@@ -73,7 +73,7 @@ export default async function App() {
   const { nodes, edges } = await fetchData();
   return (
     <main className={styles.main}>
-      <ReactFlowProvider initialNodes={nodes} initialEdges={edges}>
+      <ReactFlowProvider>
         <Flow nodes={nodes} edges={edges} />
       </ReactFlowProvider>
     </main>

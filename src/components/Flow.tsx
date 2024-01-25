@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useCallback, useState, useEffect } from 'react';
 import ReactFlow, {
@@ -11,6 +11,7 @@ import ReactFlow, {
   OnEdgesChange,
   OnConnect,
   ConnectionLineType,
+  Position,
 } from 'reactflow';
 import dagre from 'dagre';
 
@@ -21,7 +22,7 @@ const nodeSize = {
   height: 40,
 };
 
-const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => {
+const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB'): Node[] => {
   const isHorizontal = direction === 'LR';
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -39,8 +40,8 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB') => 
 
   return nodes.map((node) => {
     const nodeWithPosition = dagreGraph.node(node.id);
-    node.targetPosition = isHorizontal ? 'left' : 'top';
-    node.sourcePosition = isHorizontal ? 'right' : 'bottom';
+    node.targetPosition = isHorizontal ? Position.Left : Position.Top;
+    node.sourcePosition = isHorizontal ? Position.Right : Position.Bottom;
     return {
       ...node,
       position: {
