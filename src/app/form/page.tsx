@@ -1,3 +1,4 @@
+import DynamicForm from "@/components/dynamicform"
 import { SwitchForm } from "@/components/form"
 import RealTimeForm from "@/components/realtimeform"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -27,5 +28,8 @@ export default function Page() {
             </AccordionItem>
         </Accordion>
       </div>
+      <div>
+        <DynamicForm />
+    </div>
    </div>
 }
