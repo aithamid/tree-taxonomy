@@ -4,7 +4,7 @@ import { FormStructure, FormField } from '@/interfaces/types';
 import { Switch } from '@/components/ui/switch';
 import formStructureJson from '@/app/data/formFields.json';
 
-const formStructure: FormStructure = formStructureJson;
+const formStructure: FormStructure = formStructureJson as FormStructure;
 
 const DynamicForm: React.FC = () => {
   // Initialize form state with fields for all sections
