@@ -1,41 +1,17 @@
-export interface L1 {
+export interface Layer1 {
+    id : string;
     name: string;
-    L2: L2[];
+    children?: Layer2[];
 }
 
-export interface L2 {
+export interface Layer2 {
+    id : string;
     name: string;
-    L3: L3[];
+    children?: Layer3[];
 }
 
-export interface L3 {
+export interface Layer3 {
+    id : string;
     name: string;
-    children?: L4[];
-    multi_choices?: Multi_choice;
-    one_choice?: One_choice;
-    double_values?: Double[];
-    enable?: boolean;
-}
-
-export interface L4 {
-    name: string;
-    multi_choices?: Multi_choice;
-    one_choice?: One_choice;
-    double_values?: Double[];
-    enable?: boolean;
-}
-
-export interface Multi_choice {
-    choices: string[];
-    chosen: string[];
-}
-
-export interface One_choice {
-    choices: string[];
-    chosen: string;
-}
-
-export interface Double {
-    name: string;
-    value?: number;
+    active?: boolean;
 }
