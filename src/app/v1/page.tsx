@@ -1,61 +1,50 @@
 // pages/index.tsx
+"use client";
 
 import React from 'react';
 import Layer1Component from '@/components/taxonomy/layer1';
-import  {Layer1}  from '@/interfaces/taxonomy';
+import  {taxonomySchema}  from '@/interfaces/taxonomy';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
-const countries: Layer1[] = [
-  {
-    "id": "1",
-    "name": "Physical Infrastructure",
-    "children": [
-      {
-        "id": "1.1",
-        "name": "Roads",
-        "children": [
-        {
-          "id": "1.1.1",
-          "name": "Roads description",
-          "active": true,
-        }
-        ]
-      },
-      {
-        "id": "1.2",
-        "name": "Railways"
-      }
-    ]
-  },
-  {
-    "id": "2",
-    "name": "Scenery",
-  },
-  {
-    "id": "3",
-    "name": "Environmental conditions",
-  }
+import * as z from 'zod';
+
+type L1 = z.infer<typeof taxonomySchema>["layers"][number];
+
+const layersInitial: L1[] = [
+  { id: "1", name: "text 1", children: [
+    { id: "1.1", name: "text 1.1", children: [
+      { id: "1.1.1", name: "text 1.1.1", active: false},
+      { id: "1.1.2", name: "text 1.1.2", active: false},
+    ]},
+    { id: "1.2", name: "text 1.2", children: [
+      { id: "1.2.1", name: "text 1.2.1", active: false},
+      { id: "1.2.2", name: "text 1.2.2", active: true},
+    ] }
+  ]},
+  { id: "2", name: "text 2" }
 ];
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
+
   return (
     <div>
       <h1>Taxonomy</h1>
-            <Tabs defaultValue="1" className="space-y-4">
-            <TabsList>
-              {countries.map((layer1) => (
-                <TabsTrigger key={layer1.id} value={layer1.id}>
-                  {layer1.name}
-                </TabsTrigger>
+        <div className="m-8">
+        <Tabs defaultValue="1" className="space-y-4">
+              <TabsList>
+                {layersInitial.map((layer1) => (
+                  <TabsTrigger key={layer1.id} value={layer1.id}>
+                    {layer1.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {layersInitial.map((layer1, index) => (
+                <React.Fragment key={layer1.id}>
+                  <Layer1Component Layer1={layer1} l1index={index}/>
+                </React.Fragment>
               ))}
-            </TabsList>
-            {countries.map((layer1, index) => (
-              <Layer1Component key={index} Layer1={layer1} />
-            ))}
           </Tabs>
+        </div>
     </div>
   );
 };
-
-export default HomePage;
