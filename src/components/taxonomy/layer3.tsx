@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { L3 } from '@/interfaces/taxonomy';
 import { Switch } from '@/components/ui/switch';
 import { FormField, FormLabel, FormDescription, FormControl, FormItem } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2index: number, l3index: number }> = ({ layer3, form, l1index, l2index, l3index }) => {
   const fieldName = `children[${l2index}].children[${l3index}].active`;
@@ -22,6 +23,7 @@ const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2inde
             <FormDescription>
               Bla bla description
             </FormDescription>
+            <Input></Input>
           </div>
           <FormControl>
             <Switch
