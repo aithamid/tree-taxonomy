@@ -10,8 +10,7 @@ import {useForm} from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { L1, layer1Schema } from '@/interfaces/taxonomy';
-
-const handleSubmit = () => {}
+import { toast } from "@/components/ui/use-toast"
 
 
 const formSchema = z.object({
@@ -37,12 +36,26 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
     },
   });
 
+  function onSubmit(data: z.infer<typeof layer1Schema>) {
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    })
+    console.log(data);
+  }
+
   return (
     <TabsContent value={Layer1.id} className="space-y-4">
         <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
             <div>
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(handleSubmit)} className="w-full">
+                <form 
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="w-full">
                 <Accordion type="multiple" className="w-full">
                 {
                   Layer1.children && Layer1.children.map((layer2, index) => (

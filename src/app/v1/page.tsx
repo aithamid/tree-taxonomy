@@ -17,8 +17,12 @@ const layersInitial: L1[] = [
       { id: "1.1.2", name: "text 1.1.2", active: false},
     ]},
     { id: "1.2", name: "text 1.2", children: [
-      { id: "1.2.1", name: "text 1.2.1", active: false},
+      { id: "1.2.1", name: "text 1.2.1", active: true},
       { id: "1.2.2", name: "text 1.2.2", active: true},
+    ] },
+    { id: "1.3", name: "text 1.3", children: [
+      { id: "1.3.1", name: "text 1.3.1", active: true},
+      { id: "1.3.2", name: "text 1.3.2", active: true},
     ] }
   ]},
   { id: "2", name: "text 2" }
