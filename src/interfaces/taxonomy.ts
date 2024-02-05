@@ -1,13 +1,33 @@
 import { z } from "zod"
 
+export const newClassItemSchema = z.object({
+  id: z.string(),
+  label: z.string(),
+  value: z.string(),
+  active: z.boolean()
+})
+
+
+export const choiceSchema = z.object({
+  id: z.string(),
+  label: z.string()
+})
+
 export const one_choiceSchema = z.object({
-  list: z.array(z.string()),
+  list: z.array(choiceSchema),
   value: z.string()
+})
+
+export const multi_choiceSchema = z.object({
+  list: z.array(choiceSchema),
+  value: z.array(z.string())
 })
 
 export const inputSchema = z.object({
   double: z.number().optional(),
-  one_choice: one_choiceSchema.optional()
+  one_choice: one_choiceSchema.optional(),
+  multi_choice: multi_choiceSchema.optional(),
+  newClass : z.array(newClassItemSchema).optional()
 })
 
 export const layer4Schema = z.object({
