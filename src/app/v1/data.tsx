@@ -117,5 +117,9 @@ export let layersInitial: L1[] = [
       },
       // Add other L2 categories like "Junctions" and their children here
     ]
+  },
+  {
+    id: "TI",
+    name: "Traffic Infrastructure",
   }
 ];

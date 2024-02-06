@@ -16,12 +16,12 @@ export default function HomePage() {
     <div>
     <div className='h-full'>
 
-        <MainNav className='border px-8 py-4'/>
+        <MainNav />
         <div className="px-8 h-full">
         <div className="flex items-center justify-between space-y-2 m-5">
             <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
         </div>
-        <Tabs defaultValue="1" className="space-y-4">
+        <Tabs defaultValue={layersInitial[0].id} className="space-y-4">
               <TabsList>
                 {layersInitial.map((layer1) => (
                   <TabsTrigger key={layer1.id} value={layer1.id}>

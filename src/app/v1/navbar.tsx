@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
+import { ModeToggle } from "@/components/ModeToggle"
 
 export function MainNav({
   className,
@@ -11,7 +14,7 @@ export function MainNav({
   return (
     
     <nav
-      className={cn("flex items-center space-x-4 lg:space-x-6 ", className)}
+      className={cn("flex items-center space-x-4 lg:space-x-6 border-b px-8 py-4", className)}
       {...props}
     >
         <div className="relative z-20 flex items-center text-lg font-medium">
@@ -44,6 +47,7 @@ export function MainNav({
       >
         Settings
       </Link>
+      <ModeToggle />
     </nav>
   )
 }
