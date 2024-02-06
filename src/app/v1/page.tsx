@@ -6,7 +6,7 @@ import Layer1Component from '@/components/taxonomy/layer1';
 import  {taxonomySchema}  from '@/interfaces/taxonomy';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { layersInitial } from './data';
-
+import { MainNav } from './navbar';
 
 export default function HomePage() {
 
@@ -14,8 +14,13 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Taxonomy</h1>
-        <div className="m-8">
+    <div className='h-full'>
+
+        <MainNav className='border px-8 py-4'/>
+        <div className="px-8 h-full">
+        <div className="flex items-center justify-between space-y-2 m-5">
+            <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
+        </div>
         <Tabs defaultValue="1" className="space-y-4">
               <TabsList>
                 {layersInitial.map((layer1) => (
@@ -31,6 +36,7 @@ export default function HomePage() {
               ))}
           </Tabs>
         </div>
+    </div>
     </div>
   );
 };

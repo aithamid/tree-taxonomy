@@ -11,6 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { L1, layer1Schema } from '@/interfaces/taxonomy';
 import { toast } from "@/components/ui/use-toast"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
 const formSchema = z.object({
@@ -57,19 +58,19 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
 
   return (
     <TabsContent value={layer1.id} className="space-y-4">
-        <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-            <div>
+        <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 max-h-full">
+            <div className="">
             <Form {...form}>
                 <form 
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="w-full">
-                <Accordion type="multiple" className="w-full">
+                    <ScrollArea className="h-[700px] rounded-md p-4 m-4">
                 {
                   layer1.children && layer1.children.map((layer2, index) => (
                     <Layer2Component key={layer2.id} layer2={layer2} form={form} l1index={l1index} l2index={index} />
                   ))
                 }
-                </Accordion>
+                </ScrollArea>
                   <Button type="submit" className="w-full">Submit</Button>
                 </form>
             </Form>
