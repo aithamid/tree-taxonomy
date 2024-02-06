@@ -25,7 +25,7 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
               <div className="space-y-0.5">
                 <FormLabel>{layer4.name}</FormLabel>
                 <FormDescription>
-                  Bla bla description
+                  {layer4.description}
                 </FormDescription>
               </div>
               <FormControl>

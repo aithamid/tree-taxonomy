@@ -34,7 +34,8 @@ export const layer4Schema = z.object({
   id: z.string(),
   name: z.string(),
   active: z.boolean(),
-  input: inputSchema.optional()
+  input: inputSchema.optional(),
+  description: z.string().optional()
 })
 
 export const layer3Schema = z.object({

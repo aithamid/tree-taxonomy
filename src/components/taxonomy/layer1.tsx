@@ -1,5 +1,5 @@
 // components/Layer1Component.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { TabsContent } from '@/components/ui/tabs';
 import Layer2Component from '@/components/taxonomy/layer2';
 import { Accordion } from  '@/components/ui/accordion';
@@ -25,7 +25,13 @@ const formSchema = z.object({
 }
 );
 
+
 const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1index }) => {
+  const [layer1, setLayer1] = useState<L1>(Layer1);
+
+  function handleLayer1Update(updatedLayer1: L1) {
+    setLayer1(updatedLayer1);
+  }
 
   const form = useForm<z.infer<typeof layer1Schema>>({
     resolver: zodResolver(layer1Schema),
@@ -46,10 +52,11 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
       ),
     })
     console.log(data);
+    handleLayer1Update(data);
   }
 
   return (
-    <TabsContent value={Layer1.id} className="space-y-4">
+    <TabsContent value={layer1.id} className="space-y-4">
         <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
             <div>
             <Form {...form}>
@@ -58,7 +65,7 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
                   className="w-full">
                 <Accordion type="multiple" className="w-full">
                 {
-                  Layer1.children && Layer1.children.map((layer2, index) => (
+                  layer1.children && layer1.children.map((layer2, index) => (
                     <Layer2Component key={layer2.id} layer2={layer2} form={form} l1index={l1index} l2index={index} />
                   ))
                 }
