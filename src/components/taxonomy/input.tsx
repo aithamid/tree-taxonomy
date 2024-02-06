@@ -4,6 +4,8 @@ import { FormField, FormLabel, FormDescription, FormControl, FormItem, FormMessa
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '../ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 const InputComponent: React.FC<{ input: InputType, form: any, him: string}> = ({ input, form, him }) => {
   return (
@@ -32,19 +34,14 @@ const InputComponent: React.FC<{ input: InputType, form: any, him: string}> = ({
             render={({ field }) => (
                 <FormItem className="flex flex-row items-center justify-between">
                 <FormControl>
-                <Select onValueChange={field.onChange} defaultValue={input.one_choice?.value}>
-                    <SelectTrigger>
-                        <SelectValue placeholder="Select a field" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectGroup>
-                        <SelectLabel></SelectLabel>
-                        {input.one_choice?.list.map((item, index) => (
-                            <SelectItem key={index} value={item.id}>{item.label}</SelectItem>
-                        ))}
-                        </SelectGroup>
-                    </SelectContent>
-                </Select>
+                <RadioGroup onValueChange={field.onChange} defaultValue={input.one_choice?.value}>
+                {input.one_choice?.list.map((item, index) => (
+                <div key={item.id} className="flex items-center space-x-2">
+                    <RadioGroupItem value={item.id} id={item.id} />
+                    <Label htmlFor={item.id}>{item.label}</Label>
+                </div>
+                ))}
+                </RadioGroup>
                 </FormControl>
                 </FormItem>
             )}

@@ -3,15 +3,11 @@
 
 import React from 'react';
 import Layer1Component from '@/components/taxonomy/layer1';
-import  {taxonomySchema}  from '@/interfaces/taxonomy';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { layersInitial } from './data';
 import { MainNav } from './navbar';
 
 export default function HomePage() {
-
-  const defaultValue = ""
-
   return (
     <div>
     <div className='h-full'>

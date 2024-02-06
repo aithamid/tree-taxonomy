@@ -43,6 +43,7 @@ export const layer3Schema = z.object({
   name: z.string(),
   active: z.boolean(),
   description: z.string().optional(),
+  input: inputSchema.optional(),
   children: z.array(layer4Schema).optional()
 })
 
