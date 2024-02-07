@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { L1, layer1Schema } from '@/interfaces/taxonomy';
 import { toast } from "@/components/ui/use-toast"
 import { ScrollArea } from "@/components/ui/scroll-area"
-
+import {Flow} from '@/components/flow/index';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -76,7 +76,9 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
             </Form>
             </div>
             <div className="items-center">
-                Droite
+              <div className="border">
+              <Flow />
+              </div>
             </div>
         </div>
     </TabsContent>

@@ -42,11 +42,11 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  {id: "A", label: "A"},
-                  {id: "B", label: "B"},
-                  {id: "C", label: "C"},
+                  {id: "D", label: "D"},
+                  {id: "E", label: "E"},
+                  {id: "F", label: "F"},
                 ],
-                value: ["A", "B"]
+                value: ["E", "F"]
               }
             }
           },
