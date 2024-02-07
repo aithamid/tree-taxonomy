@@ -18,6 +18,7 @@ import ReactFlow, {
 import dagre from 'dagre';
 
 import 'reactflow/dist/style.css';
+import { L1 } from '@/interfaces/taxonomy';
 
 const nodeSize = {
     width: 100,
@@ -30,7 +31,6 @@ const nodeSize = {
   const initialNodes: Node[] = [
     {
       id: '1',
-      type: 'input',
       data: { label: 'Node 1' },
       position: { x: 250, y: 5 },
     },
@@ -104,45 +104,18 @@ const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB'): No
   });
 };
 
-export function Flow() {
-    const [nodes, setNodes] = useState<Node[]>(initialNodes);
-    const [edges, setEdges] = useState<Edge[]>(initialEdges);
-  
+export const  Flow : React.FunctionComponent<{ n: Node[], e : Edge[] }> = ({ n, e }) =>  {
+    const [nodes, setNodes] = useState<Node[]>(n);
     useEffect(() => {
-      // Appliquer le positionnement automatique lors du chargement initial des nœuds
-      const layoutedNodes = getLayoutedElements(initialNodes, initialEdges);
-      setNodes(layoutedNodes);
-    }, [initialNodes, initialEdges]);
-  
-    const onNodesChange: OnNodesChange = useCallback(
-      (changes) => {
-        setNodes((currentNodes) => applyNodeChanges(changes, currentNodes));
-      },
-      []
-    );
-  
-    const onEdgesChange: OnEdgesChange = useCallback(
-      (changes) => {
-        setEdges((currentEdges) => applyEdgeChanges(changes, currentEdges));
-      },
-      []
-    );
-  
-    const onConnect: OnConnect = useCallback(
-      (params) => {
-        setEdges((eds) => addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds));
-      },
-      []
-    );
-  
+        // Appliquer le positionnement automatique lors du chargement initial des nœuds
+        const layoutedNodes = getLayoutedElements(n, e);
+        setNodes(layoutedNodes);
+      }, [n, e]);
   return (
     <div className={styles.flow}>
       <ReactFlow
         nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
+        edges={e}
         connectionLineType={ConnectionLineType.SmoothStep}
         fitView={true}
       >

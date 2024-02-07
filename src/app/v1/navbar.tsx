@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link"
-
+import Image from 'next/image'
 import { cn } from "@/lib/utils"
 import { ModeToggle } from "@/components/ModeToggle"
 
@@ -18,19 +18,13 @@ export function MainNav({
       {...props}
     >
         <div className="relative z-20 flex items-center text-lg font-medium">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="mr-2 h-6 w-6"
-            >
-              <path d="M2 12h4l3 9 3-9h4" />
-              <circle cx="12" cy="4" r="2" />
-            </svg>
+            <Image
+              src="/logo.png"
+              width={30}
+              height={30}
+              alt="Picture of the author"
+              className="mr-5"
+            />
 
               Erena
         </div>
