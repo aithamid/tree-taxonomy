@@ -88,7 +88,17 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }}]
+                }
+              },
+              {
+                id: "1.1.1.2",
+                name: "Text 1.1.1.2",
+                active: false,
+                input: {
+                  double: 0,
+                }
+              },
+            ]
           },
         ]
       },

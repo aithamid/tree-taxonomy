@@ -43,13 +43,14 @@ const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2inde
           </FormItem>
         )}
       />
-
-      {isActive && layer3.input !== undefined && (
-        <InputComponent input={layer3.input} form={form} him={him + ".input"} />
-      )}
-      {isActive && layer3.children && layer3.children.map((layer4, index) => (
-        <Layer4Component key={layer4.id} layer4={layer4} form={form} parent={him} index={index} />
-      ))}
+      <div className="">
+        {isActive && layer3.input !== undefined && (
+          <InputComponent input={layer3.input} form={form} him={him + ".input"} />
+        )}
+        {isActive && layer3.children && layer3.children.map((layer4, index) => (
+          <Layer4Component key={layer4.id} layer4={layer4} form={form} parent={him} index={index} />
+        ))}
+      </div>
     </div>
   );
 };

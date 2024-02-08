@@ -9,7 +9,7 @@ import { Label } from '@/components/ui/label';
 
 const InputComponent: React.FC<{ input: InputType, form: any, him: string}> = ({ input, form, him }) => {
   return (
-    <div>
+    <div className='pt-2'>
         {input.double !== undefined && (
             <div>
             <FormField
@@ -101,45 +101,67 @@ const InputComponent: React.FC<{ input: InputType, form: any, him: string}> = ({
                     name={him + '.newClass'}
                     render={() => (
                         <FormItem>
-                        {input.newClass?.map((item, index) => (
-                            <React.Fragment key={index}><FormField
-                                key={item.id+"-active"}
-                                control={form.control}
-                                name={him + `.newClass.[${index}].active`}
-                                render={({ field }) => {
-                                    return (
-                                        <FormItem
-                                            key={item.id+"-active2"}
-                                            className="flex flex-row items-start space-x-3 space-y-0"
-                                        >
-                                            <FormControl>
-                                                <Checkbox
-                                                    checked={field.value}
-                                                    onCheckedChange={(value) => form.setValue(him + `.newClass.[${index}].active`, value)} />
-                                            </FormControl>
-                                            <FormLabel className="text-sm font-normal">
-                                                {item.label}
-                                            </FormLabel>
-                                        </FormItem>
-                                    );
-                                } } />
-                                <FormField
-                                    key={item.id+"-value"}
-                                    control={form.control}
-                                    name={him + `.newClass.[${index}].value`}
-                                    render={({ field }) => {
-                                        return (
-                                            <FormItem
-                                                key={item.id+"-value2"}
-                                                className="flex flex-row items-start space-x-3 space-y-0"
-                                            >
-                                                <FormControl>
-                                                <Input  {...field} type="text" onChange={event => field.onChange(event.target.value)} />
-                                                </FormControl>
-                                            </FormItem>
-                                        );
-                                    } } /></React.Fragment>
-                        ))}
+                        {input.newClass !== undefined && (
+    <div>
+        <FormField
+            control={form.control}
+            name={him + '.newClass'}
+            render={() => (
+                <FormItem>
+                {input.newClass?.map((item, index) => (
+                    <React.Fragment key={index}>
+                        <FormField
+                            key={item.id+"-active"}
+                            control={form.control}
+                            name={him + `.newClass.[${index}].active`}
+                            render={({ field }) => {
+                                return (
+                                    <FormItem
+                                        key={item.id+"-active2"}
+                                        className="flex flex-row items-start space-x-3 space-y-0"
+                                    >
+                                        <FormControl>
+                                            <Checkbox
+                                                checked={field.value}
+                                                onCheckedChange={(value) => form.setValue(him + `.newClass.[${index}].active`, value)} />
+                                        </FormControl>
+                                        <FormLabel className="text-sm font-normal">
+                                            {item.label}
+                                        </FormLabel>
+                                    </FormItem>
+                                );
+                            }} />
+                        <FormField
+                            key={item.id+"-value"}
+                            control={form.control}
+                            name={him + `.newClass.[${index}].value`}
+                            render={({ field: valueField, fieldState }) => {
+                                // Utilisez l'état du champ 'active' pour déterminer si l'Input doit être désactivé
+                                const isActive = form.watch(`${him}.newClass.[${index}].active`);
+                                return (
+                                    <FormItem
+                                        key={item.id+"-value2"}
+                                        className="flex flex-row items-start space-x-3 space-y-0"
+                                    >
+                                        <FormControl>
+                                            <Input
+                                                {...valueField}
+                                                type="text"
+                                                onChange={event => valueField.onChange(event.target.value)}
+                                                disabled={!isActive} // Désactive l'Input si le Checkbox n'est pas coché
+                                            />
+                                        </FormControl>
+                                    </FormItem>
+                                );
+                            }} />
+                    </React.Fragment>
+                ))}
+                </FormItem>
+            )}
+        />
+    </div>
+)}
+
                         </FormItem>
                     )}
                     />

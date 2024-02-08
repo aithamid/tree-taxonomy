@@ -19,7 +19,8 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
   }, [form, fieldName, layer4.active]);
 
   return (
-    <div className="rounded-lg border p-3 shadow-sm space-y-0.5">
+    <div className="pt-3">
+    <div className="rounded-lg border p-3  shadow-sm space-y-0.5">
           <FormField
           control={form.control}
           name={fieldName}
@@ -46,6 +47,7 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
         {isActive && layer4.input !== undefined && (
             <InputComponent input={layer4.input} form={form} him={him + ".input"} />
         )}
+    </div>
     </div>
   );
 };
