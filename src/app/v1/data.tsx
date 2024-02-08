@@ -102,6 +102,10 @@ export let layersInitial: L1[] = [
           },
         ]
       },
+      {
+        id: "1.2",
+        name: "Text 1.2"
+      }
     ]
   },
   {
