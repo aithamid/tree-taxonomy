@@ -14,11 +14,16 @@ import ReactFlow, {
   ConnectionLineType,
   Position,
   MiniMap,
+  ControlButton,
+  Controls,
+  ReactFlowProvider,
 } from 'reactflow';
 import dagre from 'dagre';
 
 import 'reactflow/dist/style.css';
 import { L1 } from '@/interfaces/taxonomy';
+import DownloadButton from './downloadbutton';
+import { toPng } from 'html-to-image';
 
 const nodeSize = {
     width: 100,
@@ -113,14 +118,18 @@ export const  Flow : React.FunctionComponent<{ n: Node[], e : Edge[] }> = ({ n, 
       }, [n, e]);
   return (
     <div className={styles.flow}>
+      <ReactFlowProvider>
+      <DownloadButton />
       <ReactFlow
         nodes={nodes}
         edges={e}
         connectionLineType={ConnectionLineType.SmoothStep}
         fitView={true}
+        className="download-image"
       >
         <MiniMap nodeStrokeWidth={3} zoomable pannable />
     </ReactFlow>
+    </ReactFlowProvider>
     </div>
   );
 }
