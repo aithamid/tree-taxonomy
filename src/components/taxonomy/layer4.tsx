@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { L4 } from '@/interfaces/taxonomy';
 import { Switch } from '@/components/ui/switch';
 import { FormField, FormLabel, FormDescription, FormControl, FormItem } from '@/components/ui/form';
@@ -10,9 +10,12 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
   const fieldName = `${him}.active`;
   const doubleFieldName = `${him}.double`;
 
-  // Utiliser useEffect pour définir la valeur initiale de `active` dans le formulaire
+  const [isActive, setIsActive] = useState(layer4.active);
+
+  // Utiliser useEffect pour définir la valeur initiale de `active` dans le formulaire et initialiser l'état local
   useEffect(() => {
     form.setValue(fieldName, layer4.active);
+    setIsActive(layer4.active); // Initialise l'état local avec la valeur de `layer3.active`
   }, [form, fieldName, layer4.active]);
 
   return (
@@ -29,15 +32,18 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
                 </FormDescription>
               </div>
               <FormControl>
-                <Switch
-                  checked={field.value}
-                  onCheckedChange={(value) => form.setValue(fieldName, value)}
-                />
+              <Switch
+                checked={field.value}
+                onCheckedChange={(value) => {
+                  form.setValue(fieldName, value);
+                  setIsActive(value); // Met à jour l'état local lorsque l'utilisateur modifie le switch
+                }}
+              />
               </FormControl>
             </FormItem>
           )}
         />
-        {layer4.input !== undefined && (
+        {isActive && layer4.input !== undefined && (
             <InputComponent input={layer4.input} form={form} him={him + ".input"} />
         )}
     </div>
