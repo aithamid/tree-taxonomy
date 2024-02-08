@@ -63,6 +63,7 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
             <div className="">
             <Form {...form}>
                 <form 
+                  onChange={form.handleSubmit(onSubmit)}
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="w-full">
                     <ScrollArea className="h-[700px] rounded-md p-4 m-4">

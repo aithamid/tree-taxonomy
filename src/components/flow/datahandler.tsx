@@ -61,6 +61,28 @@ function convert(layer1: L1): [Node[], Edge[]] {
                             // type: edgeType, // Assurez-vous que `edgeType` est défini quelque part dans votre code
                             animated: true,
                         });
+
+                        if(layer3.children) {
+                            layer3.children.forEach((layer4, index) => {
+                                    if(layer4.active) {
+                                    // Ajouter un nouveau nœud pour chaque enfant
+                                    nodes.push({
+                                        id: layer4.id, // En supposant que layer2 a un id
+                                        data: { label: layer4.name }, // En supposant que layer2 a un nom
+                                        position: { x: 150 + index * 100, y: 400 }, // Positionnement exemple, ajustez selon les besoins
+                                    });
+                        
+                                    // Ajouter un nouvel edge pour chaque enfant
+                                    edges.push({
+                                        id: layer3.id + '-' + layer4.id, // Création d'un ID unique pour l'edge
+                                        source: layer3.id, // ID du nœud source
+                                        target: layer4.id, // ID du nœud cible
+                                        // type: edgeType, // Assurez-vous que `edgeType` est défini quelque part dans votre code
+                                        animated: true,
+                                    });
+                                }
+                            });
+                        }
                     }
 
                 })
