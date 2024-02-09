@@ -1,79 +1,38 @@
-import { Edge, Node, Position, ReactFlowProvider } from 'reactflow';
-import React, { useState, useEffect } from 'react'; 
-import styles from './page.module.css';
-import Flow from '@/components/Flow';
+// pages/index.tsx
+"use client";
 
-const nodeSize = {
-  width: 100,
-  height: 40,
-};
+import React from 'react';
+import Layer1Component from '@/components/taxonomy/layer1';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { layersInitial } from './data';
+import { MainNav } from './navbar';
 
-const edgeType = 'smoothstep';
-
-// this example uses some v12 features that are not released yet
-const initialNodes: Node[] = [
-  {
-    id: '1',
-    type: 'input',
-    data: { label: 'Node 1' },
-    position: { x: 250, y: 5 },
-  },
-  {
-    id: '2',
-    data: { label: 'Node 2' },
-    position: { x: 100, y: 100 },
-  },
-  {
-    id: '3',
-    data: { label: 'Node 3' },
-    position: { x: 400, y: 100 },
-  },
-  {
-    id: '4',
-    data: { label: 'Node 4' },
-    position: { x: 400, y: 100 },
-  },
-  {
-    id: '5',
-    data: { label: 'Node 5' },
-    position: { x: 400, y: 100 },
-  },
-  {
-    id: '6',
-    data: { label: 'Node 6' },
-    position: { x: 400, y: 100 },
-  },
-  {
-    id: '7',
-    data: { label: 'Node 7' },
-    position: { x: 400, y: 100 },
-  },
-];
-
-const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2', type: edgeType, animated: true },
-  { id: 'e1-3', source: '1', target: '3', type: edgeType, animated: true },
-  { id: 'e2-4', source: '2', target: '4', type: edgeType, animated: true },
-  { id: 'e2-5', source: '2', target: '5', type: edgeType, animated: true },
-  { id: 'e3-6', source: '3', target: '6', type: edgeType, animated: true },
-  { id: 'e3-7', source: '3', target: '7', type: edgeType, animated: true },
-];
-
-async function fetchData(): Promise<{ nodes: Node[]; edges: Edge[] }> {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ nodes: initialNodes, edges: initialEdges });
-    }, 1000);
-  });
-}
-
-export default async function App() {
-  const { nodes, edges } = await fetchData();
+export default function HomePage() {
   return (
-    <main className={styles.main}>
-      <ReactFlowProvider>
-        <Flow nodes={nodes} edges={edges} />
-      </ReactFlowProvider>
-    </main>
+    <div>
+    <div className='h-full'>
+
+        <MainNav />
+        <div className="px-8 h-full">
+        <div className="flex items-center justify-between space-y-2 m-5">
+            <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
+        </div>
+        <Tabs defaultValue={layersInitial[0].id} className="space-y-4">
+              <TabsList>
+                {layersInitial.map((layer1) => (
+                  <TabsTrigger key={layer1.id} value={layer1.id}>
+                    {layer1.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {layersInitial.map((layer1, index) => (
+                <React.Fragment key={layer1.id}>
+                  <Layer1Component Layer1={layer1} l1index={index}/>
+                </React.Fragment>
+              ))}
+          </Tabs>
+        </div>
+    </div>
+    </div>
   );
-}
+};
