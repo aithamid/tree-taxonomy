@@ -1,5 +1,3 @@
-'use client';
-
 import { Edge, Node, Position, ReactFlowProvider } from 'reactflow';
 import React, { useState, useEffect } from 'react'; 
 import styles from './page.module.css';
