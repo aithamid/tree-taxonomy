@@ -50,6 +50,7 @@ export const layer3Schema = z.object({
 export const layer2Schema = z.object({
   id: z.string(),
   name: z.string(),
+  input: inputSchema.optional(),
   children: z.array(layer3Schema).optional()
 })
 

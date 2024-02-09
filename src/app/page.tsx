@@ -15,9 +15,9 @@ export default function HomePage() {
         <MainNav />
         <div className="px-8 h-full">
         <div className="flex items-center justify-between space-y-2 m-5">
-            <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Taxonomy (ODD)</h2>
         </div>
-        <Tabs defaultValue={layersInitial[0].id} className="space-y-4">
+        <Tabs defaultValue={layersInitial[2].id} className="space-y-4">
               <TabsList>
                 {layersInitial.map((layer1) => (
                   <TabsTrigger key={layer1.id} value={layer1.id}>

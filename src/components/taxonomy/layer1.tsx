@@ -59,14 +59,14 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
 
   return (
     <TabsContent value={layer1.id} className="space-y-4">
-        <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 max-h-full">
+        <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 h-fit">
             <div className="">
             <Form {...form}>
                 <form 
                   onChange={form.handleSubmit(onSubmit)}
                   onSubmit={form.handleSubmit(onSubmit)}
                   className="w-full">
-                    <ScrollArea className="h-[700px] rounded-md p-4 m-4">
+                    <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
                 {
                   layer1.children && layer1.children.map((layer2, index) => (
                     <Layer2Component key={layer2.id} layer2={layer2} form={form} l1index={l1index} l2index={index} />
@@ -77,8 +77,8 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
                 </form>
             </Form>
             </div>
-            <div className="items-center">
-              <div className="border">
+            <div className="items-center  rounded-md border h-fit">
+              <div>
               <DataHandler layer1={layer1}/>
               </div>
             </div>

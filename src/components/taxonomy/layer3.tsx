@@ -27,9 +27,11 @@ const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2inde
           <FormItem className="flex flex-row items-center justify-between">
             <div className="space-y-0.5">
               <FormLabel>{layer3.name}</FormLabel>
-              <FormDescription>
-                {layer3.description}
-              </FormDescription>
+              {isActive && layer3.description && (
+                <FormDescription>
+                  {layer3.description}
+                </FormDescription>
+              )}
             </div>
             <FormControl>
               <Switch

@@ -581,6 +581,253 @@ export let layersInitial: L1[] = [
   },
   {
     id: "2",
-    name: "Scenary",
+    name: "Scenery",
+    children: [
+      {
+        id: "2.2",
+        name: "Region / State",
+        input: {
+          multi_choice: {
+            list: [
+              { id: "1", label: "Country" },
+              { id: "2", label: "Geographic Area" },
+            ],
+            value: []
+          }
+        }
+      },
+      {
+        id: "2.3",
+        name: "Interference zones",
+        input: {
+          multi_choice: {
+            list: [
+              { id: "1", label: "Tunnels" },
+              { id: "2", label: "Garages / Parking" },
+            ],
+            value: []
+          }
+        }
+      },
+      {
+        id: "2.4",
+        name: "Interference zones",
+      },
+      {
+        id: "2.5",
+        name: "Landmark",
+        input: {
+          multi_choice: {
+            list: [
+              { id: "1", label: "Bridge" },
+              { id: "2", label: "Tunnels" },
+              { id: "3", label: "Specific buildings with specific shapes" },
+              { id: "4", label: "Signatures at building's roof" },
+              { id: "5", label: "Electrical poles" },
+              { id: "6", label: "Wind turbines" },
+            ],
+            value: []
+          }
+        }
+      }
+    ]
+  },
+  {
+    id: "3",
+    name: "Environmental conditions",
+    children: [
+      {
+        id: "3.1",
+        name: "Weather conditions",
+        children: [
+          {
+            id: "3.1.1",
+            name: "Rain",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Size (µm)", value: "", active: false },
+                { id: "2", label: "Rain intensity (mm/h)", value: "", active: false },
+                { id: "3", label: "Opacity level", value: "", active: false },
+                { id: "4", label: "Speed (m/s)", value: "", active: false },
+                { id: "5", label: "Direction", value: "", active: false },
+              ]
+            }
+          },
+          {
+            id: "3.1.2",
+            name: "Snow",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Size (µm)", value: "", active: false },
+                { id: "2", label: "Visibility (m)", value: "", active: false },
+                { id: "3", label: "Speed (m/s)", value: "", active: false },
+                { id: "4", label: "Direction", value: "", active: false },
+              ]
+            }
+          },
+          {
+            id: "3.1.3",
+            name: "Hail",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Size (µm)", value: "", active: false },
+                { id: "2", label: "Visibility (m)", value: "", active: false },
+                { id: "3", label: "Speed (m/s)", value: "", active: false },
+              ]
+            }
+          },
+          {
+            id: "3.1.4",
+            name: "Fog",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Size (µm)", value: "", active: false },
+                { id: "2", label: "Visibility (m)", value: "", active: false },
+              ]
+            }
+          },
+          {
+            id: "3.1.5",
+            name: "Wind",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Speed (m/s)", value: "", active: false },
+                { id: "2", label: "Speed gradient", value: "", active: false },
+                { id: "3", label: "Direction", value: "", active: false },
+              ]
+            }
+          },
+        ]
+      },
+      {
+        id: "3.2",
+        name: "Particulates",
+        input: {
+          multi_choice: {
+            list: [
+              { id: "1", label: "Smoke" },
+              { id: "2", label: "Sand" },
+              { id: "3", label: "Dust" },
+              { id: "4", label: "Wind-blown debris" },
+            ],
+            value: []
+          }
+        }
+      },
+      {
+        id: "3.3",
+        name: "Weather-induced roadway conditions",
+        input: {
+          multi_choice: {
+            list: [
+              { id: "1", label: "Normal" },
+              { id: "2", label: "Wet" },
+              { id: "3", label: "Puddles, accumulations" },
+              { id: "4", label: "Flooded" },
+              { id: "5", label: "Snowy" },
+              { id: "6", label: "Muddy" },
+              { id: "7", label: "Icy" },
+            ],
+            value: []
+          }
+        }
+      },
+      {
+        id: "3.4",
+        name: "Illumination",
+        children: [
+          {
+            id: "3.4.1",
+            name: "Illumination level",
+            description: "Illumination level in lux",
+            active: false,
+            input: {
+              double: 0,
+            }
+          },
+          {
+            id: "3.4.2",
+            name: "Illumination conditions",
+            active: false,
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Daylight" },
+                  { id: "2", label: "Night" },
+                  { id: "3", label: "Dusk" },
+                  { id: "4", label: "Dawn" },
+                  { id: "5", label: "Natural light" },
+                  { id: "6", label: "Artificial light" },
+                  { id: "7", label: "Fog"},
+                  { id: "8", label: "Night with public lighting"},
+                  { id: "9", label: "Night without public lighting"},
+                  { id: "10", label: "Sunrise"},
+                  { id: "11", label: "Sunset"},
+                ],
+                value: []
+              
+              }
+            }
+          },
+          {
+            id: "3.4.3",
+            name: "Interfering illuminances",
+            active: false,
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Not applicable" },
+                  { id: "2", label: "Passing vehicle headlights" },
+                  { id: "3", label: "Headlights of the following vehicles" },
+                  { id: "4", label: "Position lights of the other vehicles in lane" },
+                  { id: "5", label: "Grazing sun in front" },
+                  { id: "6", label: "Reflections" },
+                ],
+                value: []
+              }
+            }
+          },
+          {
+            id: "3.4.4",
+            name: "Illumination variation",
+            description: "Gradient of illumination variation",
+            active: false,
+            input: {
+              double: 0,
+            }
+          }
+        ]
+      },
+      {
+        id: "3.5",
+        name: "Minimum / Maximum ambient air temperature",
+        input: {
+          double : 0,
+        }
+      }
+    ]
+  },
+  {
+    id: "4",
+    name: "Traffic conditions",
+    children: [
+      {
+        id: "4.1",
+        name: "Traffic density",
+      },
+      {
+        id: "4.2",
+        name: "Road-users (type & speed)",
+      },
+      {
+        id: "4.3",
+        name: "Road-users (behavior)",
+      }
+    ]
   }
 ];
