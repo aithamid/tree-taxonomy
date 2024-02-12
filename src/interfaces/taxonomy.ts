@@ -27,7 +27,8 @@ export const inputSchema = z.object({
   double: z.number().optional(),
   one_choice: one_choiceSchema.optional(),
   multi_choice: multi_choiceSchema.optional(),
-  newClass : z.array(newClassItemSchema).optional()
+  newClass : z.array(newClassItemSchema).optional(),
+  text: z.string().optional()
 })
 
 export const layer4Schema = z.object({

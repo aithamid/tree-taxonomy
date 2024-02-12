@@ -26,6 +26,22 @@ const InputComponent: React.FC<{ input: InputType, form: any, him: string}> = ({
             </div>
         )}
 
+        {input.text !== undefined && (
+            <div>
+            <FormField
+            control={form.control}
+            name={him + '.text'}
+            render={({ field }) => (
+                <FormItem className="flex flex-row items-center justify-between">
+                <FormControl>
+                    <Input  {...field} type="text" onChange={event => field.onChange(event.target.value)} />
+                </FormControl>
+                </FormItem>
+            )}
+            />
+            </div>
+        )}
+
         {input.one_choice !== undefined && (
             <div>
             <FormField

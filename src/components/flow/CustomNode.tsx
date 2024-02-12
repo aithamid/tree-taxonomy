@@ -20,6 +20,9 @@ export function MyCustomNode({ data }: NodeProps<NodeData>) {
   if(data.input.double) {
     return Double(data.input);
   }
+  if(data.input.text) {
+    return Text(data.input);
+  }
 }
 
 function OneChoice(input: InputType) {
@@ -86,6 +89,16 @@ function Double(input: InputType) {
   return (
     <div> 
     {double?.toString()}
+    </div>
+  );
+}
+
+function Text(input: InputType) {
+  let text = input.text;
+
+  return (
+    <div> 
+    {text}
     </div>
   );
 }

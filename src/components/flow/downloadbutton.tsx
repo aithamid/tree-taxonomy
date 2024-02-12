@@ -12,8 +12,8 @@ const downloadImage = (dataUrl: string): void => {
   a.click();
 };
 
-const imageWidth = 2048;
-const imageHeight = 1536;
+const imageWidth = 8192;
+const imageHeight = 6144;
 
 const DownloadButton: React.FC = () => {
   const { getNodes } = useReactFlow();
@@ -21,12 +21,11 @@ const DownloadButton: React.FC = () => {
     // Les types pour `nodesBounds` et `transform` sont inférés automatiquement ici,
     // mais vous pouvez les définir explicitement si nécessaire pour plus de clarté.
     const nodesBounds = getRectOfNodes(getNodes());
-    const transform = getTransformForBounds(nodesBounds, imageWidth, imageHeight, 1, 4);
+    const transform = getTransformForBounds(nodesBounds, imageWidth, imageHeight, 0.25, 8);
 
     const element = document.querySelector('.react-flow__viewport') as HTMLElement | null;
     if (element) {
       toPng(element, {
-        backgroundColor: '#1a365d',
         width: imageWidth,
         height: imageHeight,
         style: {
