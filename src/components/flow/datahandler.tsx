@@ -142,7 +142,9 @@ function convert(layer1: L1): [Node[], Edge[]] {
             }
             if(layer2.input)
             {
-                color = onColor;
+                if(layer2.input.multi_choice?.value?.length !== 0 && layer2.input.one_choice?.value !== "" && layer2.input.double !== 0){
+                    color = onColor;
+                }
                 let name = layer2.id + "input"
 
                 nodes.push({
