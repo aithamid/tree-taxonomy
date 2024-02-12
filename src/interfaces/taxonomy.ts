@@ -73,3 +73,5 @@ export type L3 = z.infer<typeof layer3Schema>;
 export type L4 = z.infer<typeof layer4Schema>;
 
 export type InputType = z.infer<typeof inputSchema>;
+
+export type NewClass = z.infer<typeof newClassItemSchema>;

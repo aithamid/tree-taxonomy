@@ -24,7 +24,7 @@ export let layersInitial: L1[] = [
                   { id: "3", label: "Divided Roads" },
                   { id: "4", label: "Roads with variable lane assignment" }
                 ],
-                value: ""
+                value: "1"
               }
             }
           },
@@ -46,7 +46,7 @@ export let layersInitial: L1[] = [
                   { id: "9", label: "intersection Railroad crossing" },
                   { id: "10", label: "tramway intersection " },
                 ],
-                value: ""
+                value: "1"
               }
             }
           },
