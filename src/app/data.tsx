@@ -1717,4 +1717,128 @@ export let layersInitial: L1[] = [
       },
     ],
   },
+  {
+    id: "6",
+    name: "Vehicle Features",
+    children: [
+      {
+        id: "6.1",
+        name: "ADAS features",
+        /*
+        Level of automation	
+        Type of actuator	
+        Sensors	
+        Perception	
+        Decision-making	
+        Path-planning	
+        Control/command	
+        Communication	
+        */
+       children: [
+        {
+          id: "6.1.1",
+          name: "Level of automation",
+          active: true,
+          input: {
+            one_choice: {
+              list: [
+                { id: "1", label: "Level 0" },
+                { id: "2", label: "Level 1" },
+                { id: "3", label: "Level 2" },
+                { id: "4", label: "Level 3" },
+                { id: "5", label: "Level 4" },
+                { id: "6", label: "Level 5" },
+              ],
+              value: "",
+            }
+          }
+        },
+        {
+          id: "6.1.2",
+          name: "Type of actuator",
+          active: true,
+         input: {
+          newClass: [
+            { id: "1", label: "Steering wheel", value: "", active: false },
+            { id: "2", label: "Pedals", value: "", active: false },
+            { id: "3", label: "Wheels", value: "", active: false },
+            { id: "4", label: "Electrical motors", value: "", active: false },
+            { id: "5", label: "Type of order (torques, acc, pressure (newton), ...)", value: "", active: false },
+          ],
+         }
+        },
+        {
+          id: "6.1.3",
+          name: "Sensors",
+          active: true,
+          /*
+          Camera (type of camera (front, rear, etc.) and range) , 
+          radar (type of radar, FoV, range), 
+          lidar (type of lidar, FoV), 
+          GPS, 
+          */
+          input: {
+            newClass: [
+              { id: "1", label: "Camera", value: "", active: false },
+              { id: "2", label: "Radar", value: "", active: false },
+              { id: "3", label: "Lidar", value: "", active: false },
+              { id: "4", label: "GPS", value: "", active: false },
+            ]
+          }
+        },
+        {
+          id: "6.1.4",
+          name: "Perception",
+          active: true,
+         input: {
+          newClass: [
+            { id: "1", label: "Obstacle detection", value: "", active: false },
+            { id: "2", label: "Tracking", value: "", active: false },
+            { id: "3", label: "Recognition", value: "", active: false },
+            { id: "4", label: "Road markings and lanes detection", value: "", active: false },
+            { id: "5", label: "Localisation", value: "", active: false },
+            { id: "6", label: "Situation recognition", value: "", active: false },
+            { id: "7", label: "Risk assessment", value: "", active: false },
+            { id: "8", label: "Free navigation area", value: "", active: false },
+            { id: "9", label: "FoV", value: "", active: false },
+            { id: "10", label: "Range", value: "", active: false },
+            { id: "11", label: "Resolution", value: "", active: false },
+            { id: "12", label: "Period of data updating", value: "", active: false },
+          ]
+         }
+        },
+        {
+          id: "6.1.5",
+          name: "Decision-making",
+          active: true,
+          /*
+          Rule based system (traffic rule, system rule, human rule), 
+          AI-based methods (which one and with which type of constraints and limits)
+          */
+          input: {
+            newClass: [
+              { id: "1", label: "Rule based system", value: "", active: false },
+              { id: "2", label: "AI-based methods", value: "", active: false },
+            ]
+          }
+        },
+        {
+          id: "6.1.6",
+          name: "Path-planning",
+          active: true,
+        },
+        {
+          id: "6.1.7",
+          name: "Control/command",
+          active: true,
+        },
+        {
+          id: "6.1.8",
+          name: "Communication",
+          active: true,
+        },
+       ]
+      }
+    ]
+  }
 ];
