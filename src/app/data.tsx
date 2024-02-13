@@ -82,13 +82,13 @@ export let layersInitial: L1[] = [
             id: "1.2.1",
             name: "Use of lanes",
             active: false,
-            children: [
+            input: {
+            specialClass: [
               {
                 id: "1.2.1.1",
-                name: "Use of ego lane",
+                label: "Use of ego lane",
                 active: false,
-                input: {
-                  one_choice: {
+                one_choice: {
                     list: [
                       { id: "1", label: "Ego only traffic lane" },
                       { id: "2", label: "All traffic" },
@@ -96,15 +96,13 @@ export let layersInitial: L1[] = [
                       { id: "4", label: "Bus lane" },
                     ],
                     value: "3",
-                  },
                 },
               },
               {
                 id: "1.2.1.2",
-                name: "Use of left lane",
+                label: "Use of left lane",
                 active: false,
-                input: {
-                  one_choice: {
+                one_choice: {
                     list: [
                       { id: "1", label: "Shoulder lane" },
                       { id: "2", label: "All traffic" },
@@ -113,14 +111,12 @@ export let layersInitial: L1[] = [
                     ],
                     value: "3",
                   },
-                },
               },
               {
                 id: "1.2.1.3",
-                name: "Use of right lane",
+                label: "Use of right lane",
                 active: false,
-                input: {
-                  one_choice: {
+                one_choice: {
                     list: [
                       { id: "1", label: "Shoulder lane" },
                       { id: "2", label: "All traffic" },
@@ -128,47 +124,45 @@ export let layersInitial: L1[] = [
                       { id: "4", label: "Bus lane" },
                     ],
                     value: "3",
-                  },
                 },
               },
             ],
+          },
           },
           {
             id: "1.2.2",
             name: "Traffic lanes direction",
             active: false,
-            children: [
+            input: {
+            specialClass: [
               {
                 id: "1.2.2.1",
-                name: "Direction of left traffic lane",
+                label: "Direction of left traffic lane",
                 active: false,
-                input: {
-                  one_choice: {
+                one_choice: {
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
                       { id: "3", label: "Opposite direction" },
                     ],
                     value: "1",
-                  },
                 },
               },
               {
                 id: "1.2.2.2",
-                name: "Direction of right traffic lane",
+                label: "Direction of right traffic lane",
                 active: false,
-                input: {
-                  one_choice: {
+                one_choice: {
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
                       { id: "3", label: "Opposite direction" },
                     ],
                     value: "1",
-                  },
                 },
               },
             ],
+          },
           },
           {
             id: "1.2.3",
@@ -437,53 +431,49 @@ export let layersInitial: L1[] = [
             id: "1.8.1",
             name: "Vertical traffic signs",
             active: false,
-            children: [
+            input: {
+              multi_choice: {
+            list: [
               {
                 id: "1.8.1.1",
-                name: "Type A : hazard",
-                active: false,
+                label: "Type A : hazard",
               },
               {
                 id: "1.8.1.2",
-                name: "Type AB : priorities at intersection",
-                active: false,
+                label: "Type AB : priorities at intersection",
               },
               {
                 id: "1.8.1.3",
-                name: "Type B : prescriptions",
-                active: false,
+                label: "Type B : prescriptions",
               },
               {
                 id: "1.8.1.4",
-                name: "Type C : useful indications",
-                active: false,
+                label: "Type C : useful indications",
               },
               {
                 id: "1.8.1.5",
-                name: "Type CE : useful services indication",
-                active: false,
+                label: "Type CE : useful services indication",
               },
               {
                 id: "1.8.1.6",
-                name: "Type D : signalization and positioning",
-                active: false,
+                label: "Type D : signalization and positioning",
               },
               {
                 id: "1.8.1.7",
-                name: "Type E : entries/end of urban zones",
-                active: false,
+                label: "Type E : entries/end of urban zones",
               },
               {
                 id: "1.8.1.8",
-                name: "Type G : Railway crossing localization",
-                active: false,
+                label: "Type G : Railway crossing localization",
               },
               {
                 id: "1.8.1.9",
-                name: "Type SR : information for road safety",
-                active: false,
+                label: "Type SR : information for road safety",
               },
             ],
+            value: [],
+          },
+          },
           },
           {
             id: "1.8.2",
@@ -519,28 +509,29 @@ export let layersInitial: L1[] = [
             id: "1.8.8",
             name: "Temporary signs",
             active: true,
-            children: [
+            input: {
+            multi_choice: {
+            list: [
               {
                 id: "1.8.8.1",
-                name: "Type AK : Hazard",
-                active: false,
+                label: "Type AK : Hazard",
               },
               {
                 id: "1.8.8.2",
-                name: "Type K : Specific",
-                active: false,
+                label: "Type K : Specific",
               },
               {
                 id: "1.8.8.3",
-                name: "Type KC : Work-zones",
-                active: false,
+                label: "Type KC : Work-zones",
               },
               {
                 id: "1.8.8.4",
-                name: "Type KD : Lane merging",
-                active: false,
+                label: "Type KD : Lane merging",
               },
             ],
+            value: [],
+          },
+        },
           },
           {
             id: "1.8.9",
@@ -957,9 +948,9 @@ export let layersInitial: L1[] = [
                   label: "Pedestrian",
                   one_choice: {
                     list: [
-                      { id: "1", label: "Low" },
-                      { id: "2", label: "Medium" },
-                      { id: "3", label: "High" },
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
                     ],
                     value: "",
                   },
@@ -970,9 +961,9 @@ export let layersInitial: L1[] = [
                   label: "Bicycle",
                   one_choice: {
                     list: [
-                      { id: "1", label: "Low" },
-                      { id: "2", label: "Medium" },
-                      { id: "3", label: "High" },
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
                     ],
                     value: "",
                   },
@@ -983,9 +974,9 @@ export let layersInitial: L1[] = [
                   label: "2 Wheel Drive",
                   one_choice: {
                     list: [
-                      { id: "1", label: "Low" },
-                      { id: "2", label: "Medium" },
-                      { id: "3", label: "High" },
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
                     ],
                     value: "",
                   },
@@ -996,9 +987,9 @@ export let layersInitial: L1[] = [
                   label: "Light vehicles",
                   one_choice: {
                     list: [
-                      { id: "1", label: "Low" },
-                      { id: "2", label: "Medium" },
-                      { id: "3", label: "High" },
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
                     ],
                     value: "",
                   },
@@ -1009,9 +1000,9 @@ export let layersInitial: L1[] = [
                   label: "Heavy vehicles",
                   one_choice: {
                     list: [
-                      { id: "1", label: "Low" },
-                      { id: "2", label: "Medium" },
-                      { id: "3", label: "High" },
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
                     ],
                     value: "",
                   },
@@ -1024,11 +1015,149 @@ export let layersInitial: L1[] = [
             id: "4.2.2",
             name: "Road users type on the opposite direction traffic lane(s)",
             active: true,
+            input: {
+              specialClass: [
+                {
+                  id: "1",
+                  label: "Pedestrian",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Bicycle",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "2 Wheel Drive",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "4",
+                  label: "Light vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "5",
+                  label: "Heavy vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+              ],
+            },
           },
           {
             id: "4.2.3",
             name: "Road users type on the crossing traffic lane(s)",
             active: true,
+            input: {
+              specialClass: [
+                {
+                  id: "1",
+                  label: "Pedestrian",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Bicycle",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "2 Wheel Drive",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "4",
+                  label: "Light vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "5",
+                  label: "Heavy vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low speed" },
+                      { id: "2", label: "Medium speed" },
+                      { id: "3", label: "High speed" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+              ],
+            },
           },
         ],
       },
