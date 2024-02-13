@@ -200,56 +200,67 @@ const InputComponent: React.FC<{
                                     name={
                                         him +
                                         `.specialClass.[${index}].multi_choice.value`}
-                                    render={() => (
+                                    render={() => {
+                                        const isActive = form.watch(
+                                            him + `.specialClass.[${index}].active`,
+                                          );
+                                        return (
                                       <FormItem>
-                                        {item.multi_choice?.list.map(
+                                        {isActive && item.multi_choice?.list.map(
                                           (choice, index2) => (
                                             <FormField
                                               key={choice.id}
                                               control={form.control}
                                               name={him +`.specialClass.[${index}].multi_choice.value`}
                                               render={({ field }) => {
+
                                                 return (
                                                   <FormItem
                                                     key={choice.id}
                                                     className="flex flex-row items-start space-x-3 space-y-0"
                                                   >
+                                                    
                                                     <FormControl>
-                                                      <Checkbox
-                                                        checked={field.value?.includes(
-                                                          choice.id,
-                                                        )}
-                                                        onCheckedChange={(
-                                                          checked,
-                                                        ) => {
-                                                          return checked
-                                                            ? field.onChange([
-                                                                ...field.value,
-                                                                choice.id,
-                                                              ])
-                                                            : field.onChange(
-                                                                field.value?.filter(
-                                                                  (
-                                                                    value: string,
-                                                                  ) =>
-                                                                    value !==
-                                                                    choice.id,
-                                                                ),
-                                                              );
-                                                        }}
-                                                      />
-                                                    </FormControl>
+                                                    <Checkbox
+                                                      checked={field.value?.includes(
+                                                        choice.id,
+                                                      )}
+                                                      onCheckedChange={(
+                                                        checked,
+                                                      ) => {
+                                                        return checked
+                                                          ? field.onChange([
+                                                              ...field.value,
+                                                              choice.id,
+                                                            ])
+                                                          : field.onChange(
+                                                              field.value?.filter(
+                                                                (
+                                                                  value: string,
+                                                                ) =>
+                                                                  value !==
+                                                                  choice.id,
+                                                              ),
+                                                            );
+                                                      }}
+                                                    />
+                                                  </FormControl>
+                                                    
+
                                                     <FormLabel className="text-sm font-normal">
                                                       {choice.label}
                                                     </FormLabel>
                                                   </FormItem>
+                                                  
                                                 );
                                               }}
                                             />
                                           ),
                                         )}
                                       </FormItem>
-                                    )}
+                                        );
+                                    }
+                                    }
                                   />
                                 </div>
                               )}
