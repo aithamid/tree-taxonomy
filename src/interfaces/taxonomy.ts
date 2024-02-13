@@ -17,16 +17,17 @@ export const one_choiceSchema = z.object({
   value: z.string(),
 });
 
+export const multi_choiceSchema = z.object({
+  list: z.array(choiceSchema),
+  value: z.array(z.string()),
+});
+
 export const specialClassSchema = z.object({
   id: z.string(),
   label: z.string(),
   one_choice: one_choiceSchema.optional(),
+  multi_choice: multi_choiceSchema.optional(),
   active: z.boolean(),
-});
-
-export const multi_choiceSchema = z.object({
-  list: z.array(choiceSchema),
-  value: z.array(z.string()),
 });
 
 export const inputSchema = z.object({

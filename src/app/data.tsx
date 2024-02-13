@@ -83,12 +83,12 @@ export let layersInitial: L1[] = [
             name: "Use of lanes",
             active: false,
             input: {
-            specialClass: [
-              {
-                id: "1.2.1.1",
-                label: "Use of ego lane",
-                active: false,
-                one_choice: {
+              specialClass: [
+                {
+                  id: "1.2.1.1",
+                  label: "Use of ego lane",
+                  active: false,
+                  one_choice: {
                     list: [
                       { id: "1", label: "Ego only traffic lane" },
                       { id: "2", label: "All traffic" },
@@ -96,13 +96,13 @@ export let layersInitial: L1[] = [
                       { id: "4", label: "Bus lane" },
                     ],
                     value: "3",
+                  },
                 },
-              },
-              {
-                id: "1.2.1.2",
-                label: "Use of left lane",
-                active: false,
-                one_choice: {
+                {
+                  id: "1.2.1.2",
+                  label: "Use of left lane",
+                  active: false,
+                  one_choice: {
                     list: [
                       { id: "1", label: "Shoulder lane" },
                       { id: "2", label: "All traffic" },
@@ -111,12 +111,12 @@ export let layersInitial: L1[] = [
                     ],
                     value: "3",
                   },
-              },
-              {
-                id: "1.2.1.3",
-                label: "Use of right lane",
-                active: false,
-                one_choice: {
+                },
+                {
+                  id: "1.2.1.3",
+                  label: "Use of right lane",
+                  active: false,
+                  one_choice: {
                     list: [
                       { id: "1", label: "Shoulder lane" },
                       { id: "2", label: "All traffic" },
@@ -124,45 +124,45 @@ export let layersInitial: L1[] = [
                       { id: "4", label: "Bus lane" },
                     ],
                     value: "3",
+                  },
                 },
-              },
-            ],
-          },
+              ],
+            },
           },
           {
             id: "1.2.2",
             name: "Traffic lanes direction",
             active: false,
             input: {
-            specialClass: [
-              {
-                id: "1.2.2.1",
-                label: "Direction of left traffic lane",
-                active: false,
-                one_choice: {
+              specialClass: [
+                {
+                  id: "1.2.2.1",
+                  label: "Direction of left traffic lane",
+                  active: false,
+                  one_choice: {
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
                       { id: "3", label: "Opposite direction" },
                     ],
                     value: "1",
+                  },
                 },
-              },
-              {
-                id: "1.2.2.2",
-                label: "Direction of right traffic lane",
-                active: false,
-                one_choice: {
+                {
+                  id: "1.2.2.2",
+                  label: "Direction of right traffic lane",
+                  active: false,
+                  one_choice: {
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
                       { id: "3", label: "Opposite direction" },
                     ],
                     value: "1",
+                  },
                 },
-              },
-            ],
-          },
+              ],
+            },
           },
           {
             id: "1.2.3",
@@ -433,47 +433,47 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               multi_choice: {
-            list: [
-              {
-                id: "1.8.1.1",
-                label: "Type A : hazard",
+                list: [
+                  {
+                    id: "1.8.1.1",
+                    label: "Type A : hazard",
+                  },
+                  {
+                    id: "1.8.1.2",
+                    label: "Type AB : priorities at intersection",
+                  },
+                  {
+                    id: "1.8.1.3",
+                    label: "Type B : prescriptions",
+                  },
+                  {
+                    id: "1.8.1.4",
+                    label: "Type C : useful indications",
+                  },
+                  {
+                    id: "1.8.1.5",
+                    label: "Type CE : useful services indication",
+                  },
+                  {
+                    id: "1.8.1.6",
+                    label: "Type D : signalization and positioning",
+                  },
+                  {
+                    id: "1.8.1.7",
+                    label: "Type E : entries/end of urban zones",
+                  },
+                  {
+                    id: "1.8.1.8",
+                    label: "Type G : Railway crossing localization",
+                  },
+                  {
+                    id: "1.8.1.9",
+                    label: "Type SR : information for road safety",
+                  },
+                ],
+                value: [],
               },
-              {
-                id: "1.8.1.2",
-                label: "Type AB : priorities at intersection",
-              },
-              {
-                id: "1.8.1.3",
-                label: "Type B : prescriptions",
-              },
-              {
-                id: "1.8.1.4",
-                label: "Type C : useful indications",
-              },
-              {
-                id: "1.8.1.5",
-                label: "Type CE : useful services indication",
-              },
-              {
-                id: "1.8.1.6",
-                label: "Type D : signalization and positioning",
-              },
-              {
-                id: "1.8.1.7",
-                label: "Type E : entries/end of urban zones",
-              },
-              {
-                id: "1.8.1.8",
-                label: "Type G : Railway crossing localization",
-              },
-              {
-                id: "1.8.1.9",
-                label: "Type SR : information for road safety",
-              },
-            ],
-            value: [],
-          },
-          },
+            },
           },
           {
             id: "1.8.2",
@@ -510,28 +510,28 @@ export let layersInitial: L1[] = [
             name: "Temporary signs",
             active: true,
             input: {
-            multi_choice: {
-            list: [
-              {
-                id: "1.8.8.1",
-                label: "Type AK : Hazard",
+              multi_choice: {
+                list: [
+                  {
+                    id: "1.8.8.1",
+                    label: "Type AK : Hazard",
+                  },
+                  {
+                    id: "1.8.8.2",
+                    label: "Type K : Specific",
+                  },
+                  {
+                    id: "1.8.8.3",
+                    label: "Type KC : Work-zones",
+                  },
+                  {
+                    id: "1.8.8.4",
+                    label: "Type KD : Lane merging",
+                  },
+                ],
+                value: [],
               },
-              {
-                id: "1.8.8.2",
-                label: "Type K : Specific",
-              },
-              {
-                id: "1.8.8.3",
-                label: "Type KC : Work-zones",
-              },
-              {
-                id: "1.8.8.4",
-                label: "Type KD : Lane merging",
-              },
-            ],
-            value: [],
-          },
-        },
+            },
           },
           {
             id: "1.8.9",
@@ -1229,113 +1229,101 @@ export let layersInitial: L1[] = [
       {
         id: "5.2",
         name: "Radio access technology",
-        children: [
-          {
-            id: "5.2.1",
-            name: "V2V",
-            active: true,
-            input: {
+        input: {
+          specialClass: [
+            {
+              id: "5.2.1",
+              label: "V2V",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "11", label: "5G" },
+                  { id: "12", label: "ITS-G5" },
+                  { id: "13", label: "C-V2X" },
+                ],
+                value: ["12"],
+              },
+            },
+            {
+              id: "5.2.2",
+              label: "V2FLEET",
+              active: true,
+              multi_choice: {
+                list: [
+                  { id: "21", label: "5G" },
+                  { id: "22", label: "ITS-G5" },
+                  { id: "23", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.2",
-            name: "V2FLEET",
-            active: true,
-            input: {
+            {
+              id: "5.2.3",
+              label: "V2PCC",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "31", label: "5G" },
+                  { id: "32", label: "ITS-G5" },
+                  { id: "33", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.3",
-            name: "V2PCC",
-            active: true,
-            input: {
+            {
+              id: "5.2.4",
+              label: "V2SEN",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "41", label: "5G" },
+                  { id: "42", label: "ITS-G5" },
+                  { id: "43", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.4",
-            name: "V2SEN",
-            active: true,
-            input: {
+            {
+              id: "5.2.5",
+              label: "V2DEV",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "51", label: "5G" },
+                  { id: "52", label: "ITS-G5" },
+                  { id: "53", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.5",
-            name: "V2DEV",
-            active: true,
-            input: {
+            {
+              id: "5.2.6",
+              label: "V2P",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "61", label: "5G" },
+                  { id: "62", label: "ITS-G5" },
+                  { id: "63", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.6",
-            name: "V2P",
-            active: true,
-            input: {
+            {
+              id: "5.2.7",
+              label: "V2FO",
+              active: true,
               multi_choice: {
                 list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
+                  { id: "71", label: "5G" },
+                  { id: "72", label: "ITS-G5" },
+                  { id: "73", label: "C-V2X" },
                 ],
                 value: [],
               },
             },
-          },
-          {
-            id: "5.2.7",
-            name: "V2FO",
-            active: true,
-            input: {
-              multi_choice: {
-                list: [
-                  { id: "1", label: "5G" },
-                  { id: "2", label: "ITS-G5" },
-                  { id: "3", label: "C-V2X" },
-                ],
-                value: [],
-              },
-            },
-          },
-        ],
+          ],
+        },
       },
       {
         id: "5.3",

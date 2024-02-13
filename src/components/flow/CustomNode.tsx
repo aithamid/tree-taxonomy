@@ -36,15 +36,11 @@ function SpecialClass(input: InputType) {
       {list
         .filter((item) => item.active && item.one_choice?.value !== "")
         .map((item, index) => {
-          let label: string = "";
-          item.one_choice?.list?.forEach((choice) => {
-            if (choice.id === item.one_choice?.value) {
-              label = choice.label;
-            }
-          });
           return (
-            <div key={index} className="list-item">
-              <div>{item.label} : {label}</div>
+            <div key={index}>
+              {item.label} : 
+              <OneChoice one_choice={item.one_choice} />
+              <SpecialMultiChoice multi_choice={item.multi_choice} />
             </div>
           );
         })}
@@ -62,7 +58,7 @@ function OneChoice(input: InputType) {
       }
     });
 
-    return <div>{label}</div>;
+    return <a> {label}</a>;
   } else {
     return <></>;
   }
@@ -89,6 +85,29 @@ function MultiChoice(input: InputType) {
           ))}
         </div>
       </div>
+    );
+  } else {
+    return <></>;
+  }
+}
+
+function SpecialMultiChoice(input: InputType) {
+  let value = input.multi_choice?.value;
+  let list = input.multi_choice?.list;
+  let labels: string[] = [];
+  if (value) {
+    list?.forEach((choice) => {
+      value?.forEach((choice2) => {
+        if (choice.id === choice2) {
+          labels.push(choice.label);
+        }
+      });
+    });
+
+    return (
+      <a>
+        <a className="pt-2">{labels.join(', ')}</a>
+      </a>
     );
   } else {
     return <></>;

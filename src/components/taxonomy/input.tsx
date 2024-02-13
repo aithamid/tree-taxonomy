@@ -143,53 +143,116 @@ const InputComponent: React.FC<{
                                   );
                                 }}
                               />
-                              <FormField
-                                control={form.control}
-                                name={
-                                  him +
-                                  `.specialClass.[${index}].one_choice.value`
-                                }
-                                render={({ field }) => {
-                                  const isActive = form.watch(
-                                    him + `.specialClass.[${index}].active`,
-                                  );
-                                  return (
-                                    <FormItem className="flex flex-row items-center justify-between">
-                                      <FormControl>
-                                        {isActive && (
-                                          <RadioGroup
-                                            disabled={!isActive}
-                                            onValueChange={field.onChange}
-                                            defaultValue={
-                                              input.specialClass?.[index]
-                                                .one_choice?.value
-                                            }
-                                          >
-                                            {input.specialClass?.[
-                                              index
-                                            ].one_choice?.list.map(
-                                              (item, index) => (
-                                                <div
-                                                  key={item.id}
-                                                  className="flex items-center space-x-2"
-                                                >
-                                                  <RadioGroupItem
-                                                    value={item.id}
-                                                    id={item.id}
-                                                  />
-                                                  <Label htmlFor={item.id}>
-                                                    {item.label}
-                                                  </Label>
-                                                </div>
-                                              ),
-                                            )}
-                                          </RadioGroup>
+                              {item.one_choice !== undefined && (
+                                <FormField
+                                  control={form.control}
+                                  name={
+                                    him +
+                                    `.specialClass.[${index}].one_choice.value`
+                                  }
+                                  render={({ field }) => {
+                                    const isActive = form.watch(
+                                      him + `.specialClass.[${index}].active`,
+                                    );
+                                    return (
+                                      <FormItem className="flex flex-row items-center justify-between ml-4">
+                                        <FormControl>
+                                          {isActive && (
+                                            <RadioGroup
+                                              disabled={!isActive}
+                                              onValueChange={field.onChange}
+                                              defaultValue={
+                                                input.specialClass?.[index]
+                                                  .one_choice?.value
+                                              }
+                                            >
+                                              {input.specialClass?.[
+                                                index
+                                              ].one_choice?.list.map(
+                                                (item, index) => (
+                                                  <div
+                                                    key={item.id}
+                                                    className="flex items-center space-x-2"
+                                                  >
+                                                    <RadioGroupItem
+                                                      value={item.id}
+                                                      id={item.id}
+                                                    />
+                                                    <Label htmlFor={item.id}>
+                                                      {item.label}
+                                                    </Label>
+                                                  </div>
+                                                ),
+                                              )}
+                                            </RadioGroup>
+                                          )}
+                                        </FormControl>
+                                      </FormItem>
+                                    );
+                                  }}
+                                />
+                              )}
+
+                              {item.multi_choice !== undefined && (
+                                <div className="ml-5">
+                                  <FormField
+                                    control={form.control}
+                                    name={
+                                        him +
+                                        `.specialClass.[${index}].multi_choice.value`}
+                                    render={() => (
+                                      <FormItem>
+                                        {item.multi_choice?.list.map(
+                                          (choice, index2) => (
+                                            <FormField
+                                              key={choice.id}
+                                              control={form.control}
+                                              name={him +`.specialClass.[${index}].multi_choice.value`}
+                                              render={({ field }) => {
+                                                return (
+                                                  <FormItem
+                                                    key={choice.id}
+                                                    className="flex flex-row items-start space-x-3 space-y-0"
+                                                  >
+                                                    <FormControl>
+                                                      <Checkbox
+                                                        checked={field.value?.includes(
+                                                          choice.id,
+                                                        )}
+                                                        onCheckedChange={(
+                                                          checked,
+                                                        ) => {
+                                                          return checked
+                                                            ? field.onChange([
+                                                                ...field.value,
+                                                                choice.id,
+                                                              ])
+                                                            : field.onChange(
+                                                                field.value?.filter(
+                                                                  (
+                                                                    value: string,
+                                                                  ) =>
+                                                                    value !==
+                                                                    choice.id,
+                                                                ),
+                                                              );
+                                                        }}
+                                                      />
+                                                    </FormControl>
+                                                    <FormLabel className="text-sm font-normal">
+                                                      {choice.label}
+                                                    </FormLabel>
+                                                  </FormItem>
+                                                );
+                                              }}
+                                            />
+                                          ),
                                         )}
-                                      </FormControl>
-                                    </FormItem>
-                                  );
-                                }}
-                              />
+                                      </FormItem>
+                                    )}
+                                  />
+                                </div>
+                              )}
                             </React.Fragment>
                           ))}
                         </FormItem>
