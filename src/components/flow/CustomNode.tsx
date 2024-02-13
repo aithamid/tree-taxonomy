@@ -1,5 +1,5 @@
 import { Node, NodeProps } from "reactflow";
-import { InputType, NewClass } from "@/interfaces/taxonomy";
+import { InputType, NewClass, SClass } from "@/interfaces/taxonomy";
 
 type NodeData = {
   input: InputType;
@@ -23,8 +23,34 @@ export function MyCustomNode({ data }: NodeProps<NodeData>) {
   if (data.input.text) {
     return Text(data.input);
   }
+  if (data.input.specialClass) {
+    return SpecialClass(data.input);
+  }
 }
 
+function SpecialClass(input: InputType) {
+  let list: SClass[] = input.specialClass ?? [];
+
+  return (
+    <div>
+      {list
+        .filter((item) => item.active && item.one_choice?.value !== "")
+        .map((item, index) => {
+          let label: string = "";
+          item.one_choice?.list?.forEach((choice) => {
+            if (choice.id === item.one_choice?.value) {
+              label = choice.label;
+            }
+          });
+          return (
+            <div key={index} className="list-item">
+              <div>{item.label} : {label}</div>
+            </div>
+          );
+        })}
+    </div>
+  );
+} 
 function OneChoice(input: InputType) {
   let value = input.one_choice?.value;
   let list = input.one_choice?.list;
@@ -36,7 +62,7 @@ function OneChoice(input: InputType) {
       }
     });
 
-    return <div>One choice : {label}</div>;
+    return <div>{label}</div>;
   } else {
     return <></>;
   }
