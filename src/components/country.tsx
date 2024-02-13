@@ -1,6 +1,6 @@
 // components/CountryComponent.tsx
-import React from 'react';
-import { Country } from '@/interfaces/country';
+import React from "react";
+import { Country } from "@/interfaces/country";
 
 const CountryComponent: React.FC<{ country: Country }> = ({ country }) => {
   return (

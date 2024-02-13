@@ -1,11 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { L4 } from '@/interfaces/taxonomy';
-import { Switch } from '@/components/ui/switch';
-import { FormField, FormLabel, FormDescription, FormControl, FormItem } from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import InputComponent from './input';
+import React, { useEffect, useState } from "react";
+import { L4 } from "@/interfaces/taxonomy";
+import { Switch } from "@/components/ui/switch";
+import {
+  FormField,
+  FormLabel,
+  FormDescription,
+  FormControl,
+  FormItem,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import InputComponent from "./input";
 
-const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: number }> = ({ layer4, form, parent, index }) => {
+const Layer4Component: React.FC<{
+  layer4: L4;
+  form: any;
+  parent: string;
+  index: number;
+}> = ({ layer4, form, parent, index }) => {
   const him = `${parent}.children[${index}]`;
   const fieldName = `${him}.active`;
   const doubleFieldName = `${him}.double`;
@@ -20,34 +31,36 @@ const Layer4Component: React.FC<{ layer4: L4, form: any, parent: string, index: 
 
   return (
     <div className="pt-3">
-    <div className="rounded-lg border p-3  shadow-sm space-y-0.5">
-          <FormField
+      <div className="rounded-lg border p-3  shadow-sm space-y-0.5">
+        <FormField
           control={form.control}
           name={fieldName}
           render={({ field }) => (
             <FormItem className="flex flex-row items-center justify-between">
               <div className="space-y-0.5">
                 <FormLabel>{layer4.name}</FormLabel>
-                <FormDescription>
-                  {layer4.description}
-                </FormDescription>
+                <FormDescription>{layer4.description}</FormDescription>
               </div>
               <FormControl>
-              <Switch
-                checked={field.value}
-                onCheckedChange={(value) => {
-                  form.setValue(fieldName, value);
-                  setIsActive(value); // Met à jour l'état local lorsque l'utilisateur modifie le switch
-                }}
-              />
+                <Switch
+                  checked={field.value}
+                  onCheckedChange={(value) => {
+                    form.setValue(fieldName, value);
+                    setIsActive(value); // Met à jour l'état local lorsque l'utilisateur modifie le switch
+                  }}
+                />
               </FormControl>
             </FormItem>
           )}
         />
         {isActive && layer4.input !== undefined && (
-            <InputComponent input={layer4.input} form={form} him={him + ".input"} />
+          <InputComponent
+            input={layer4.input}
+            form={form}
+            him={him + ".input"}
+          />
         )}
-    </div>
+      </div>
     </div>
   );
 };

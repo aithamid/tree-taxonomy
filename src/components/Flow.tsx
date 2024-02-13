@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from "react";
 import ReactFlow, {
   addEdge,
   Node,
@@ -13,24 +13,31 @@ import ReactFlow, {
   ConnectionLineType,
   Position,
   MiniMap,
-} from 'reactflow';
-import dagre from 'dagre';
+} from "reactflow";
+import dagre from "dagre";
 
-import 'reactflow/dist/style.css';
+import "reactflow/dist/style.css";
 
 const nodeSize = {
   width: 100,
   height: 40,
 };
 
-const getLayoutedElements = (nodes: Node[], edges: Edge[], direction = 'TB'): Node[] => {
-  const isHorizontal = direction === 'LR';
+const getLayoutedElements = (
+  nodes: Node[],
+  edges: Edge[],
+  direction = "TB",
+): Node[] => {
+  const isHorizontal = direction === "LR";
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
   dagreGraph.setGraph({ rankdir: direction });
 
   nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: nodeSize.width, height: nodeSize.height });
+    dagreGraph.setNode(node.id, {
+      width: nodeSize.width,
+      height: nodeSize.height,
+    });
   });
 
   edges.forEach((edge) => {
@@ -69,29 +76,25 @@ export default function Flow({
     setNodes(layoutedNodes);
   }, [initNodes, initEdges]);
 
-  const onNodesChange: OnNodesChange = useCallback(
-    (changes) => {
-      setNodes((currentNodes) => applyNodeChanges(changes, currentNodes));
-    },
-    []
-  );
+  const onNodesChange: OnNodesChange = useCallback((changes) => {
+    setNodes((currentNodes) => applyNodeChanges(changes, currentNodes));
+  }, []);
 
-  const onEdgesChange: OnEdgesChange = useCallback(
-    (changes) => {
-      setEdges((currentEdges) => applyEdgeChanges(changes, currentEdges));
-    },
-    []
-  );
+  const onEdgesChange: OnEdgesChange = useCallback((changes) => {
+    setEdges((currentEdges) => applyEdgeChanges(changes, currentEdges));
+  }, []);
 
-  const onConnect: OnConnect = useCallback(
-    (params) => {
-      setEdges((eds) => addEdge({ ...params, type: ConnectionLineType.SmoothStep, animated: true }, eds));
-    },
-    []
-  );
+  const onConnect: OnConnect = useCallback((params) => {
+    setEdges((eds) =>
+      addEdge(
+        { ...params, type: ConnectionLineType.SmoothStep, animated: true },
+        eds,
+      ),
+    );
+  }, []);
 
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ width: "100vw", height: "100vh" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

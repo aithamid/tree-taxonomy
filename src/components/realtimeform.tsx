@@ -1,11 +1,11 @@
 // pages/index.tsx or components/RealTimeForm.tsx
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const RealTimeForm = () => {
   // State to hold the title value
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
 
   // Function to update the title based on input changes
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

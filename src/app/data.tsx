@@ -1,5 +1,5 @@
 import { taxonomySchema } from "@/interfaces/taxonomy";
-import * as z from 'zod';
+import * as z from "zod";
 
 type L1 = z.infer<typeof taxonomySchema>["layers"][number];
 
@@ -22,11 +22,11 @@ export let layersInitial: L1[] = [
                   { id: "1", label: "One-way roads" },
                   { id: "2", label: "Two-way roads" },
                   { id: "3", label: "Divided Roads" },
-                  { id: "4", label: "Roads with variable lane assignment" }
+                  { id: "4", label: "Roads with variable lane assignment" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "1.1.2",
@@ -46,9 +46,9 @@ export let layersInitial: L1[] = [
                   { id: "9", label: "intersection Railroad crossing" },
                   { id: "10", label: "tramway intersection " },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "1.1.3",
@@ -57,18 +57,22 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  { id: "1", label: "Roads open to all traffic types (no restriction)" },
+                  {
+                    id: "1",
+                    label: "Roads open to all traffic types (no restriction)",
+                  },
                   { id: "2", label: "Ego-only road" },
                   { id: "3", label: "Car-only lanes" },
                   { id: "4", label: "Meeting Zone" },
-                  { id: "5", label: "\"30\" zone" },
+                  { id: "5", label: '"30" zone' },
                   { id: "6", label: "Pedestrian walkways" },
                   { id: "7", label: "Roads closed to motor vehicles" },
                 ],
-                value: ["1","2"]
-              }}
-          }
-        ]
+                value: ["1", "2"],
+              },
+            },
+          },
+        ],
       },
       {
         id: "1.2",
@@ -91,9 +95,9 @@ export let layersInitial: L1[] = [
                       { id: "3", label: "Pedestrian zone / soft modes" },
                       { id: "4", label: "Bus lane" },
                     ],
-                    value: "3"
-                  }
-                }
+                    value: "3",
+                  },
+                },
               },
               {
                 id: "1.2.1.2",
@@ -107,9 +111,9 @@ export let layersInitial: L1[] = [
                       { id: "3", label: "Pedestrian zone / soft modes" },
                       { id: "4", label: "Bus lane" },
                     ],
-                    value: "3"
-                  }
-                }
+                    value: "3",
+                  },
+                },
               },
               {
                 id: "1.2.1.3",
@@ -123,11 +127,11 @@ export let layersInitial: L1[] = [
                       { id: "3", label: "Pedestrian zone / soft modes" },
                       { id: "4", label: "Bus lane" },
                     ],
-                    value: "3"
-                  }
-                }
-              }
-            ]
+                    value: "3",
+                  },
+                },
+              },
+            ],
           },
           {
             id: "1.2.2",
@@ -143,11 +147,11 @@ export let layersInitial: L1[] = [
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
-                      { id: "3", label: "Opposite direction" }
+                      { id: "3", label: "Opposite direction" },
                     ],
-                    value: "1"
-                  }
-                }
+                    value: "1",
+                  },
+                },
               },
               {
                 id: "1.2.2.2",
@@ -158,13 +162,13 @@ export let layersInitial: L1[] = [
                     list: [
                       { id: "1", label: "Not applicable" },
                       { id: "2", label: "Ego direction" },
-                      { id: "3", label: "Opposite direction" }
+                      { id: "3", label: "Opposite direction" },
                     ],
-                    value: "1"
-                  }
-                }
-              }
-            ]
+                    value: "1",
+                  },
+                },
+              },
+            ],
           },
           {
             id: "1.2.3",
@@ -194,11 +198,11 @@ export let layersInitial: L1[] = [
                       { id: "14", label: "Railway level crossing platform" },
                       { id: "15", label: "Parking bumps" },
                     ],
-                    value: ["1","2"]
-                  }
-                }
-              }
-            ]
+                    value: ["1", "2"],
+                  },
+                },
+              },
+            ],
           },
           {
             id: "1.2.4",
@@ -213,11 +217,11 @@ export let layersInitial: L1[] = [
                   { id: "4", label: "Gravel surface" },
                   { id: "5", label: "Pavers" },
                   { id: "6", label: "Thin geo-textile membrane" },
-                  { id: "7", label: "Unpaved" }
+                  { id: "7", label: "Unpaved" },
                 ],
-                value: ["1","2"]
-              }
-            }
+                value: ["1", "2"],
+              },
+            },
           },
           {
             id: "1.2.5",
@@ -225,7 +229,7 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
           {
             id: "1.2.6",
@@ -233,7 +237,7 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
           {
             id: "1.2.7",
@@ -241,13 +245,13 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         id: "1.3",
-        name : "Roadway Geometry",
+        name: "Roadway Geometry",
         children: [
           {
             id: "1.3.1",
@@ -260,9 +264,9 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }
-              }
-            ]
+                },
+              },
+            ],
           },
           {
             id: "1.3.3",
@@ -270,7 +274,7 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
           {
             id: "1.3.5",
@@ -278,9 +282,9 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
-        ]
+        ],
       },
       {
         id: "1.4",
@@ -297,7 +301,7 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "T intersection" },
                   { id: "3", label: "Y intersection" },
                   { id: "4", label: "Star intersection" },
-                  { id: "5", label: "Single traffic round about "},
+                  { id: "5", label: "Single traffic round about " },
                   { id: "6", label: "Double traffic round about" },
                   { id: "7", label: "Triple traffic round about" },
                   { id: "8", label: "Left turn" },
@@ -309,9 +313,9 @@ export let layersInitial: L1[] = [
                   { id: "14", label: "Ramp in" },
                   { id: "15", label: "Ramp off" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "1.4.2",
@@ -324,9 +328,9 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }
-              }
-            ]
+                },
+              },
+            ],
           },
           {
             id: "1.4.3",
@@ -345,16 +349,16 @@ export let layersInitial: L1[] = [
                   { id: "8", label: "Tramway line priority" },
                   { id: "9", label: "Priority lane TW" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "1.4.4",
             name: "Particularity of the intersection",
             active: false,
-          }
-        ]
+          },
+        ],
       },
       {
         id: "1.5",
@@ -364,8 +368,8 @@ export let layersInitial: L1[] = [
             id: "1.5.1",
             name: "Workzone",
             active: false,
-          }
-        ]
+          },
+        ],
       },
       {
         id: "1.6",
@@ -383,13 +387,13 @@ export let layersInitial: L1[] = [
                   { id: "3", label: "Parking / Garage" },
                   { id: "4", label: "Toll booth" },
                   { id: "5", label: "Urban canyon" },
-                  { id: "6", label: "Multiple reflections"},
-                  { id: "7", label: "Dense vegetation cover"},
-                  { id: "8", label: "GPS / GNSS Disturbance zone"}
+                  { id: "6", label: "Multiple reflections" },
+                  { id: "7", label: "Dense vegetation cover" },
+                  { id: "8", label: "GPS / GNSS Disturbance zone" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "1.6.2",
@@ -403,16 +407,16 @@ export let layersInitial: L1[] = [
                   { id: "3", label: "Trench" },
                   { id: "4", label: "Metalic structure" },
                   { id: "5", label: "Parking/ Garage" },
-                  { id: "6", label: "Toll booth"},
-                  { id: "7", label: "Urban canyon"},
-                  { id: "8", label: "Multiple reflections"},
-                  { id: "9", label: "Radio interference zone"},
+                  { id: "6", label: "Toll booth" },
+                  { id: "7", label: "Urban canyon" },
+                  { id: "8", label: "Multiple reflections" },
+                  { id: "9", label: "Radio interference zone" },
                 ],
-                value: []
-              }
-            }
-          }
-        ]
+                value: [],
+              },
+            },
+          },
+        ],
       },
       {
         id: "1.7",
@@ -422,8 +426,8 @@ export let layersInitial: L1[] = [
             id: "1.7.1",
             name: "Marking of cycle zone on the ego lane",
             active: false,
-          }
-        ]
+          },
+        ],
       },
       {
         id: "1.8",
@@ -479,7 +483,7 @@ export let layersInitial: L1[] = [
                 name: "Type SR : information for road safety",
                 active: false,
               },
-            ]
+            ],
           },
           {
             id: "1.8.2",
@@ -536,7 +540,7 @@ export let layersInitial: L1[] = [
                 name: "Type KD : Lane merging",
                 active: false,
               },
-            ]
+            ],
           },
           {
             id: "1.8.9",
@@ -545,11 +549,11 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [],
-                value: []
-              }
-            }
-          }
-        ]
+                value: [],
+              },
+            },
+          },
+        ],
       },
       {
         id: "1.9",
@@ -574,10 +578,10 @@ export let layersInitial: L1[] = [
             id: "1.9.4",
             name: "Electromagnetic",
             active: false,
-          }
-        ]
-      }
-    ]
+          },
+        ],
+      },
+    ],
   },
   {
     id: "2",
@@ -587,14 +591,21 @@ export let layersInitial: L1[] = [
         id: "2.2",
         name: "Region / State",
         input: {
-          multi_choice: {
-            list: [
-              { id: "1", label: "Country" },
-              { id: "2", label: "Geographic Area" },
-            ],
-            value: []
-          }
-        }
+          newClass: [
+            {
+              id: "1",
+              label: "Country",
+              value: "",
+              active: false,
+            },
+            {
+              id: "2",
+              label: "Geographic Area",
+              value: "",
+              active: false,
+            },
+          ],
+        },
       },
       {
         id: "2.3",
@@ -605,13 +616,24 @@ export let layersInitial: L1[] = [
               { id: "1", label: "Tunnels" },
               { id: "2", label: "Garages / Parking" },
             ],
-            value: []
-          }
-        }
+            value: [],
+          },
+        },
       },
       {
         id: "2.4",
-        name: "Interference zones",
+        name: "Geo-fencing",
+        input: {
+          newClass: [
+            {
+              id: "1",
+              label:
+                "Limitation of the areas in which the travel of ego vehicle is allowed",
+              value: "",
+              active: false,
+            },
+          ],
+        },
       },
       {
         id: "2.5",
@@ -626,11 +648,11 @@ export let layersInitial: L1[] = [
               { id: "5", label: "Electrical poles" },
               { id: "6", label: "Wind turbines" },
             ],
-            value: []
-          }
-        }
-      }
-    ]
+            value: [],
+          },
+        },
+      },
+    ],
   },
   {
     id: "3",
@@ -647,12 +669,17 @@ export let layersInitial: L1[] = [
             input: {
               newClass: [
                 { id: "1", label: "Size (µm)", value: "", active: false },
-                { id: "2", label: "Rain intensity (mm/h)", value: "", active: false },
+                {
+                  id: "2",
+                  label: "Rain intensity (mm/h)",
+                  value: "",
+                  active: false,
+                },
                 { id: "3", label: "Opacity level", value: "", active: false },
                 { id: "4", label: "Speed (m/s)", value: "", active: false },
                 { id: "5", label: "Direction", value: "", active: false },
-              ]
-            }
+              ],
+            },
           },
           {
             id: "3.1.2",
@@ -664,8 +691,8 @@ export let layersInitial: L1[] = [
                 { id: "2", label: "Visibility (m)", value: "", active: false },
                 { id: "3", label: "Speed (m/s)", value: "", active: false },
                 { id: "4", label: "Direction", value: "", active: false },
-              ]
-            }
+              ],
+            },
           },
           {
             id: "3.1.3",
@@ -676,8 +703,8 @@ export let layersInitial: L1[] = [
                 { id: "1", label: "Size (µm)", value: "", active: false },
                 { id: "2", label: "Visibility (m)", value: "", active: false },
                 { id: "3", label: "Speed (m/s)", value: "", active: false },
-              ]
-            }
+              ],
+            },
           },
           {
             id: "3.1.4",
@@ -687,8 +714,8 @@ export let layersInitial: L1[] = [
               newClass: [
                 { id: "1", label: "Size (µm)", value: "", active: false },
                 { id: "2", label: "Visibility (m)", value: "", active: false },
-              ]
-            }
+              ],
+            },
           },
           {
             id: "3.1.5",
@@ -699,10 +726,10 @@ export let layersInitial: L1[] = [
                 { id: "1", label: "Speed (m/s)", value: "", active: false },
                 { id: "2", label: "Speed gradient", value: "", active: false },
                 { id: "3", label: "Direction", value: "", active: false },
-              ]
-            }
+              ],
+            },
           },
-        ]
+        ],
       },
       {
         id: "3.2",
@@ -715,9 +742,9 @@ export let layersInitial: L1[] = [
               { id: "3", label: "Dust" },
               { id: "4", label: "Wind-blown debris" },
             ],
-            value: []
-          }
-        }
+            value: [],
+          },
+        },
       },
       {
         id: "3.3",
@@ -733,9 +760,9 @@ export let layersInitial: L1[] = [
               { id: "6", label: "Muddy" },
               { id: "7", label: "Icy" },
             ],
-            value: []
-          }
-        }
+            value: [],
+          },
+        },
       },
       {
         id: "3.4",
@@ -748,7 +775,7 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
           {
             id: "3.4.2",
@@ -763,16 +790,15 @@ export let layersInitial: L1[] = [
                   { id: "4", label: "Dawn" },
                   { id: "5", label: "Natural light" },
                   { id: "6", label: "Artificial light" },
-                  { id: "7", label: "Fog"},
-                  { id: "8", label: "Night with public lighting"},
-                  { id: "9", label: "Night without public lighting"},
-                  { id: "10", label: "Sunrise"},
-                  { id: "11", label: "Sunset"},
+                  { id: "7", label: "Fog" },
+                  { id: "8", label: "Night with public lighting" },
+                  { id: "9", label: "Night without public lighting" },
+                  { id: "10", label: "Sunrise" },
+                  { id: "11", label: "Sunset" },
                 ],
-                value: []
-              
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "3.4.3",
@@ -784,13 +810,16 @@ export let layersInitial: L1[] = [
                   { id: "1", label: "Not applicable" },
                   { id: "2", label: "Passing vehicle headlights" },
                   { id: "3", label: "Headlights of the following vehicles" },
-                  { id: "4", label: "Position lights of the other vehicles in lane" },
+                  {
+                    id: "4",
+                    label: "Position lights of the other vehicles in lane",
+                  },
                   { id: "5", label: "Grazing sun in front" },
                   { id: "6", label: "Reflections" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "3.4.4",
@@ -799,9 +828,9 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         id: "3.5",
@@ -812,20 +841,20 @@ export let layersInitial: L1[] = [
             name: "Minimum ambient air temperature",
             active: false,
             input: {
-              double : 0,
-            }
+              double: 0,
+            },
           },
           {
             id: "3.5.2",
             name: "Maximum ambient air temperature",
             active: false,
             input: {
-              double : 0,
-            }
-          }
-        ]
-      }
-    ]
+              double: 0,
+            },
+          },
+        ],
+      },
+    ],
   },
   {
     id: "4",
@@ -847,9 +876,9 @@ export let layersInitial: L1[] = [
                   { id: "3", label: "Saturated (0.25*Vmax < V < 0.50*Vmax)" },
                   { id: "4", label: "Blocked (V < 0.25*Vmax)" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "4.1.2",
@@ -859,12 +888,12 @@ export let layersInitial: L1[] = [
               one_choice: {
                 list: [
                   { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
+                  { id: "2", label: "Medium" },
                   { id: "3", label: "High" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "4.1.3",
@@ -874,12 +903,12 @@ export let layersInitial: L1[] = [
               one_choice: {
                 list: [
                   { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
+                  { id: "2", label: "Medium" },
                   { id: "3", label: "High" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "4.1.4",
@@ -889,12 +918,12 @@ export let layersInitial: L1[] = [
               one_choice: {
                 list: [
                   { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
+                  { id: "2", label: "Medium" },
                   { id: "3", label: "High" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
           {
             id: "4.1.5",
@@ -904,14 +933,14 @@ export let layersInitial: L1[] = [
               one_choice: {
                 list: [
                   { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
+                  { id: "2", label: "Medium" },
                   { id: "3", label: "High" },
                 ],
-                value: "1"
-              }
-            }
+                value: "1",
+              },
+            },
           },
-        ]
+        ],
       },
       {
         id: "4.2",
@@ -919,116 +948,91 @@ export let layersInitial: L1[] = [
         children: [
           {
             id: "4.2.1",
-            name: "Road-users Type",
+            name: "Road users type on the ego direction traffic lane(s)",
             active: true,
-            children: [
-              {
-                id: "4.2.1.1",
-                name: "Road users type on the ego direction traffic lane(s)",
-                active: true,
-                input: {
-                  multi_choice: {
+            input: {
+              specialClass: [
+                {
+                  id: "1",
+                  label: "Pedestrian",
+                  one_choice: {
                     list: [
-                      { id: "1", label: "Pedestrian" },
-                      { id: "2", label: "Bicycle" },
-                      { id: "3", label: "2 Wheel Drive" },
-                      { id: "4", label: "Light vehicles" },
-                      { id: "5", label: "Heavy vehicles" },
+                      { id: "1", label: "Low" },
+                      { id: "2", label: "Medium" },
+                      { id: "3", label: "High" },
                     ],
-                    value: []
-                  }
-                }
-              },
-              {
-                id: "4.2.1.2",
-                name: "Road users type on the opposite direction traffic lane(s)",
-                active: true,
-                input: {
-                  multi_choice: {
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Bicycle",
+                  one_choice: {
                     list: [
-                      { id: "1", label: "Pedestrian" },
-                      { id: "2", label: "Bicycle" },
-                      { id: "3", label: "2 Wheel Drive" },
-                      { id: "4", label: "Light vehicles" },
-                      { id: "5", label: "Heavy vehicles" },
+                      { id: "1", label: "Low" },
+                      { id: "2", label: "Medium" },
+                      { id: "3", label: "High" },
                     ],
-                    value: []
-                  }
-                }
-              },
-              {
-                id: "4.2.1.3",
-                name: "Road users type on the crossing traffic lane(s)",
-                active: true,
-                input: {
-                  multi_choice: {
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "2 Wheel Drive",
+                  one_choice: {
                     list: [
-                      { id: "1", label: "Pedestrian" },
-                      { id: "2", label: "Bicycle" },
-                      { id: "3", label: "2 Wheel Drive" },
-                      { id: "4", label: "Light vehicles" },
-                      { id: "5", label: "Heavy vehicles" },
+                      { id: "1", label: "Low" },
+                      { id: "2", label: "Medium" },
+                      { id: "3", label: "High" },
                     ],
-                    value: []
-                  }
-                }
-              },
-            ]
-          }
-        ]
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "4",
+                  label: "Light vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low" },
+                      { id: "2", label: "Medium" },
+                      { id: "3", label: "High" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+                {
+                  id: "5",
+                  label: "Heavy vehicles",
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low" },
+                      { id: "2", label: "Medium" },
+                      { id: "3", label: "High" },
+                    ],
+                    value: "",
+                  },
+                  active: false,
+                },
+              ],
+            },
+          },
+          {
+            id: "4.2.2",
+            name: "Road users type on the opposite direction traffic lane(s)",
+            active: true,
+          },
+          {
+            id: "4.2.3",
+            name: "Road users type on the crossing traffic lane(s)",
+            active: true,
+          },
+        ],
       },
-      {
-        id: "4.3",
-        name: "Road-users (behavior)",
-        children: [
-          {
-            id: "4.3.1",
-            name: "Road-users behavior on the ego direction traffic lane(s)",
-            active: false,
-            input: {
-              one_choice: {
-                list: [
-                  { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
-                  { id: "3", label: "High" },
-                ],
-                value: ""
-              }
-            }
-          },
-          {
-            id: "4.3.2",
-            name: "Road users speed on the opposite direction traffic lane(s)",
-            active: false,
-            input: {
-              one_choice: {
-                list: [
-                  { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
-                  { id: "3", label: "High" },
-                ],
-                value: ""
-              }
-            }
-          },
-          {
-            id: "4.3.3",
-            name: "Road users speed on the crossing traffic lane(s)",
-            active: false,
-            input: {
-              one_choice: {
-                list: [
-                  { id: "1", label: "Low" },
-                  { id: "2", label: "Middle" },
-                  { id: "3", label: "High" },
-                ],
-                value: ""
-              }
-            }
-          }
-        ]
-      }
-    ]
+    ],
   },
   {
     id: "5",
@@ -1044,7 +1048,7 @@ export let layersInitial: L1[] = [
             active: true,
             input: {
               text: "",
-            }
+            },
           },
           {
             id: "5.1.2",
@@ -1052,7 +1056,7 @@ export let layersInitial: L1[] = [
             active: true,
             input: {
               text: "",
-            }
+            },
           },
           {
             id: "5.1.3",
@@ -1068,13 +1072,13 @@ export let layersInitial: L1[] = [
                   { id: "5", label: "Traffic light status" },
                   { id: "6", label: "Weather conditions" },
                   { id: "7", label: "Mobile equipement position" },
-                  { id: "8", label: "Recommended path"},
-                  { id: "9", label: "Position of the cone"},
-                  { id : "10", label: "Excessive speed warning" },
+                  { id: "8", label: "Recommended path" },
+                  { id: "9", label: "Position of the cone" },
+                  { id: "10", label: "Excessive speed warning" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.1.4",
@@ -1087,11 +1091,11 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "Topology of the roadwork," },
                   { id: "3", label: "Other" },
                 ],
-                value: []
-              }
-            }
-          }
-        ]
+                value: [],
+              },
+            },
+          },
+        ],
       },
       {
         id: "5.2",
@@ -1108,9 +1112,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.2",
@@ -1123,9 +1127,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.3",
@@ -1138,9 +1142,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.4",
@@ -1153,9 +1157,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.5",
@@ -1168,9 +1172,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.6",
@@ -1183,9 +1187,9 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.2.7",
@@ -1198,11 +1202,11 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "ITS-G5" },
                   { id: "3", label: "C-V2X" },
                 ],
-                value: []
-              }
-            }
-          }
-        ]
+                value: [],
+              },
+            },
+          },
+        ],
       },
       {
         id: "5.3",
@@ -1224,11 +1228,14 @@ export let layersInitial: L1[] = [
                   { id: "7", label: "Emergency vehicle approaching (EVA)" },
                   { id: "8", label: "In-vehicle signage (VSGN)" },
                   { id: "9", label: "In-vehicle speed limits (VSPD)" },
-                  { id: "10", label: "Signal violation / Intersection safety (SigV)" },
+                  {
+                    id: "10",
+                    label: "Signal violation / Intersection safety (SigV)",
+                  },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.3.2",
@@ -1239,15 +1246,25 @@ export let layersInitial: L1[] = [
                 list: [
                   { id: "1", label: "Infontainment services" },
                   { id: "2", label: "Vulnerable Road User protection (VRU)" },
-                  { id: "3", label: "Connected and cooperative navigation into and out of the city (CCN)" },
-                  { id: "4", label: "Zone Access Control for urban areas (ZAC)" },
-                  { id: "5", label: "Cooperative Collision Risk Warning (CCRW)" },
+                  {
+                    id: "3",
+                    label:
+                      "Connected and cooperative navigation into and out of the city (CCN)",
+                  },
+                  {
+                    id: "4",
+                    label: "Zone Access Control for urban areas (ZAC)",
+                  },
+                  {
+                    id: "5",
+                    label: "Cooperative Collision Risk Warning (CCRW)",
+                  },
                   { id: "6", label: "MotorCycle Approaching indication (MCA)" },
                   { id: "7", label: "Wrong Way Driving (WWD)" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.3.3",
@@ -1257,17 +1274,29 @@ export let layersInitial: L1[] = [
               multi_choice: {
                 list: [
                   { id: "1", label: "Vulnerable Road User protection (VRU)" },
-                  { id: "2", label: "Advanced Pre-crash sensing warning (APCSW)" },
-                  { id: "3", label: "Cooperative Adaptive Cruise Control (C-ACC)" },
+                  {
+                    id: "2",
+                    label: "Advanced Pre-crash sensing warning (APCSW)",
+                  },
+                  {
+                    id: "3",
+                    label: "Cooperative Adaptive Cruise Control (C-ACC)",
+                  },
                   { id: "4", label: "Cooperative ACC String (C-ACC S)" },
-                  { id: "5", label: "MotorCycle Approaching warning or protection (MAW)" },
+                  {
+                    id: "5",
+                    label: "MotorCycle Approaching warning or protection (MAW)",
+                  },
                   { id: "6", label: "Overtaking vehicle warning (OVW)" },
-                  { id: "7", label: "Advanced Intersection Collision Warning (AICW)" },
+                  {
+                    id: "7",
+                    label: "Advanced Intersection Collision Warning (AICW)",
+                  },
                   { id: "8", label: "Road works warning (long term) (RWW LT)" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.3.4",
@@ -1276,20 +1305,35 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  { id: "1", label: "Advanced Cooperative ACC (String) (ACACC)" },
+                  {
+                    id: "1",
+                    label: "Advanced Cooperative ACC (String) (ACACC)",
+                  },
                   { id: "2", label: "Target Driving Area Reservation (TDAR)" },
-                  { id: "3", label: "Transition of control notification (ToCN)" },
-                  { id: "4", label: "Improved Vulnerable Road User Protection (IVRUP)" },
+                  {
+                    id: "3",
+                    label: "Transition of control notification (ToCN)",
+                  },
+                  {
+                    id: "4",
+                    label: "Improved Vulnerable Road User Protection (IVRUP)",
+                  },
                   { id: "5", label: "Platooning (platoon)" },
                   { id: "6", label: "Co-operative merging assistance (CM)" },
                   { id: "7", label: "Cooperative lane change (CLC)" },
                   { id: "8", label: "Cooperative overtaking (CO)" },
-                  { id: "9", label: "Cooperative ACC string management (CACCS M)" },
-                  { id: "10", label: "Cooperative Transition of Control (CToC)" },
+                  {
+                    id: "9",
+                    label: "Cooperative ACC string management (CACCS M)",
+                  },
+                  {
+                    id: "10",
+                    label: "Cooperative Transition of Control (CToC)",
+                  },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.3.5",
@@ -1299,20 +1343,34 @@ export let layersInitial: L1[] = [
               multi_choice: {
                 list: [
                   { id: "1", label: "Equipped VRUs protection" },
-                  { id: "2", label: "Ad-hoc on-demand UAV based VRU protection for closed environments" },
+                  {
+                    id: "2",
+                    label:
+                      "Ad-hoc on-demand UAV based VRU protection for closed environments",
+                  },
                   { id: "3", label: "Road workers in the field" },
-                  { id: "4", label: "Insertion (on current lane or on insertion lane)" },
+                  {
+                    id: "4",
+                    label: "Insertion (on current lane or on insertion lane)",
+                  },
                   { id: "5", label: "Temporary road works" },
                   { id: "6", label: "Non-equipped VRU protection" },
-                  { id: "7", label: "Localisation of assets and CCAM vehicles" },
+                  {
+                    id: "7",
+                    label: "Localisation of assets and CCAM vehicles",
+                  },
                   { id: "8", label: "Minimum risk manœuvre" },
-                  { id: "9", label: "Optimised logistic operation of AVs leveraging on advanced digital technologies and DT" },
+                  {
+                    id: "9",
+                    label:
+                      "Optimised logistic operation of AVs leveraging on advanced digital technologies and DT",
+                  },
                 ],
-                value: []
-              }
-            }
-          }
-        ]
+                value: [],
+              },
+            },
+          },
+        ],
       },
       {
         id: "5.4",
@@ -1333,9 +1391,9 @@ export let layersInitial: L1[] = [
                   { id: "6", label: "Meteorogical sensors" },
                   { id: "7", label: "RSU" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.4.2",
@@ -1351,13 +1409,17 @@ export let layersInitial: L1[] = [
                   { id: "5", label: "Weather condition assessment" },
                   { id: "6", label: "Distance of visibility" },
                   { id: "7", label: "Risk assessment" },
-                  { id: "8", label: "Object detection (box, part of a car, rock, tree branch, etc.)" },
+                  {
+                    id: "8",
+                    label:
+                      "Object detection (box, part of a car, rock, tree branch, etc.)",
+                  },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
-        ]
+        ],
       },
       {
         id: "5.5",
@@ -1367,22 +1429,22 @@ export let layersInitial: L1[] = [
             id: "5.5.1",
             name: "Level 1 : Road network and traffic guidance objects",
             active: true,
-            input : {
-            multi_choice: {
-              list: [
-                { id: "1", label: "Roadwork geometry" },
-                { id: "2", label: "Road shoulders and sidewalks" },
-                { id: "3", label: "Parking spaces" },
-                { id: "4", label: "Road markings" },
-                { id: "5", label: "Traffic signs and traffic lights" },
-                { id: "6", label: "Intersections" },
-                { id: "7", label: "Pedestrian crossing" },
-                { id: "8", label: "Bicycle lane" },
-                { id: "9", label: "Speed bumps" },
-              ],
-              value: []
-            }
-           }
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Roadwork geometry" },
+                  { id: "2", label: "Road shoulders and sidewalks" },
+                  { id: "3", label: "Parking spaces" },
+                  { id: "4", label: "Road markings" },
+                  { id: "5", label: "Traffic signs and traffic lights" },
+                  { id: "6", label: "Intersections" },
+                  { id: "7", label: "Pedestrian crossing" },
+                  { id: "8", label: "Bicycle lane" },
+                  { id: "9", label: "Speed bumps" },
+                ],
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.2",
@@ -1390,17 +1452,27 @@ export let layersInitial: L1[] = [
             active: true,
             input: {
               multi_choice: {
-               list: [
-                { id: "1", label: "Buildings, Tunnels, Bridges" },
-                { id: "2", label: "Road side furniture : bench, bus station" },
-                { id: "3", label: "Vegetation (grass, trees, bushes)" },
-                { id: "4", label: "Safety furniture: guardrails, construction plot, barrier, concrete separator" },
-                { id: "5", label: "Street lamps" },
-                { id: "6", label: "Road signs: advertising boards and pillars" },
-               ],
-               value: []
-              }
-            }
+                list: [
+                  { id: "1", label: "Buildings, Tunnels, Bridges" },
+                  {
+                    id: "2",
+                    label: "Road side furniture : bench, bus station",
+                  },
+                  { id: "3", label: "Vegetation (grass, trees, bushes)" },
+                  {
+                    id: "4",
+                    label:
+                      "Safety furniture: guardrails, construction plot, barrier, concrete separator",
+                  },
+                  { id: "5", label: "Street lamps" },
+                  {
+                    id: "6",
+                    label: "Road signs: advertising boards and pillars",
+                  },
+                ],
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.3",
@@ -1412,13 +1484,16 @@ export let layersInitial: L1[] = [
                   { id: "1", label: "Roadwork signs" },
                   { id: "2", label: "Temporary road marking" },
                   { id: "3", label: "Covered road marking" },
-                  { id: "4", label: "Fallen branch and tree on the road surface" },
+                  {
+                    id: "4",
+                    label: "Fallen branch and tree on the road surface",
+                  },
                   { id: "5", label: "Pothole" },
                   { id: "6", label: "Speed bump" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.4",
@@ -1427,16 +1502,34 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  { id: "1", label: "Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer)" },
-                  { id: "2", label: "Vulnerable (pedestrian, cyclist, motorcyclist)" },
+                  {
+                    id: "1",
+                    label:
+                      "Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer)",
+                  },
+                  {
+                    id: "2",
+                    label: "Vulnerable (pedestrian, cyclist, motorcyclist)",
+                  },
                   { id: "3", label: "Animals (flying, walking)" },
-                  { id: "4", label: "Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...)" },
-                  { id: "5", label: "Static objects (box, tree and branch, leave, ball, beverage can,...)" },
-                  { id: "6", label: "Ground truth: observers, mask, bounding boxes" },
+                  {
+                    id: "4",
+                    label:
+                      "Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...)",
+                  },
+                  {
+                    id: "5",
+                    label:
+                      "Static objects (box, tree and branch, leave, ball, beverage can,...)",
+                  },
+                  {
+                    id: "6",
+                    label: "Ground truth: observers, mask, bounding boxes",
+                  },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.5",
@@ -1445,15 +1538,27 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  { id: "1", label: "Adverse and degraded conditions: Rain, snow, fog, dust" },
-                  { id: "2", label: "Energy sources: sun, lamp, heat, electromagnetic wave, front headlight" },
+                  {
+                    id: "1",
+                    label:
+                      "Adverse and degraded conditions: Rain, snow, fog, dust",
+                  },
+                  {
+                    id: "2",
+                    label:
+                      "Energy sources: sun, lamp, heat, electromagnetic wave, front headlight",
+                  },
                   { id: "3", label: "Wind" },
                   { id: "4", label: "Shadows and cloud effect" },
-                  { id: "5", label: "Specific effect on material (environment reflection,...)" },
+                  {
+                    id: "5",
+                    label:
+                      "Specific effect on material (environment reflection,...)",
+                  },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.6",
@@ -1462,26 +1567,37 @@ export let layersInitial: L1[] = [
             input: {
               multi_choice: {
                 list: [
-                  { id: "1", label: "State of traffic lights and switchable traffic signs" },
+                  {
+                    id: "1",
+                    label:
+                      "State of traffic lights and switchable traffic signs",
+                  },
                   { id: "2", label: "Variable message sign" },
                   { id: "3", label: "V2X messages" },
                   { id: "4", label: "Cellular network coverage" },
-                  { id: "5", label: "Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...))" },
-                  { id: "6", label: "GPS and satellite constellation (ref station)" },
+                  {
+                    id: "5",
+                    label:
+                      "Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...))",
+                  },
+                  {
+                    id: "6",
+                    label: "GPS and satellite constellation (ref station)",
+                  },
                   { id: "7", label: "Road Side Unit" },
                   { id: "8", label: "Meteo station" },
                 ],
-                value: []
-              }
-            }
+                value: [],
+              },
+            },
           },
           {
             id: "5.5.7",
             name: "Level 7 : Ego-vehicle",
             active: true,
-          }
-        ]
-      }
-    ]
-  }
+          },
+        ],
+      },
+    ],
+  },
 ];

@@ -1,12 +1,12 @@
 .flow {
-    flex-grow: 1;
-    font-size: 12px;
-    height: 70vh;
-  }
-  
-  .customNode {
-    border: 1px solid #555;
-    padding: 10px;
-    width: 200px;
-    border-radius: 5px;
-  }
+  flex-grow: 1;
+  font-size: 12px;
+  height: 70vh;
+}
+
+.customNode {
+  border: 1px solid #555;
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+}

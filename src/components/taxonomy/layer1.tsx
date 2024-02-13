@@ -1,34 +1,47 @@
 // components/Layer1Component.tsx
-import React, { useState } from 'react';
-import { TabsContent } from '@/components/ui/tabs';
-import Layer2Component from '@/components/taxonomy/layer2';
-import { Accordion } from  '@/components/ui/accordion';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from '@/components/ui/input';
-import * as z from 'zod';
-import {useForm} from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Button } from '@/components/ui/button';
-import { L1, layer1Schema } from '@/interfaces/taxonomy';
-import { toast } from "@/components/ui/use-toast"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import {Flow} from '@/components/flow/index';
-import { DataHandler } from '../flow/datahandler';
+import React, { useState } from "react";
+import { TabsContent } from "@/components/ui/tabs";
+import Layer2Component from "@/components/taxonomy/layer2";
+import { Accordion } from "@/components/ui/accordion";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import * as z from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button } from "@/components/ui/button";
+import { L1, layer1Schema } from "@/interfaces/taxonomy";
+import { toast } from "@/components/ui/use-toast";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Flow } from "@/components/flow/index";
+import { DataHandler } from "../flow/datahandler";
 
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(3),
-  passwordConfirm: z.string()
-}).refine((data) => {
-  return data.password === data.passwordConfirm
-}, {
-  message: 'Passwords must match',
-  path: ['passwordConfirm']
-}
-);
+const formSchema = z
+  .object({
+    email: z.string().email(),
+    password: z.string().min(3),
+    passwordConfirm: z.string(),
+  })
+  .refine(
+    (data) => {
+      return data.password === data.passwordConfirm;
+    },
+    {
+      message: "Passwords must match",
+      path: ["passwordConfirm"],
+    },
+  );
 
-
-const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1index }) => {
+const Layer1Component: React.FC<{ Layer1: L1; l1index: number }> = ({
+  Layer1,
+  l1index,
+}) => {
   const [layer1, setLayer1] = useState<L1>(Layer1);
 
   function handleLayer1Update(updatedLayer1: L1) {
@@ -52,37 +65,45 @@ const Layer1Component: React.FC<{ Layer1: L1, l1index: number }> = ({ Layer1, l1
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
         </pre>
       ),
-    })
+    });
     console.log(data);
     handleLayer1Update(data);
   }
 
   return (
     <TabsContent value={layer1.id} className="space-y-4">
-        <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 h-fit">
-            <div className="">
-            <Form {...form}>
-                <form 
-                  onChange={form.handleSubmit(onSubmit)}
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="w-full">
-                    <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
-                {
-                  layer1.children && layer1.children.map((layer2, index) => (
-                    <Layer2Component key={layer2.id} layer2={layer2} form={form} l1index={l1index} l2index={index} />
-                  ))
-                }
-                </ScrollArea>
-                  <Button type="submit" className="w-full">Submit</Button>
-                </form>
-            </Form>
-            </div>
-            <div className="items-center  rounded-md border h-fit">
-              <div>
-              <DataHandler layer1={layer1}/>
-              </div>
-            </div>
+      <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 h-fit">
+        <div className="">
+          <Form {...form}>
+            <form
+              onChange={form.handleSubmit(onSubmit)}
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="w-full"
+            >
+              <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
+                {layer1.children &&
+                  layer1.children.map((layer2, index) => (
+                    <Layer2Component
+                      key={layer2.id}
+                      layer2={layer2}
+                      form={form}
+                      l1index={l1index}
+                      l2index={index}
+                    />
+                  ))}
+              </ScrollArea>
+              <Button type="submit" className="w-full">
+                Submit
+              </Button>
+            </form>
+          </Form>
         </div>
+        <div className="items-center  rounded-md border h-fit">
+          <div>
+            <DataHandler layer1={layer1} />
+          </div>
+        </div>
+      </div>
     </TabsContent>
   );
 };

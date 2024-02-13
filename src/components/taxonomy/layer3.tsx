@@ -1,11 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { L3 } from '@/interfaces/taxonomy';
-import { Switch } from '@/components/ui/switch';
-import { FormField, FormLabel, FormDescription, FormControl, FormItem } from '@/components/ui/form';
-import Layer4Component from '@/components/taxonomy/layer4';
-import InputComponent from './input';
+import React, { useEffect, useState } from "react";
+import { L3 } from "@/interfaces/taxonomy";
+import { Switch } from "@/components/ui/switch";
+import {
+  FormField,
+  FormLabel,
+  FormDescription,
+  FormControl,
+  FormItem,
+} from "@/components/ui/form";
+import Layer4Component from "@/components/taxonomy/layer4";
+import InputComponent from "./input";
 
-const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2index: number, l3index: number }> = ({ layer3, form, l1index, l2index, l3index }) => {
+const Layer3Component: React.FC<{
+  layer3: L3;
+  form: any;
+  l1index: number;
+  l2index: number;
+  l3index: number;
+}> = ({ layer3, form, l1index, l2index, l3index }) => {
   const him = `children[${l2index}].children[${l3index}]`;
   const fieldName = `${him}.active`;
 
@@ -28,9 +40,7 @@ const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2inde
             <div className="space-y-0.5">
               <FormLabel>{layer3.name}</FormLabel>
               {isActive && layer3.description && (
-                <FormDescription>
-                  {layer3.description}
-                </FormDescription>
+                <FormDescription>{layer3.description}</FormDescription>
               )}
             </div>
             <FormControl>
@@ -47,11 +57,23 @@ const Layer3Component: React.FC<{ layer3: L3, form: any, l1index: number, l2inde
       />
       <div className="">
         {isActive && layer3.input !== undefined && (
-          <InputComponent input={layer3.input} form={form} him={him + ".input"} />
+          <InputComponent
+            input={layer3.input}
+            form={form}
+            him={him + ".input"}
+          />
         )}
-        {isActive && layer3.children && layer3.children.map((layer4, index) => (
-          <Layer4Component key={layer4.id} layer4={layer4} form={form} parent={him} index={index} />
-        ))}
+        {isActive &&
+          layer3.children &&
+          layer3.children.map((layer4, index) => (
+            <Layer4Component
+              key={layer4.id}
+              layer4={layer4}
+              form={form}
+              parent={him}
+              index={index}
+            />
+          ))}
       </div>
     </div>
   );

@@ -1,24 +1,24 @@
 // pages/index.tsx
-import React from 'react';
-import CountryComponent from '@/components/country';
-import { Country } from '@/interfaces/country';
+import React from "react";
+import CountryComponent from "@/components/country";
+import { Country } from "@/interfaces/country";
 
 const countries: Country[] = [
   {
-    "name": "France",
-    "capital": "Paris",
-    "population": 67390000
+    name: "France",
+    capital: "Paris",
+    population: 67390000,
   },
   {
-    "name": "Germany",
-    "capital": "Berlin",
-    "population": 83190000
+    name: "Germany",
+    capital: "Berlin",
+    population: 83190000,
   },
   {
-    "name": "Italy",
-    "capital": "Rome",
-    "population": 60360000
-  }
+    name: "Italy",
+    capital: "Rome",
+    population: 60360000,
+  },
 ];
 
 const HomePage: React.FC = () => {

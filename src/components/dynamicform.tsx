@@ -1,29 +1,34 @@
-"use client";// components/DynamicForm.tsx
-import React, { useState, ChangeEvent, FormEvent } from 'react';
-import { FormStructure, FormField } from '@/interfaces/types';
-import { Switch } from '@/components/ui/switch';
-import formStructureJson from '@/app/data/formFields.json';
+"use client"; // components/DynamicForm.tsx
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import { FormStructure, FormField } from "@/interfaces/types";
+import { Switch } from "@/components/ui/switch";
+import formStructureJson from "@/app/data/formFields.json";
 
 const formStructure: FormStructure = formStructureJson as FormStructure;
 
 const DynamicForm: React.FC = () => {
   // Initialize form state with fields for all sections
-  const initialState = formStructure.sections.reduce((acc, section) => {
-    section.fields.forEach(field => {
-      acc[field.id] = field.type === 'switch' ? false : '';
-    });
-    return acc;
-  }, {} as { [key: string]: string | boolean });
+  const initialState = formStructure.sections.reduce(
+    (acc, section) => {
+      section.fields.forEach((field) => {
+        acc[field.id] = field.type === "switch" ? false : "";
+      });
+      return acc;
+    },
+    {} as { [key: string]: string | boolean },
+  );
 
   // State to store form values
-  const [formState, setFormState] = useState<{ [key: string]: string | boolean }>(initialState);
+  const [formState, setFormState] = useState<{
+    [key: string]: string | boolean;
+  }>(initialState);
 
   // Handle field change
   const handleFieldChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value, type, checked } = e.target;
-    setFormState(prevState => ({
+    setFormState((prevState) => ({
       ...prevState,
-      [id]: type === 'checkbox' ? checked : value
+      [id]: type === "checkbox" ? checked : value,
     }));
   };
 
@@ -39,21 +44,23 @@ const DynamicForm: React.FC = () => {
       {formStructure.sections.map((section, sectionIndex) => (
         <fieldset key={sectionIndex}>
           <legend>{section.title}</legend>
-          {section.fields.map(field => (
+          {section.fields.map((field) => (
             <div key={field.id}>
               <label htmlFor={field.id}>{field.label}:</label>
-              {field.type === 'switch' ? (
+              {field.type === "switch" ? (
                 <Switch
                   id={field.id}
                   checked={!!formState[field.id]}
-                  onCheckedChange={(checked) => handleFieldChange({
-                    target: {
-                      id: field.id,
-                      value: '',
-                      type: 'checkbox',
-                      checked: checked as boolean
-                    }
-                  } as ChangeEvent<HTMLInputElement>)}
+                  onCheckedChange={(checked) =>
+                    handleFieldChange({
+                      target: {
+                        id: field.id,
+                        value: "",
+                        type: "checkbox",
+                        checked: checked as boolean,
+                      },
+                    } as ChangeEvent<HTMLInputElement>)
+                  }
                 />
               ) : (
                 <input
