@@ -1,4 +1,5 @@
 import { taxonomySchema } from "@/interfaces/taxonomy";
+import { list } from "postcss";
 import * as z from "zod";
 
 type L1 = z.infer<typeof taxonomySchema>["layers"][number];
@@ -508,7 +509,7 @@ export let layersInitial: L1[] = [
           {
             id: "1.8.8",
             name: "Temporary signs",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -940,7 +941,7 @@ export let layersInitial: L1[] = [
           {
             id: "4.2.1",
             name: "Road users type on the ego direction traffic lane(s)",
-            active: true,
+            active: false,
             input: {
               specialClass: [
                 {
@@ -1014,7 +1015,7 @@ export let layersInitial: L1[] = [
           {
             id: "4.2.2",
             name: "Road users type on the opposite direction traffic lane(s)",
-            active: true,
+            active: false,
             input: {
               specialClass: [
                 {
@@ -1088,7 +1089,7 @@ export let layersInitial: L1[] = [
           {
             id: "4.2.3",
             name: "Road users type on the crossing traffic lane(s)",
-            active: true,
+            active: false,
             input: {
               specialClass: [
                 {
@@ -1174,7 +1175,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.1.1",
             name: "GPS Signal",
-            active: true,
+            active: false,
             input: {
               text: "",
             },
@@ -1182,7 +1183,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.1.2",
             name: "Radio landmark for geo positioning recalibration",
-            active: true,
+            active: false,
             input: {
               text: "",
             },
@@ -1190,7 +1191,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.1.3",
             name: "Information expected by the vehicle ",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1212,7 +1213,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.1.4",
             name: "Information expected by the system",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1234,7 +1235,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.1",
               label: "V2V",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "11", label: "5G" },
@@ -1247,7 +1248,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.2",
               label: "V2FLEET",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "21", label: "5G" },
@@ -1260,7 +1261,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.3",
               label: "V2PCC",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "31", label: "5G" },
@@ -1273,7 +1274,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.4",
               label: "V2SEN",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "41", label: "5G" },
@@ -1286,7 +1287,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.5",
               label: "V2DEV",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "51", label: "5G" },
@@ -1299,7 +1300,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.6",
               label: "V2P",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "61", label: "5G" },
@@ -1312,7 +1313,7 @@ export let layersInitial: L1[] = [
             {
               id: "5.2.7",
               label: "V2FO",
-              active: true,
+              active: false,
               multi_choice: {
                 list: [
                   { id: "71", label: "5G" },
@@ -1332,7 +1333,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.3.1",
             name: "C-ITS Day 1 Services",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1357,7 +1358,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.3.2",
             name: "C-ITS Day 1.5 Services",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1386,7 +1387,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.3.3",
             name: "C-ITS Day 2 Services",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1418,7 +1419,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.3.4",
             name: "C-ITS Day 3+ Services",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1455,7 +1456,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.3.5",
             name: "Augmented CCAM Services",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1496,7 +1497,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.4.1",
             name: "Type of sensors",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1515,7 +1516,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.4.2",
             name: "Type of service",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1545,7 +1546,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.1",
             name: "Level 1 : Road network and traffic guidance objects",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1566,7 +1567,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.2",
             name: "Level 2 : Roadside structures and permanent furniture",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1594,7 +1595,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.3",
             name: "Level 3 : Temporary modification of Level1 and Level2",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1615,7 +1616,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.4",
             name: "Level 4 : Static and dynamic modeling",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1651,7 +1652,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.5",
             name: "Level 5 : Environment conditions and disturbers",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1680,7 +1681,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.6",
             name: "Level 6 : Digital information and sensors",
-            active: true,
+            active: false,
             input: {
               multi_choice: {
                 list: [
@@ -1711,7 +1712,7 @@ export let layersInitial: L1[] = [
           {
             id: "5.5.7",
             name: "Level 7 : Ego-vehicle",
-            active: true,
+            active: false,
           },
         ],
       },
@@ -1738,7 +1739,7 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.1",
           name: "Level of automation",
-          active: true,
+          active: false,
           input: {
             one_choice: {
               list: [
@@ -1756,7 +1757,7 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.2",
           name: "Type of actuator",
-          active: true,
+          active: false,
          input: {
           newClass: [
             { id: "1", label: "Steering wheel", value: "", active: false },
@@ -1770,7 +1771,7 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.3",
           name: "Sensors",
-          active: true,
+          active: false,
           /*
           Camera (type of camera (front, rear, etc.) and range) , 
           radar (type of radar, FoV, range), 
@@ -1789,7 +1790,7 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.4",
           name: "Perception",
-          active: true,
+          active: false,
          input: {
           newClass: [
             { id: "1", label: "Obstacle detection", value: "", active: false },
@@ -1810,11 +1811,7 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.5",
           name: "Decision-making",
-          active: true,
-          /*
-          Rule based system (traffic rule, system rule, human rule), 
-          AI-based methods (which one and with which type of constraints and limits)
-          */
+          active: false,
           input: {
             newClass: [
               { id: "1", label: "Rule based system", value: "", active: false },
@@ -1825,19 +1822,327 @@ export let layersInitial: L1[] = [
         {
           id: "6.1.6",
           name: "Path-planning",
-          active: true,
+          active: false,
+          input: {
+            newClass: [
+              { id: "1", label: "Type of enviroenment modeling (trajectory, area with constraints, graph)", value: "", active: false },
+              { id: "2", label: "Definition of the limit of usability", value: "", active: false },
+              { id: "3", label: "Type of generated trajectory", value: "", active: false },
+              { id: "4", label: "Path", value: "", active: false },
+              { id: "5", label: "Manoeuvers", value: "", active: false },
+              { id: "6", label: "Limits of the trajectory modeling (max curvature)", value: "", active: false },
+            ]
+          }
         },
         {
           id: "6.1.7",
           name: "Control/command",
-          active: true,
+          active: false,
         },
         {
           id: "6.1.8",
           name: "Communication",
-          active: true,
+          active: false,
+         input: {
+          newClass: [
+            { id: "1", label: "Type of communication", value: "", active: false },
+            { id: "2", label: "Protocol", value: "", active: false },
+            { id: "3", label: "Antenna diagram", value: "", active: false },
+            { id: "4", label: "Multiple hop", value: "", active: false },
+            { id: "5", label: "Range of communication", value: "", active: false },
+            { id: "6", label: "Routing strategy", value: "", active: false },
+          ]
+         }
         },
        ]
+      },
+      {
+        id: "6.2",
+        name: "Dynamic capabilities",
+        children: [
+          {
+            id: "6.2.1",
+            name: "Speed",
+            active: false,
+            input: {
+              double: 0,
+            }
+          },
+          {
+            id: "6.2.2",
+            name: "Acceleration",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Maximum acceleration",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Maximum torque",
+                  value: "",
+                  active: false,
+                }
+              ]
+            }
+          },
+          {
+            id: "6.2.3",
+            name: "Maneuvers",
+            active: false,
+            children:  [
+                {
+                  id: "1",
+                  name: "Maneuvers type",
+                  active: false,
+                  input: {
+                   multi_choice: {
+                    list: [
+                      { id: "1", label: "Straight ahead" },
+                      { id: "2", label: "Straight ahead reverse" },
+                      { id: "3", label: "Ramp insertion" },
+                      { id: "4", label: "Ramp exit" },
+                      { id: "5", label: "Turning on the road" },
+                      { id: "6", label: "Lane change left" },
+                      { id: "7", label: "Lane change right" },
+                      { id: "8", label: "Turn left" },
+                      { id: "9", label: "Turn right" },
+                      { id: "10", label: "Overtaking" },
+                      { id: "11", label: "Emergency lane parking" },
+                      { id: "12", label: "Stop maneuver" },
+                      { id: "13", label: "Herringbone parking maneuver" },
+                      { id: "14", label: "In-line parking maneuver" },
+                      { id: "15", label: "Station stop" },
+                    ],
+                    value: [],
+                   }
+                  }
+                },
+                {
+                  id: "2",
+                  name: "Condition of achievement (for each maneuver)",
+                  active: false,
+                  input: {
+                    newClass: [
+                      /*
+                    - minimum length
+                    - minimum track width
+                    - maximum angle
+                    - maximum slope 
+                    */
+                      {
+                        id: "1",
+                        label: "Minimum length",
+                        value: "",
+                        active: false,
+                      },
+                      {
+                        id: "2",
+                        label: "Minimum track width",
+                        value: "",
+                        active: false,
+                      },
+                      {
+                        id: "3",
+                        label: "Maximum angle",
+                        value: "",
+                        active: false,
+                      },
+                      {
+                        id: "4",
+                        label: "Maximum slope",
+                        value: "",
+                        active: false,
+                      }
+                    ]
+                  }
+                }
+              ]
+          },
+          {
+            id: "6.2.4",
+            name: "Propulsion type",
+            active: false,
+          },
+          {
+            id: "6.2.5",
+            name: "Powertrain",
+            active: false,
+          },
+          {
+            id: "6.2.6",
+            name: "Gearbox",
+            active: false,
+          },
+          {
+            id: "6.2.7",
+            name: "Shock absorber",
+            active: false,
+          },
+          {
+            id: "6.2.8",
+            name: "Tire state",
+            active: false,
+            children: [
+              {
+                id: "6.2.8.1",
+                name: "Tire grip",
+                active: false,
+                description: "Between 0.5 and 1.0",
+                input: {
+                  double: 0,
+                }
+              },
+              {
+                id: "6.2.8.2",
+                name: "Tire pressure",
+                active: false,
+                input: {
+                  double: 0,
+                }
+              },
+              {
+                id: "6.2.8.3",
+                name: "Slippage rate G",
+                active: false,
+                description: "%",
+                input: {
+                  double: 0,
+                }
+              }
+            ]
+          },
+          {
+            id: "6.2.9",
+            name: "Braking system",
+            active: false,
+            children: [
+              {
+                id: "6.2.9.1",
+                name: "Braking torque",
+                description: "Newton-meter",
+                active: false,
+                input: {
+                  double: 0,
+                }
+              },
+              {
+                id: "6.2.9.2",
+                name: "Deceleration capability",
+                description: "m/s²",
+                active: false,
+                input: {
+                  double: 0,
+                }
+              }
+            ]
+          },
+          {
+            id: "6.2.10",
+            name: "Steering capability",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Field of reachable angles",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Max steering angle",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "Turning raidus",
+                  value: "",
+                  active: false,
+                }
+              ]
+            }
+          },
+        ]
+      },
+      {
+        id: "6.3",
+        name: "Type and size",
+        children: [
+          {
+            id: "6.3.1",
+            name: "Vehicle body (size)",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Length",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Width",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "Height",
+                  value: "",
+                  active: false,
+                },
+              ]
+            }
+          },
+          {
+            id: "6.3.2",
+            name: "Vehicle type",
+            active: false,
+            input: {
+              one_choice: {
+                list: [
+                  { id: "1", label: "Light car" },
+                  { id: "2", label: "Heavy car" },
+                  { id: "3", label: "Pick-up" },
+                  { id: "4", label: "Shuttle" },
+                  { id: "5", label: "Bus" },
+                  { id: "6", label: "Mini bus" },
+                  { id: "7", label: "Truck (with or without trailer)" },
+                  { id: "8", label: "SUV" },
+                  { id: "9", label: "4DW" },
+                ],
+                value: "",
+              }
+            }
+          },
+          {
+            id: "6.3.3",
+            name: "Trailer",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Number",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Size",
+                  value: "",
+                  active: false,
+                },
+              ]
+            }
+          }
+        ]
       }
     ]
   }
