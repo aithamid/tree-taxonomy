@@ -13,22 +13,24 @@ export default function HomePage() {
       <div className="h-full">
         <div className="px-8 h-full">
           <div className="flex items-center justify-between space-y-2 m-5">
-            <h2 className="text-3xl font-bold tracking-tight">
-              Taxonomy
-            </h2>
+            <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
           </div>
           <Tabs defaultValue={layersInitial[0].id} className="space-y-4">
             <div className="flex">
-            <TabsList>
-              {layersInitial.map((layer1) => (
-                <TabsTrigger key={layer1.id} value={layer1.id} className="text-l">
-                  {layer1.name}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            <div className="flex-1 text-right  text-2xl font-semibold">
-            <h1>ODD Descriptor</h1>
-            </div>
+              <TabsList>
+                {layersInitial.map((layer1) => (
+                  <TabsTrigger
+                    key={layer1.id}
+                    value={layer1.id}
+                    className="text-l"
+                  >
+                    {layer1.name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              <div className="flex-1 text-right  text-2xl font-semibold">
+                <h1>ODD Descriptor</h1>
+              </div>
             </div>
             {layersInitial.map((layer1, index) => (
               <React.Fragment key={layer1.id}>

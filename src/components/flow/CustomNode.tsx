@@ -38,7 +38,7 @@ function SpecialClass(input: InputType) {
         .map((item, index) => {
           return (
             <div key={index}>
-              {item.label} : 
+              {item.label} :
               <OneChoice one_choice={item.one_choice} />
               <SpecialMultiChoice multi_choice={item.multi_choice} />
             </div>
@@ -46,7 +46,7 @@ function SpecialClass(input: InputType) {
         })}
     </div>
   );
-} 
+}
 function OneChoice(input: InputType) {
   let value = input.one_choice?.value;
   let list = input.one_choice?.list;
@@ -106,7 +106,7 @@ function SpecialMultiChoice(input: InputType) {
 
     return (
       <a>
-        <a className="pt-2">{labels.join(', ')}</a>
+        <a className="pt-2">{labels.join(", ")}</a>
       </a>
     );
   } else {

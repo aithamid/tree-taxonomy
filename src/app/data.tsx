@@ -252,7 +252,7 @@ export let layersInitial: L1[] = [
                 name: "Nature of the element of infrastructure adjacent to ego lane on the left side",
                 active: false,
                 input: {
-                multi_choice: {
+                  multi_choice: {
                     list: [
                       { id: "1", label: "Sidewalk" },
                       { id: "2", label: "Central reservation" },
@@ -268,7 +268,7 @@ export let layersInitial: L1[] = [
                       { id: "12", label: "Dividing island" },
                     ],
                     value: [],
-                  }
+                  },
                 },
               },
               {
@@ -292,12 +292,12 @@ export let layersInitial: L1[] = [
                       { id: "12", label: "Dividing island" },
                     ],
                     value: [],
-                  }
-                }
-              }
-            ]
-          }
-        ]
+                  },
+                },
+              },
+            ],
+          },
+        ],
       },
       {
         id: "1.3",
@@ -1790,126 +1790,207 @@ export let layersInitial: L1[] = [
         Control/command	
         Communication	
         */
-       children: [
-        {
-          id: "6.1.1",
-          name: "Level of automation",
-          active: false,
-          input: {
-            one_choice: {
-              list: [
-                { id: "1", label: "Level 0" },
-                { id: "2", label: "Level 1" },
-                { id: "3", label: "Level 2" },
-                { id: "4", label: "Level 3" },
-                { id: "5", label: "Level 4" },
-                { id: "6", label: "Level 5" },
+        children: [
+          {
+            id: "6.1.1",
+            name: "Level of automation",
+            active: false,
+            input: {
+              one_choice: {
+                list: [
+                  { id: "1", label: "Level 0" },
+                  { id: "2", label: "Level 1" },
+                  { id: "3", label: "Level 2" },
+                  { id: "4", label: "Level 3" },
+                  { id: "5", label: "Level 4" },
+                  { id: "6", label: "Level 5" },
+                ],
+                value: "",
+              },
+            },
+          },
+          {
+            id: "6.1.2",
+            name: "Type of actuator",
+            active: false,
+            input: {
+              newClass: [
+                { id: "1", label: "Steering wheel", value: "", active: false },
+                { id: "2", label: "Pedals", value: "", active: false },
+                { id: "3", label: "Wheels", value: "", active: false },
+                {
+                  id: "4",
+                  label: "Electrical motors",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "5",
+                  label: "Type of order (torques, acc, pressure (newton), ...)",
+                  value: "",
+                  active: false,
+                },
               ],
-              value: "",
-            }
-          }
-        },
-        {
-          id: "6.1.2",
-          name: "Type of actuator",
-          active: false,
-         input: {
-          newClass: [
-            { id: "1", label: "Steering wheel", value: "", active: false },
-            { id: "2", label: "Pedals", value: "", active: false },
-            { id: "3", label: "Wheels", value: "", active: false },
-            { id: "4", label: "Electrical motors", value: "", active: false },
-            { id: "5", label: "Type of order (torques, acc, pressure (newton), ...)", value: "", active: false },
-          ],
-         }
-        },
-        {
-          id: "6.1.3",
-          name: "Sensors",
-          active: false,
-          /*
+            },
+          },
+          {
+            id: "6.1.3",
+            name: "Sensors",
+            active: false,
+            /*
           Camera (type of camera (front, rear, etc.) and range) , 
           radar (type of radar, FoV, range), 
           lidar (type of lidar, FoV), 
           GPS, 
           */
-          input: {
-            newClass: [
-              { id: "1", label: "Camera", value: "", active: false },
-              { id: "2", label: "Radar", value: "", active: false },
-              { id: "3", label: "Lidar", value: "", active: false },
-              { id: "4", label: "GPS", value: "", active: false },
-            ]
-          }
-        },
-        {
-          id: "6.1.4",
-          name: "Perception",
-          active: false,
-         input: {
-          newClass: [
-            { id: "1", label: "Obstacle detection", value: "", active: false },
-            { id: "2", label: "Tracking", value: "", active: false },
-            { id: "3", label: "Recognition", value: "", active: false },
-            { id: "4", label: "Road markings and lanes detection", value: "", active: false },
-            { id: "5", label: "Localisation", value: "", active: false },
-            { id: "6", label: "Situation recognition", value: "", active: false },
-            { id: "7", label: "Risk assessment", value: "", active: false },
-            { id: "8", label: "Free navigation area", value: "", active: false },
-            { id: "9", label: "FoV", value: "", active: false },
-            { id: "10", label: "Range", value: "", active: false },
-            { id: "11", label: "Resolution", value: "", active: false },
-            { id: "12", label: "Period of data updating", value: "", active: false },
-          ]
-         }
-        },
-        {
-          id: "6.1.5",
-          name: "Decision-making",
-          active: false,
-          input: {
-            newClass: [
-              { id: "1", label: "Rule based system", value: "", active: false },
-              { id: "2", label: "AI-based methods", value: "", active: false },
-            ]
-          }
-        },
-        {
-          id: "6.1.6",
-          name: "Path-planning",
-          active: false,
-          input: {
-            newClass: [
-              { id: "1", label: "Type of enviroenment modeling (trajectory, area with constraints, graph)", value: "", active: false },
-              { id: "2", label: "Definition of the limit of usability", value: "", active: false },
-              { id: "3", label: "Type of generated trajectory", value: "", active: false },
-              { id: "4", label: "Path", value: "", active: false },
-              { id: "5", label: "Manoeuvers", value: "", active: false },
-              { id: "6", label: "Limits of the trajectory modeling (max curvature)", value: "", active: false },
-            ]
-          }
-        },
-        {
-          id: "6.1.7",
-          name: "Control/command",
-          active: false,
-        },
-        {
-          id: "6.1.8",
-          name: "Communication",
-          active: false,
-         input: {
-          newClass: [
-            { id: "1", label: "Type of communication", value: "", active: false },
-            { id: "2", label: "Protocol", value: "", active: false },
-            { id: "3", label: "Antenna diagram", value: "", active: false },
-            { id: "4", label: "Multiple hop", value: "", active: false },
-            { id: "5", label: "Range of communication", value: "", active: false },
-            { id: "6", label: "Routing strategy", value: "", active: false },
-          ]
-         }
-        },
-       ]
+            input: {
+              newClass: [
+                { id: "1", label: "Camera", value: "", active: false },
+                { id: "2", label: "Radar", value: "", active: false },
+                { id: "3", label: "Lidar", value: "", active: false },
+                { id: "4", label: "GPS", value: "", active: false },
+              ],
+            },
+          },
+          {
+            id: "6.1.4",
+            name: "Perception",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Obstacle detection",
+                  value: "",
+                  active: false,
+                },
+                { id: "2", label: "Tracking", value: "", active: false },
+                { id: "3", label: "Recognition", value: "", active: false },
+                {
+                  id: "4",
+                  label: "Road markings and lanes detection",
+                  value: "",
+                  active: false,
+                },
+                { id: "5", label: "Localisation", value: "", active: false },
+                {
+                  id: "6",
+                  label: "Situation recognition",
+                  value: "",
+                  active: false,
+                },
+                { id: "7", label: "Risk assessment", value: "", active: false },
+                {
+                  id: "8",
+                  label: "Free navigation area",
+                  value: "",
+                  active: false,
+                },
+                { id: "9", label: "FoV", value: "", active: false },
+                { id: "10", label: "Range", value: "", active: false },
+                { id: "11", label: "Resolution", value: "", active: false },
+                {
+                  id: "12",
+                  label: "Period of data updating",
+                  value: "",
+                  active: false,
+                },
+              ],
+            },
+          },
+          {
+            id: "6.1.5",
+            name: "Decision-making",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Rule based system",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "AI-based methods",
+                  value: "",
+                  active: false,
+                },
+              ],
+            },
+          },
+          {
+            id: "6.1.6",
+            name: "Path-planning",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label:
+                    "Type of enviroenment modeling (trajectory, area with constraints, graph)",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Definition of the limit of usability",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "3",
+                  label: "Type of generated trajectory",
+                  value: "",
+                  active: false,
+                },
+                { id: "4", label: "Path", value: "", active: false },
+                { id: "5", label: "Manoeuvers", value: "", active: false },
+                {
+                  id: "6",
+                  label: "Limits of the trajectory modeling (max curvature)",
+                  value: "",
+                  active: false,
+                },
+              ],
+            },
+          },
+          {
+            id: "6.1.7",
+            name: "Control/command",
+            active: false,
+          },
+          {
+            id: "6.1.8",
+            name: "Communication",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Type of communication",
+                  value: "",
+                  active: false,
+                },
+                { id: "2", label: "Protocol", value: "", active: false },
+                { id: "3", label: "Antenna diagram", value: "", active: false },
+                { id: "4", label: "Multiple hop", value: "", active: false },
+                {
+                  id: "5",
+                  label: "Range of communication",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "6",
+                  label: "Routing strategy",
+                  value: "",
+                  active: false,
+                },
+              ],
+            },
+          },
+        ],
       },
       {
         id: "6.2",
@@ -1921,7 +2002,7 @@ export let layersInitial: L1[] = [
             active: false,
             input: {
               double: 0,
-            }
+            },
           },
           {
             id: "6.2.2",
@@ -1940,21 +2021,21 @@ export let layersInitial: L1[] = [
                   label: "Maximum torque",
                   value: "",
                   active: false,
-                }
-              ]
-            }
+                },
+              ],
+            },
           },
           {
             id: "6.2.3",
             name: "Maneuvers",
             active: false,
-            children:  [
-                {
-                  id: "1",
-                  name: "Maneuvers type",
-                  active: false,
-                  input: {
-                   multi_choice: {
+            children: [
+              {
+                id: "1",
+                name: "Maneuvers type",
+                active: false,
+                input: {
+                  multi_choice: {
                     list: [
                       { id: "1", label: "Straight ahead" },
                       { id: "2", label: "Straight ahead reverse" },
@@ -1973,49 +2054,49 @@ export let layersInitial: L1[] = [
                       { id: "15", label: "Station stop" },
                     ],
                     value: [],
-                   }
-                  }
+                  },
                 },
-                {
-                  id: "2",
-                  name: "Condition of achievement (for each maneuver)",
-                  active: false,
-                  input: {
-                    newClass: [
-                      /*
+              },
+              {
+                id: "2",
+                name: "Condition of achievement (for each maneuver)",
+                active: false,
+                input: {
+                  newClass: [
+                    /*
                     - minimum length
                     - minimum track width
                     - maximum angle
                     - maximum slope 
                     */
-                      {
-                        id: "1",
-                        label: "Minimum length",
-                        value: "",
-                        active: false,
-                      },
-                      {
-                        id: "2",
-                        label: "Minimum track width",
-                        value: "",
-                        active: false,
-                      },
-                      {
-                        id: "3",
-                        label: "Maximum angle",
-                        value: "",
-                        active: false,
-                      },
-                      {
-                        id: "4",
-                        label: "Maximum slope",
-                        value: "",
-                        active: false,
-                      }
-                    ]
-                  }
-                }
-              ]
+                    {
+                      id: "1",
+                      label: "Minimum length",
+                      value: "",
+                      active: false,
+                    },
+                    {
+                      id: "2",
+                      label: "Minimum track width",
+                      value: "",
+                      active: false,
+                    },
+                    {
+                      id: "3",
+                      label: "Maximum angle",
+                      value: "",
+                      active: false,
+                    },
+                    {
+                      id: "4",
+                      label: "Maximum slope",
+                      value: "",
+                      active: false,
+                    },
+                  ],
+                },
+              },
+            ],
           },
           {
             id: "6.2.4",
@@ -2049,7 +2130,7 @@ export let layersInitial: L1[] = [
                 description: "Between 0.5 and 1.0",
                 input: {
                   double: 0,
-                }
+                },
               },
               {
                 id: "6.2.8.2",
@@ -2057,7 +2138,7 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }
+                },
               },
               {
                 id: "6.2.8.3",
@@ -2066,9 +2147,9 @@ export let layersInitial: L1[] = [
                 description: "%",
                 input: {
                   double: 0,
-                }
-              }
-            ]
+                },
+              },
+            ],
           },
           {
             id: "6.2.9",
@@ -2082,7 +2163,7 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }
+                },
               },
               {
                 id: "6.2.9.2",
@@ -2091,9 +2172,9 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   double: 0,
-                }
-              }
-            ]
+                },
+              },
+            ],
           },
           {
             id: "6.2.10",
@@ -2118,11 +2199,11 @@ export let layersInitial: L1[] = [
                   label: "Turning raidus",
                   value: "",
                   active: false,
-                }
-              ]
-            }
+                },
+              ],
+            },
           },
-        ]
+        ],
       },
       {
         id: "6.3",
@@ -2152,8 +2233,8 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
-              ]
-            }
+              ],
+            },
           },
           {
             id: "6.3.2",
@@ -2173,8 +2254,8 @@ export let layersInitial: L1[] = [
                   { id: "9", label: "4DW" },
                 ],
                 value: "",
-              }
-            }
+              },
+            },
           },
           {
             id: "6.3.3",
@@ -2194,11 +2275,11 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  }
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  },
 ];
