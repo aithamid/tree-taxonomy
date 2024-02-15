@@ -73,12 +73,6 @@ export let layersInitial: L1[] = [
               },
             },
           },
-        ],
-      },
-      {
-        id: "1.2",
-        name: "Roadway Edge",
-        children: [
           {
             id: "1.2.1",
             name: "Use of lanes",
@@ -243,6 +237,67 @@ export let layersInitial: L1[] = [
             },
           },
         ],
+      },
+      {
+        id: "1.2",
+        name: "Roadway Edge",
+        children: [
+          {
+            id: "1.2.1",
+            name: "Element of infrastructure adjacent to the lane",
+            active: false,
+            children: [
+              {
+                id: "1.2.1.1",
+                name: "Nature of the element of infrastructure adjacent to ego lane on the left side",
+                active: false,
+                input: {
+                multi_choice: {
+                    list: [
+                      { id: "1", label: "Sidewalk" },
+                      { id: "2", label: "Central reservation" },
+                      { id: "3", label: "Fence" },
+                      { id: "4", label: "Wall" },
+                      { id: "5", label: "Tree" },
+                      { id: "6", label: "Angle parking" },
+                      { id: "7", label: "Parallel parking" },
+                      { id: "8", label: "Path" },
+                      { id: "9", label: "Ditch" },
+                      { id: "10", label: "River" },
+                      { id: "11", label: "Ravine" },
+                      { id: "12", label: "Dividing island" },
+                    ],
+                    value: [],
+                  }
+                },
+              },
+              {
+                id: "1.2.1.2",
+                name: "Nature of the element of infrastructure adjacent to ego lane on the right side",
+                active: false,
+                input: {
+                  multi_choice: {
+                    list: [
+                      { id: "1", label: "Sidewalk" },
+                      { id: "2", label: "Central reservation" },
+                      { id: "3", label: "Fence" },
+                      { id: "4", label: "Wall" },
+                      { id: "5", label: "Tree" },
+                      { id: "6", label: "Angle parking" },
+                      { id: "7", label: "Parallel parking" },
+                      { id: "8", label: "Path" },
+                      { id: "9", label: "Ditch" },
+                      { id: "10", label: "River" },
+                      { id: "11", label: "Ravine" },
+                      { id: "12", label: "Dividing island" },
+                    ],
+                    value: [],
+                  }
+                }
+              }
+            ]
+          }
+        ]
       },
       {
         id: "1.3",
