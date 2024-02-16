@@ -17,7 +17,7 @@ export function MyCustomNode({ data }: NodeProps<NodeData>) {
   if (data.input.newClass) {
     return NewClass(data.input);
   }
-  if (data.input.double) {
+  if (data.input.double === "" || data.input.double !== undefined) {
     return Double(data.input);
   }
   if (data.input.text) {
@@ -132,9 +132,16 @@ function NewClass(input: InputType) {
 }
 
 function Double(input: InputType) {
-  let double = input.double;
-
-  return <div>{double}</div>;
+  const double : string | undefined = input.double;
+  {
+    if (double !== "") {
+      return <a>{double}</a>;
+    }
+    else {
+      return <a className="text-red-500 font-bold">To be declared</a>;
+    }
+    
+  }
 }
 
 function Text(input: InputType) {
