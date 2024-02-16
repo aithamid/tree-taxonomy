@@ -1611,145 +1611,45 @@ export let layersInitial: L1[] = [
             id: "5.5.2",
             name: "Layer 2 : Roadside structures and permanent furniture",
             active: false,
+            description: "Buildings, Tunnels, Bridges, Road side furniture : bench, bus station, Vegetation (grass, trees, bushes), Safety furniture: guardrails, construction plot, barrier, concrete separator, Street lamps, Road signs: advertising boards and pillars",
             input: {
-              multi_choice: {
-                list: [
-                  { id: "1", label: "Buildings, Tunnels, Bridges" },
-                  {
-                    id: "2",
-                    label: "Road side furniture : bench, bus station",
-                  },
-                  { id: "3", label: "Vegetation (grass, trees, bushes)" },
-                  {
-                    id: "4",
-                    label:
-                      "Safety furniture: guardrails, construction plot, barrier, concrete separator",
-                  },
-                  { id: "5", label: "Street lamps" },
-                  {
-                    id: "6",
-                    label: "Road signs: advertising boards and pillars",
-                  },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
             id: "5.5.3",
             name: "Layer 3 : Temporary modification of Level1 and Level2",
             active: false,
+            description: "Roadwork signs, Temporary road marking, Covered road marking, Fallen branch and tree on the road surface, Pothole, Speed bump",
             input: {
-              multi_choice: {
-                list: [
-                  { id: "1", label: "Roadwork signs" },
-                  { id: "2", label: "Temporary road marking" },
-                  { id: "3", label: "Covered road marking" },
-                  {
-                    id: "4",
-                    label: "Fallen branch and tree on the road surface",
-                  },
-                  { id: "5", label: "Pothole" },
-                  { id: "6", label: "Speed bump" },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
             id: "5.5.4",
             name: "Layer 4 : Static and dynamic modeling",
             active: false,
+            description: "Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer), Vulnerable (pedestrian, cyclist, motorcyclist), Animals (flying, walking), Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...), Static objects (box, tree and branch, leave, ball, beverage can,...), Ground truth: observers, mask, bounding boxes",
             input: {
-              multi_choice: {
-                list: [
-                  {
-                    id: "1",
-                    label:
-                      "Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer)",
-                  },
-                  {
-                    id: "2",
-                    label: "Vulnerable (pedestrian, cyclist, motorcyclist)",
-                  },
-                  { id: "3", label: "Animals (flying, walking)" },
-                  {
-                    id: "4",
-                    label:
-                      "Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...)",
-                  },
-                  {
-                    id: "5",
-                    label:
-                      "Static objects (box, tree and branch, leave, ball, beverage can,...)",
-                  },
-                  {
-                    id: "6",
-                    label: "Ground truth: observers, mask, bounding boxes",
-                  },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
             id: "5.5.5",
             name: "Layer 5 : Environment conditions and disturbers",
             active: false,
+            description: "Adverse and degraded conditions: Rain, snow, fog, dust, Energy sources: sun, lamp, heat, electromagnetic wave, front headlight, Wind, Shadows and cloud effect, Specific effect on material (environment reflection,...)",
             input: {
-              multi_choice: {
-                list: [
-                  {
-                    id: "1",
-                    label:
-                      "Adverse and degraded conditions: Rain, snow, fog, dust",
-                  },
-                  {
-                    id: "2",
-                    label:
-                      "Energy sources: sun, lamp, heat, electromagnetic wave, front headlight",
-                  },
-                  { id: "3", label: "Wind" },
-                  { id: "4", label: "Shadows and cloud effect" },
-                  {
-                    id: "5",
-                    label:
-                      "Specific effect on material (environment reflection,...)",
-                  },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
             id: "5.5.6",
             name: "Layer 6 : Digital information and sensors",
             active: false,
+            description: "State of traffic lights and switchable traffic signs, Variable message sign, V2X messages, Cellular network coverage, Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...)), GPS and satellite constellation (ref station), Road Side Unit, Meteo station",
             input: {
-              multi_choice: {
-                list: [
-                  {
-                    id: "1",
-                    label:
-                      "State of traffic lights and switchable traffic signs",
-                  },
-                  { id: "2", label: "Variable message sign" },
-                  { id: "3", label: "V2X messages" },
-                  { id: "4", label: "Cellular network coverage" },
-                  {
-                    id: "5",
-                    label:
-                      "Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...))",
-                  },
-                  {
-                    id: "6",
-                    label: "GPS and satellite constellation (ref station)",
-                  },
-                  { id: "7", label: "Road Side Unit" },
-                  { id: "8", label: "Meteo station" },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
@@ -1768,16 +1668,6 @@ export let layersInitial: L1[] = [
       {
         id: "6.1",
         name: "ADAS features",
-        /*
-        Level of automation	
-        Type of actuator	
-        Sensors	
-        Perception	
-        Decision-making	
-        Path-planning	
-        Control/command	
-        Communication	
-        */
         children: [
           {
             id: "6.1.1",
@@ -2110,59 +2000,49 @@ export let layersInitial: L1[] = [
             id: "6.2.8",
             name: "Tire state",
             active: false,
-            children: [
-              {
-                id: "6.2.8.1",
-                name: "Tire grip",
-                active: false,
-                description: "Between 0.5 and 1.0",
-                input: {
-                  double: "",
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Tire grip",
+                  value: "",
+                  active: false,
                 },
-              },
-              {
-                id: "6.2.8.2",
-                name: "Tire pressure",
-                active: false,
-                input: {
-                  double: "",
+                {
+                  id: "2",
+                  label: "Tire pressure",
+                  value: "",
+                  active: false,
                 },
-              },
-              {
-                id: "6.2.8.3",
-                name: "Slippage rate G",
-                active: false,
-                description: "%",
-                input: {
-                  double: "",
+                {
+                  id: "3",
+                  label: "Slippage rate G",
+                  value: "",
+                  active: false,
                 },
-              },
-            ],
+              ],
+            },
           },
           {
             id: "6.2.9",
             name: "Braking system",
             active: false,
-            children: [
-              {
-                id: "6.2.9.1",
-                name: "Braking torque",
-                description: "Newton-meter",
-                active: false,
-                input: {
-                  double: "",
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Braking torque (Newton-meter)",
+                  value: "",
+                  active: false,
                 },
-              },
-              {
-                id: "6.2.9.2",
-                name: "Deceleration capability",
-                description: "m/s²",
-                active: false,
-                input: {
-                  double: "",
-                },
-              },
-            ],
+                {
+                  id: "2",
+                  label: "Deceleration capability (m/s²)",
+                  value: "",
+                  active: false,
+                }
+              ]
+            },
           },
           {
             id: "6.2.10",
