@@ -120,10 +120,11 @@ function NewClass(input: InputType) {
   return (
     <div>
       {list
-        .filter((item) => item.active && item.value !== "")
+        .filter((item) => item.active)
         .map((item, index) => (
           <li key={index}>
-            {item.label} : {item.value}
+            {item.label}
+            {item.value !== "" && <a> : {item.value}</a>}
           </li>
         ))}
     </div>
@@ -133,7 +134,7 @@ function NewClass(input: InputType) {
 function Double(input: InputType) {
   let double = input.double;
 
-  return <div>{double?.toString()}</div>;
+  return <div>{double}</div>;
 }
 
 function Text(input: InputType) {

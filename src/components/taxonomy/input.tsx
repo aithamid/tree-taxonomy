@@ -39,8 +39,8 @@ const InputComponent: React.FC<{
                 <FormControl>
                   <Input
                     {...field}
-                    type="number"
-                    onChange={(event) => field.onChange(+event.target.value)}
+                    type="text"
+                    onChange={(event) => field.onChange(event.target.value)}
                   />
                 </FormControl>
               </FormItem>

@@ -217,7 +217,7 @@ export let layersInitial: L1[] = [
             name: "Luminance of the road surface",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -225,7 +225,7 @@ export let layersInitial: L1[] = [
             name: "Pavement grip coefficient",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -233,22 +233,22 @@ export let layersInitial: L1[] = [
             name: "Road marking contrast",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
         ],
       },
       {
-        id: "1.2",
+        id: "1.X",
         name: "Roadway Edge",
         children: [
           {
-            id: "1.2.1",
+            id: "1.X.1",
             name: "Element of infrastructure adjacent to the lane",
             active: false,
             children: [
               {
-                id: "1.2.1.1",
+                id: "1.X.1.1",
                 name: "Nature of the element of infrastructure adjacent to ego lane on the left side",
                 active: false,
                 input: {
@@ -272,7 +272,7 @@ export let layersInitial: L1[] = [
                 },
               },
               {
-                id: "1.2.1.2",
+                id: "1.X.1.2",
                 name: "Nature of the element of infrastructure adjacent to ego lane on the right side",
                 active: false,
                 input: {
@@ -313,7 +313,7 @@ export let layersInitial: L1[] = [
                 name: "Minimal width of the ego lane",
                 active: false,
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
             ],
@@ -323,7 +323,7 @@ export let layersInitial: L1[] = [
             name: "Radius of curvature",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -331,7 +331,7 @@ export let layersInitial: L1[] = [
             name: "Slope",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
         ],
@@ -377,7 +377,7 @@ export let layersInitial: L1[] = [
                 name: "Maximal angle between ego lane and intersection branch",
                 active: false,
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
             ],
@@ -821,7 +821,7 @@ export let layersInitial: L1[] = [
             description: "Illumination level in lux",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -874,7 +874,7 @@ export let layersInitial: L1[] = [
             description: "Gradient of illumination variation",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
         ],
@@ -888,7 +888,7 @@ export let layersInitial: L1[] = [
             name: "Minimum ambient air temperature",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -896,7 +896,7 @@ export let layersInitial: L1[] = [
             name: "Maximum ambient air temperature",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
         ],
@@ -1600,28 +1600,16 @@ export let layersInitial: L1[] = [
         children: [
           {
             id: "5.5.1",
-            name: "Level 1 : Road network and traffic guidance objects",
+            name: "Layer 1 : Road network and traffic guidance objects",
             active: false,
+            description: "Roadwork geometry, Road shoulders and sidewalks, Parking spaces, Road markings, Traffic signs and traffic lights, Intersections, Pedestrian crossing, Bicycle lane, Speed bumps",
             input: {
-              multi_choice: {
-                list: [
-                  { id: "1", label: "Roadwork geometry" },
-                  { id: "2", label: "Road shoulders and sidewalks" },
-                  { id: "3", label: "Parking spaces" },
-                  { id: "4", label: "Road markings" },
-                  { id: "5", label: "Traffic signs and traffic lights" },
-                  { id: "6", label: "Intersections" },
-                  { id: "7", label: "Pedestrian crossing" },
-                  { id: "8", label: "Bicycle lane" },
-                  { id: "9", label: "Speed bumps" },
-                ],
-                value: [],
-              },
+              text: "",
             },
           },
           {
             id: "5.5.2",
-            name: "Level 2 : Roadside structures and permanent furniture",
+            name: "Layer 2 : Roadside structures and permanent furniture",
             active: false,
             input: {
               multi_choice: {
@@ -1649,7 +1637,7 @@ export let layersInitial: L1[] = [
           },
           {
             id: "5.5.3",
-            name: "Level 3 : Temporary modification of Level1 and Level2",
+            name: "Layer 3 : Temporary modification of Level1 and Level2",
             active: false,
             input: {
               multi_choice: {
@@ -1670,7 +1658,7 @@ export let layersInitial: L1[] = [
           },
           {
             id: "5.5.4",
-            name: "Level 4 : Static and dynamic modeling",
+            name: "Layer 4 : Static and dynamic modeling",
             active: false,
             input: {
               multi_choice: {
@@ -1706,7 +1694,7 @@ export let layersInitial: L1[] = [
           },
           {
             id: "5.5.5",
-            name: "Level 5 : Environment conditions and disturbers",
+            name: "Layer 5 : Environment conditions and disturbers",
             active: false,
             input: {
               multi_choice: {
@@ -1735,7 +1723,7 @@ export let layersInitial: L1[] = [
           },
           {
             id: "5.5.6",
-            name: "Level 6 : Digital information and sensors",
+            name: "Layer 6 : Digital information and sensors",
             active: false,
             input: {
               multi_choice: {
@@ -1766,7 +1754,7 @@ export let layersInitial: L1[] = [
           },
           {
             id: "5.5.7",
-            name: "Level 7 : Ego-vehicle",
+            name: "Layer 7 : Ego-vehicle",
             active: false,
           },
         ],
@@ -2001,7 +1989,7 @@ export let layersInitial: L1[] = [
             name: "Speed",
             active: false,
             input: {
-              double: 0,
+              double: "",
             },
           },
           {
@@ -2129,7 +2117,7 @@ export let layersInitial: L1[] = [
                 active: false,
                 description: "Between 0.5 and 1.0",
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
               {
@@ -2137,7 +2125,7 @@ export let layersInitial: L1[] = [
                 name: "Tire pressure",
                 active: false,
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
               {
@@ -2146,7 +2134,7 @@ export let layersInitial: L1[] = [
                 active: false,
                 description: "%",
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
             ],
@@ -2162,7 +2150,7 @@ export let layersInitial: L1[] = [
                 description: "Newton-meter",
                 active: false,
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
               {
@@ -2171,7 +2159,7 @@ export let layersInitial: L1[] = [
                 description: "m/s²",
                 active: false,
                 input: {
-                  double: 0,
+                  double: "",
                 },
               },
             ],

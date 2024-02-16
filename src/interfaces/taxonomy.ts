@@ -31,7 +31,7 @@ export const specialClassSchema = z.object({
 });
 
 export const inputSchema = z.object({
-  double: z.number().optional(),
+  double: z.string().optional(),
   one_choice: one_choiceSchema.optional(),
   multi_choice: multi_choiceSchema.optional(),
   newClass: z.array(newClassItemSchema).optional(),
