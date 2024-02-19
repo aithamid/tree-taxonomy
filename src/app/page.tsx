@@ -82,7 +82,7 @@ export default function HomePage() {
             </div>
             {layers.map((layer1, index) => (
               <React.Fragment key={layer1.id}>
-                <Layer1Component Layer1={layer1} child={`children[${index}]`} form={form} />
+                <Layer1Component Layer1={layer1} child={`layers[${index}]`} form={form} />
               </React.Fragment>
             ))}
           </Tabs>
