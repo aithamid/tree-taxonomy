@@ -21,6 +21,7 @@ import {
 import { Checkbox } from "../ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
+import { it } from "node:test";
 
 const InputComponent: React.FC<{
   input: InputType;
@@ -87,7 +88,29 @@ const InputComponent: React.FC<{
                         className="flex items-center space-x-2"
                       >
                         <RadioGroupItem value={item.id} id={item.id} />
-                        <Label htmlFor={item.id}>{item.label}</Label>
+                        {item.id !== "other" && (
+                          <Label htmlFor={item.id}>{item.label}</Label>
+                        )
+                        }
+                        {item.id === "other" && (
+                          <FormField
+                          control={form.control}
+                          name={him + `.one_choice.list[${index}].label`}
+                          render={({ field }) => (
+                            <FormItem className="flex flex-row items-center justify-between">
+                              <FormControl>
+                                <Input
+                                  {...field}
+                                  type="text"
+                                  onChange={(event) => field.onChange(event.target.value)}
+                                  placeholder="Other choice"
+                                />
+                              </FormControl>
+                            </FormItem>
+                          )}
+                        />
+                        )
+                        }
                       </div>
                     ))}
                   </RadioGroup>
@@ -311,9 +334,32 @@ const InputComponent: React.FC<{
                               }}
                             />
                           </FormControl>
-                          <FormLabel className="text-sm font-normal">
-                            {choice.label}
-                          </FormLabel>
+                          {choice.id !== "other" && (
+                            <FormLabel className="text-sm font-normal">
+                              {choice.label}
+                            </FormLabel>
+                          )
+                          }
+                          {choice.id === "other" && (
+                            
+                            <FormField
+                            control={form.control}
+                            name={him + `.multi_choice.list[${index}].label`}
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-center justify-between">
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    type="text"
+                                    onChange={(event) => field.onChange(event.target.value)}
+                                    placeholder="Other choice"
+                                  />
+                                </FormControl>
+                              </FormItem>
+                            )}
+                          />
+                          )
+                          }
                         </FormItem>
                       );
                     }}
