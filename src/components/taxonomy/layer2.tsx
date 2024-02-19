@@ -15,10 +15,9 @@ import InputComponent from "./input";
 const Layer2Component: React.FC<{
   layer2: L2;
   form: any;
-  l1index: number;
-  l2index: number;
-}> = ({ layer2, form, l1index, l2index }) => {
-  const him = `children[${l2index}]`;
+  child: string;
+}> = ({ layer2, form, child}) => {
+  const him = child;
   return (
     <div>
       <h1 className="text-xl font-bold tracking-tight">{layer2.name}</h1>
@@ -28,9 +27,7 @@ const Layer2Component: React.FC<{
             key={layer3.id}
             layer3={layer3}
             form={form}
-            l1index={l1index}
-            l2index={l2index}
-            l3index={index}
+            child={him + `.children[${index}]`}
           />
         ))}
       {layer2.input !== undefined && (

@@ -73,6 +73,8 @@ export const taxonomySchema = z.object({
   layers: z.array(layer1Schema),
 });
 
+export type Layers = z.infer<typeof taxonomySchema>["layers"];
+
 export type L1 = z.infer<typeof taxonomySchema>["layers"][number];
 
 export type L2 = z.infer<typeof layer2Schema>;

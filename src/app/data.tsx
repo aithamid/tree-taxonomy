@@ -16,7 +16,7 @@ export let layersInitial: L1[] = [
           {
             id: "1.1.1",
             name: "Road category",
-            active: false,
+            active: true,
             input: {
               one_choice: {
                 list: [

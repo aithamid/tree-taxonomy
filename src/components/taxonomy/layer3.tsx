@@ -14,11 +14,9 @@ import InputComponent from "./input";
 const Layer3Component: React.FC<{
   layer3: L3;
   form: any;
-  l1index: number;
-  l2index: number;
-  l3index: number;
-}> = ({ layer3, form, l1index, l2index, l3index }) => {
-  const him = `children[${l2index}].children[${l3index}]`;
+  child: string;
+}> = ({ layer3, form, child }) => {
+  const him = child;
   const fieldName = `${him}.active`;
 
   // Ajout d'un état local pour suivre l'état actif
@@ -70,8 +68,7 @@ const Layer3Component: React.FC<{
               key={layer4.id}
               layer4={layer4}
               form={form}
-              parent={him}
-              index={index}
+              child={`${him}.children[${index}]`}
             />
           ))}
       </div>

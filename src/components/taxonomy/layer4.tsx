@@ -14,10 +14,9 @@ import InputComponent from "./input";
 const Layer4Component: React.FC<{
   layer4: L4;
   form: any;
-  parent: string;
-  index: number;
-}> = ({ layer4, form, parent, index }) => {
-  const him = `${parent}.children[${index}]`;
+  child: string;
+}> = ({ layer4, form, child }) => {
+  const him = child;
   const fieldName = `${him}.active`;
   const doubleFieldName = `${him}.double`;
 
