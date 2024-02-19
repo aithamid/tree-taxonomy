@@ -29,7 +29,7 @@ const Layer1Component: React.FC<{ Layer1: L1, child: string, form: any }
   const him = child;
   return (
     <TabsContent value={Layer1.id} className="space-y-4">
-      <div className="container relative hidden flex-col items-start justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 h-fit">
+      <div className="container relative hidden flex-col items-start justify-center md:grid max-w-none grid-cols-2 px-0">
         <div className="">
               <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
                 {Layer1.children &&
@@ -43,7 +43,7 @@ const Layer1Component: React.FC<{ Layer1: L1, child: string, form: any }
                   ))}
               </ScrollArea>
         </div>
-        <div className="items-center  rounded-md border h-fit">
+        <div className="items-center rounded-md border h-full">
           <div>
             <DataHandler layer1={Layer1} />
           </div>

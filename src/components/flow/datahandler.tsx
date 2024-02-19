@@ -17,10 +17,14 @@ import { off } from "process";
 
 const edgeType = "smoothstep";
 
-const offColor = "#D6D5E6";
-const onColor = "#F9F871";
 
 function convert(layer1: L1): [Node[], Edge[]] {
+
+  const offColor = "#D6D5E6";
+  let onColor = "#F9F871";
+  if(layer1.name === "Digital infrastructure") {
+    onColor = "#F87171";
+  }
   let nodes: Node[] = [
     {
       id: layer1.id,
@@ -139,7 +143,8 @@ function convert(layer1: L1): [Node[], Edge[]] {
       if (layer2.input) {
         if (
           layer2.input.multi_choice?.value?.length !== 0 &&
-          layer2.input.one_choice?.value !== ""
+          layer2.input.one_choice?.value !== "" &&
+          layer2.input.specialClass?.every(v => v.active === true)
         ) {
           color = onColor;
         }
@@ -192,3 +197,22 @@ export const DataHandler: React.FunctionComponent<{ layer1: L1 }> = ({
     </div>
   );
 };
+
+export const GlobalView: React.FunctionComponent<{ layers: L1[] }> = ({
+  layers,
+}) => {
+  let nodes: Node[] = [];
+  let edges: Edge[] = [];
+  layers.forEach((layer1) => {
+    let [n, e]: [Node[], Edge[]] = convert(layer1);
+    nodes = nodes.concat(n);
+    edges = edges.concat(e);
+  });
+  return (
+    <div>
+      <Flow e={edges} n={nodes} />
+    </div>
+  );
+}
+
+

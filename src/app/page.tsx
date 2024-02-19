@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "@/components/ui/use-toast";
 import { Form } from "@/components/ui/form";
+import { GlobalView } from "@/components/flow/datahandler";
 
 
 
@@ -74,6 +75,13 @@ export default function HomePage() {
                     {layer1.name}
                   </TabsTrigger>
                 ))}
+                <TabsTrigger
+                    key="all"
+                    value="all"
+                    className="text-l"
+                  >
+                    Global view
+                </TabsTrigger>
               </TabsList>
               <div className="flex-1 text-right  text-2xl font-semibold">
                 <h1>ODD Descriptor</h1>
@@ -81,10 +89,15 @@ export default function HomePage() {
               </div>
             </div>
             {layers.map((layer1, index) => (
-              <React.Fragment key={layer1.id}>
+              <div key={layer1.id}>
                 <Layer1Component Layer1={layer1} child={`layers[${index}]`} form={form} />
-              </React.Fragment>
+              </div>
             ))}
+            <div key="all" className="">
+              <TabsContent value="all" className="space-y-4 rounded-lg border p-3 shadow-sm relative">
+                <GlobalView layers={layers} />
+              </TabsContent>
+            </div>
           </Tabs>
           </form>
           </Form>
