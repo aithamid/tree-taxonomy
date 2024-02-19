@@ -144,7 +144,8 @@ function convert(layer1: L1): [Node[], Edge[]] {
         if (
           layer2.input.multi_choice?.value?.length !== 0 &&
           layer2.input.one_choice?.value !== "" &&
-          layer2.input.specialClass?.every(v => v.active === true)
+          layer2.input.specialClass?.some(v => v.active === true) &&
+          layer2.input.newClass?.some(v => v.active === true)
         ) {
           color = onColor;
         }

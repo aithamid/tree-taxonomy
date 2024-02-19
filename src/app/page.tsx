@@ -83,7 +83,7 @@ export default function HomePage() {
                     Global view
                 </TabsTrigger>
               </TabsList>
-              <div className="flex-1 text-right  text-2xl font-semibold">
+              <div className="flex-1 text-right  text-2xl font-semibold grid-cols-2  items-start">
                 <h1>ODD Descriptor</h1>
                 <Button type="submit" className="text-right">Save</Button>
               </div>
