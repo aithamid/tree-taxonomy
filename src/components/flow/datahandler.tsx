@@ -97,7 +97,7 @@ function convert(layer1: L1): [Node[], Edge[]] {
                     animated: true,
                   });
                   if (layer4.input) {
-                    let name = layer4.id + "input";
+                    const name = layer4.id + "input";
 
                     nodes.push({
                       id: name, // En supposant que layer2 a un id
@@ -117,7 +117,7 @@ function convert(layer1: L1): [Node[], Edge[]] {
                   }
                 }
                 if (layer3.input) {
-                  let name = layer3.id + "input";
+                  const name = layer3.id + "input";
 
                   nodes.push({
                     id: name, // En supposant que layer2 a un id
@@ -142,7 +142,7 @@ function convert(layer1: L1): [Node[], Edge[]] {
       }
       if (layer2.input) {
         if (
-          layer2.input.multi_choice?.value?.length !== 0 &&
+          (layer2.input.multi_choice?.value ?? []).length > 0 &&
           layer2.input.one_choice?.value !== "" &&
           layer2.input.specialClass?.some(v => v.active === true) &&
           layer2.input.newClass?.some(v => v.active === true)
