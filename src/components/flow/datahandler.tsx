@@ -140,13 +140,9 @@ function convert(layer1: L1): [Node[], Edge[]] {
           }
         });
       }
-      if (layer2.input) {
+      else if (layer2.input) {
         if (
-          (layer2.input.multi_choice?.value ?? []).length > 0 &&
-          layer2.input.one_choice?.value !== "" &&
-          layer2.input.specialClass?.some(v => v.active === true) &&
-          layer2.input.newClass?.some(v => v.active === true)
-        ) {
+          (layer2.input.multi_choice?.value ?? []).length > 0 || layer2.input.newClass?.some((item) => item.active) || (layer2.input.one_choice?.value !== "" && layer2.input.one_choice?.value !== undefined) || (layer2.input.double !== "" && layer2.input.double !== undefined) || (layer2.input.text !== "" && layer2.input.text !== undefined) || (layer2.input.specialClass?.some((item) => item.active) ?? false)) {
           color = onColor;
         }
         let name = layer2.id + "input";

@@ -118,14 +118,17 @@ function NewClass(input: InputType) {
   let list: NewClass[] = input.newClass ?? [];
 
   return (
-    <div>
+    <div className="grid grid-cols-2 pt-2">
       {list
         .filter((item) => item.active)
         .map((item, index) => (
-          <li key={index}>
-            {item.label}
-            {item.value !== "" && <a> : {item.value}</a>}
-          </li>
+          <div key={index}>
+            <li >
+              {item.label}
+              {item.value !== "" && <a> : {item.value}</a>}
+            </li>
+          </div>
+
         ))}
     </div>
   );

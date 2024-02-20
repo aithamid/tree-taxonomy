@@ -1790,7 +1790,7 @@ export let layersInitial: L1[] = [
                 {
                   id: "1",
                   label:
-                    "Type of enviroenment modeling (trajectory, area with constraints, graph)",
+                    "Type of environment modeling (trajectory, area with constraints, graph)",
                   value: "",
                   active: false,
                 },
@@ -1802,12 +1802,10 @@ export let layersInitial: L1[] = [
                 },
                 {
                   id: "3",
-                  label: "Type of generated trajectory",
+                  label: "Type of generated trajectory, path, manoeuvers",
                   value: "",
                   active: false,
                 },
-                { id: "4", label: "Path", value: "", active: false },
-                { id: "5", label: "Manoeuvers", value: "", active: false },
                 {
                   id: "6",
                   label: "Limits of the trajectory modeling (max curvature)",
@@ -2024,13 +2022,7 @@ export let layersInitial: L1[] = [
                 },
                 {
                   id: "2",
-                  label: "Max steering angle",
-                  value: "",
-                  active: false,
-                },
-                {
-                  id: "3",
-                  label: "Turning radius",
+                  label: "Max steering angle (Turning radius)",
                   value: "",
                   active: false,
                 },
