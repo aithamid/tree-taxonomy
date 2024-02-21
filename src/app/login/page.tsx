@@ -5,8 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PasswordInput } from "./passwordinput";
+import { PasswordInput } from "@/components/login/passwordinput";
 import { useState } from "react"
+import LoginForm from "@/components/login/loginform";
+import Home from "../dashboard/page";
 
 // import { UserAuthForm } from "./components/user-auth-form"
 
@@ -43,16 +45,9 @@ export default function AuthenticationPage() {
             <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
               <div className="flex flex-col space-y-2 text-center">
                 <h1 className="text-2xl font-semibold tracking-tight">
-                  Sign in with your token
+                  Enter to your taxonomy account
                 </h1>
-                <PasswordInput
-					id="current_password"
-					value={currentPassword}
-					onChange={(e) => setCurrentPassword(e.target.value)}
-					autoComplete="current-password"
-				/>
-                <Button>Sign in</Button>
-                <p className="text-sm text-muted-foreground"></p>
+                <LoginForm />
               </div>
             </div>
           </div>
