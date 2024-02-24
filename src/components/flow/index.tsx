@@ -1,7 +1,13 @@
 "use client";
 import styles from "./Flow.module.css";
 
-import React, { useCallback, useState, useEffect, useMemo, CSSProperties } from "react";
+import React, {
+  useCallback,
+  useState,
+  useEffect,
+  useMemo,
+  CSSProperties,
+} from "react";
 import ReactFlow, {
   addEdge,
   Node,
@@ -99,7 +105,7 @@ export const Flow: React.FunctionComponent<{ n: Node[]; e: Edge[] }> = ({
     const layoutedNodes = getLayoutedElements(n, e);
     setNodes(layoutedNodes);
   }, [n, e]);
-  
+
   return (
     <div className={styles.flow}>
       <ReactFlowProvider>

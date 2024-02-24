@@ -4,13 +4,92 @@ import LoginForm from "@/components/login/loginform";
 import { LogOut } from "lucide-react";
 import { LogoutButton } from "@/components/login/logout";
 import { Navbar } from "@/components/login/Navbar";
+import prisma from "@/db/prisma";
+import { getRequiredAuthSession } from "@/db/auth";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { FileForm } from "@/server/addfile";
+import { FileType } from "@prisma/client";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { revalidatePath } from "next/cache";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+
+async function getData() {
+  const session = await getRequiredAuthSession();
+  const data = await prisma.files.findMany({
+    where: {
+      userId: session.user.id,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
+  return data;
+}
+
+async function getFileType() {
+    const data = await prisma.fileType.findMany();
+    return data;
+}
+
+
 
 export default async function Home() {
-    const session = await getServerSession(authConfig);
-    if(session) {
-        return <Navbar></Navbar>   
-    }
-    return (
-    <><LoginForm /></>
-    );
+  const session = await getServerSession(authConfig);
+  if (!session) {
+    redirect('/login');
+  }
+  async function deleteFile(formData: FormData) {
+    "use server";
+    const id = formData.get("id") as string;
+    const data = await prisma.files.delete({
+      where: {
+        id: id,
+      },
+  
+    });
+    revalidatePath('/');
+    return data;
+  }
+
+  const data = await getData();
+  const types : FileType[] = await getFileType();
+  return (
+    <>
+      <Navbar></Navbar>
+      <div className="grid place-items-center">
+        <div className="w-1/2 m-5" >
+            <FileForm filetypes={types} />
+        </div>
+      </div>
+      <div className="grid place-items-center">
+        <div className="w-1/2">
+        <h2 className="text-2xl font-bold mb-4 text-center">Your taxonomy files</h2>
+        <ul>
+          {data.map((file) => (
+            <Card key={file.id} className="h-14 p-2 m-3">
+            <div className="w-full h-full relative flex justify-between items-center">
+                <div className="w-full">
+                    <a>{file.name}</a>
+                </div>
+                <div className="ml-2">
+                <Link href={`/files/${file.id}`}><Button>Modify </Button></Link>
+                </div>
+                <div className="ml-2">
+                <form action={deleteFile}>
+                    <Button hidden className="bg-red-600 hover:bg-red-400" type="submit" name="id" value={file.id}>Delete</Button>
+                </form>
+                </div>
+            </div>
+            </Card>
+          ))}
+        </ul>
+        </div>
+      </div>
+    </>
+  );
 }

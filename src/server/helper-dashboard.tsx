@@ -1,0 +1,64 @@
+"use server";
+
+import { getRequiredAuthSession } from "@/db/auth";
+import prisma from "@/db/prisma";
+import { typeformSchema } from "./addfile";
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
+import { taxonomySchema } from "@/interfaces/taxonomy";
+import { Prisma } from "@prisma/client";
+
+export const createFile = async (formData: z.infer<typeof typeformSchema>) => {
+    const type = formData.filetypes.value;
+    const name = formData.filename;
+    const session = await getRequiredAuthSession();
+    const userId = session.user.id
+    console.log("Type ID: ", type);
+    const jsonfile_example = await prisma.fileType.findUnique(
+        {
+            where: {
+                id: type
+            }
+        }
+    );
+
+    console.log("JSON File: ", jsonfile_example?.jsonfile);
+
+    const newFile = await prisma.files.create({
+        data: {
+            name: name,
+            userId: userId ?? "", // Provide a default value for userId
+            filetypeId: type,
+            jsonfile: jsonfile_example?.jsonfile as Prisma.JsonObject,
+        }
+    });
+    revalidatePath('/')
+
+    return newFile;
+}
+
+export const getTaxonomyFiles = async () => {
+    const session = await getRequiredAuthSession();
+    const data = await prisma.files.findMany(
+        {
+            where: {
+                userId: session.user.id,
+            },
+        }
+    );
+    return data;
+}
+
+export const updateFile = async (formData: z.infer<typeof taxonomySchema>, fileId: string) => {
+    const updatedFile = await prisma.files.update({
+        where: {
+            id: fileId
+        },
+        data: {
+            jsonfile: formData,
+        }
+    });
+    revalidatePath('/')
+
+    return updatedFile;
+}

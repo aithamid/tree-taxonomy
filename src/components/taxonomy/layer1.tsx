@@ -22,26 +22,27 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Flow } from "@/components/flow/index";
 import { DataHandler } from "../flow/datahandler";
 
-
-const Layer1Component: React.FC<{ Layer1: L1, child: string, form: any }
-> = ({ Layer1, form, child}) => {
-
+const Layer1Component: React.FC<{ Layer1: L1; child: string; form: any }> = ({
+  Layer1,
+  form,
+  child,
+}) => {
   const him = child;
   return (
     <TabsContent value={Layer1.id} className="space-y-4">
       <div className="container relative hidden flex-col items-start justify-center md:grid max-w-none grid-cols-2 px-0">
         <div className="">
-              <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
-                {Layer1.children &&
-                  Layer1.children.map((layer2, index) => (
-                    <Layer2Component
-                      key={layer2.id}
-                      layer2={layer2}
-                      form={form}
-                      child={him + `.children[${index}]`}
-                    />
-                  ))}
-              </ScrollArea>
+          <ScrollArea className="rounded-md border p-4 m-4 h-[60vh]">
+            {Layer1.children &&
+              Layer1.children.map((layer2, index) => (
+                <Layer2Component
+                  key={layer2.id}
+                  layer2={layer2}
+                  form={form}
+                  child={him + `.children[${index}]`}
+                />
+              ))}
+          </ScrollArea>
         </div>
         <div className="items-center rounded-md border h-full">
           <div>

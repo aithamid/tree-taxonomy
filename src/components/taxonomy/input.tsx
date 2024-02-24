@@ -90,27 +90,27 @@ const InputComponent: React.FC<{
                         <RadioGroupItem value={item.id} id={item.id} />
                         {item.id !== "other" && (
                           <Label htmlFor={item.id}>{item.label}</Label>
-                        )
-                        }
+                        )}
                         {item.id === "other" && (
                           <FormField
-                          control={form.control}
-                          name={him + `.one_choice.list[${index}].label`}
-                          render={({ field }) => (
-                            <FormItem className="flex flex-row items-center justify-between">
-                              <FormControl>
-                                <Input
-                                  {...field}
-                                  type="text"
-                                  onChange={(event) => field.onChange(event.target.value)}
-                                  placeholder="Other choice"
-                                />
-                              </FormControl>
-                            </FormItem>
-                          )}
-                        />
-                        )
-                        }
+                            control={form.control}
+                            name={him + `.one_choice.list[${index}].label`}
+                            render={({ field }) => (
+                              <FormItem className="flex flex-row items-center justify-between">
+                                <FormControl>
+                                  <Input
+                                    {...field}
+                                    type="text"
+                                    onChange={(event) =>
+                                      field.onChange(event.target.value)
+                                    }
+                                    placeholder="Other choice"
+                                  />
+                                </FormControl>
+                              </FormItem>
+                            )}
+                          />
+                        )}
                       </div>
                     ))}
                   </RadioGroup>
@@ -338,28 +338,27 @@ const InputComponent: React.FC<{
                             <FormLabel className="text-sm font-normal">
                               {choice.label}
                             </FormLabel>
-                          )
-                          }
+                          )}
                           {choice.id === "other" && (
-                            
                             <FormField
-                            control={form.control}
-                            name={him + `.multi_choice.list[${index}].label`}
-                            render={({ field }) => (
-                              <FormItem className="flex flex-row items-center justify-between">
-                                <FormControl>
-                                  <Input
-                                    {...field}
-                                    type="text"
-                                    onChange={(event) => field.onChange(event.target.value)}
-                                    placeholder="Other choice"
-                                  />
-                                </FormControl>
-                              </FormItem>
-                            )}
-                          />
-                          )
-                          }
+                              control={form.control}
+                              name={him + `.multi_choice.list[${index}].label`}
+                              render={({ field }) => (
+                                <FormItem className="flex flex-row items-center justify-between">
+                                  <FormControl>
+                                    <Input
+                                      {...field}
+                                      type="text"
+                                      onChange={(event) =>
+                                        field.onChange(event.target.value)
+                                      }
+                                      placeholder="Other choice"
+                                    />
+                                  </FormControl>
+                                </FormItem>
+                              )}
+                            />
+                          )}
                         </FormItem>
                       );
                     }}

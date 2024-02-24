@@ -10,7 +10,7 @@ datasource db {
 }
 
 model Account {
-  id                 String    @id @default(dbgenerated("gen_random_uuid()")) @unique
+  id                 String    @id @default(dbgenerated("uuid_generate_v4()")) @unique
   userId             String
   type               String
   provider           String
@@ -29,7 +29,7 @@ model Account {
 }
 
 model Session {
-  id           String    @id @default(dbgenerated("gen_random_uuid()")) @unique
+  id           String    @id @default(dbgenerated("uuid_generate_v4()")) @unique
   sessionToken String    @unique
   userId       String
   expires      DateTime
@@ -37,7 +37,7 @@ model Session {
 }
 
 model User {
-  id            String      @id @default(dbgenerated("gen_random_uuid()")) @unique
+  id            String      @id @default(dbgenerated("uuid_generate_v4()")) @unique
   name          String?
   email         String?     @unique
   password      String?
@@ -47,6 +47,7 @@ model User {
   updatedAt     DateTime?   @updatedAt
   accounts      Account[]
   sessions      Session[]
+  files         Files[]
 }
 
 model VerificationToken {
@@ -56,3 +57,26 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+// FileType is a table that provides type of file and its generic jsonfile
+model FileType {
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @unique
+  name      String
+  jsonfile  Json
+  files     Files[]
+}
+
+// Files is a table that provides file information
+
+model Files {
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @unique
+  name      String
+  userId    String
+  filetypeId String
+  jsonfile  Json
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  author    User @relation(fields: [userId], references: [id])
+  filetype  FileType @relation(fields: [filetypeId], references: [id])
+}
+

@@ -17,12 +17,10 @@ import { off } from "process";
 
 const edgeType = "smoothstep";
 
-
 function convert(layer1: L1): [Node[], Edge[]] {
-
   const offColor = "#D6D5E6";
   let onColor = "#F9F871";
-  if(layer1.name === "Digital infrastructure") {
+  if (layer1.name === "Digital infrastructure") {
     onColor = "#F87171";
   }
   let nodes: Node[] = [
@@ -139,10 +137,16 @@ function convert(layer1: L1): [Node[], Edge[]] {
             }
           }
         });
-      }
-      else if (layer2.input) {
+      } else if (layer2.input) {
         if (
-          (layer2.input.multi_choice?.value ?? []).length > 0 || layer2.input.newClass?.some((item) => item.active) || (layer2.input.one_choice?.value !== "" && layer2.input.one_choice?.value !== undefined) || (layer2.input.double !== "" && layer2.input.double !== undefined) || (layer2.input.text !== "" && layer2.input.text !== undefined) || (layer2.input.specialClass?.some((item) => item.active) ?? false)) {
+          (layer2.input.multi_choice?.value ?? []).length > 0 ||
+          layer2.input.newClass?.some((item) => item.active) ||
+          (layer2.input.one_choice?.value !== "" &&
+            layer2.input.one_choice?.value !== undefined) ||
+          (layer2.input.double !== "" && layer2.input.double !== undefined) ||
+          (layer2.input.text !== "" && layer2.input.text !== undefined) ||
+          (layer2.input.specialClass?.some((item) => item.active) ?? false)
+        ) {
           color = onColor;
         }
         let name = layer2.id + "input";
@@ -210,6 +214,4 @@ export const GlobalView: React.FunctionComponent<{ layers: L1[] }> = ({
       <Flow e={edges} n={nodes} />
     </div>
   );
-}
-
-
+};

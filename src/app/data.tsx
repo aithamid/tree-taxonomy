@@ -211,7 +211,7 @@ export let layersInitial: L1[] = [
                   { id: "5", label: "Pavers" },
                   { id: "6", label: "Thin geo-textile membrane" },
                   { id: "7", label: "Unpaved" },
-                  { id: "other", label: ""}
+                  { id: "other", label: "" },
                 ],
                 value: ["1", "2"],
               },
@@ -237,7 +237,8 @@ export let layersInitial: L1[] = [
           {
             id: "1.2.7",
             name: "Road marking contrast",
-            description: "Visual contrast between the road marking and the back-ground",
+            description:
+              "Visual contrast between the road marking and the back-ground",
             active: false,
             input: {
               double: "",
@@ -374,7 +375,7 @@ export let layersInitial: L1[] = [
                   { id: "13", label: "Tramway lane intersection" },
                   { id: "14", label: "Ramp in" },
                   { id: "15", label: "Ramp off" },
-                  { id: "other", label: ""}
+                  { id: "other", label: "" },
                 ],
                 value: [],
               },
@@ -438,7 +439,7 @@ export let layersInitial: L1[] = [
             id: "1.5.2",
             name: "FLR",
             active: false,
-          }
+          },
         ],
       },
       {
@@ -681,7 +682,7 @@ export let layersInitial: L1[] = [
                 value: "1",
               },
             },
-          }
+          },
         ],
       },
     ],
@@ -1071,17 +1072,17 @@ export let layersInitial: L1[] = [
                 name: "Road users type on the ego direction traffic lane(s)",
                 active: false,
                 input: {
-                 multi_choice: {
-                  list: [
-                    { id: "1", label: "Pedestrian" },
-                    { id: "2", label: "Bicycle" },
-                    { id: "3", label: "2 Wheel Drive" },
-                    { id: "4", label: "Light vehicles" },
-                    { id: "5", label: "Heavy vehicles" },
-                    { id: "other", label: "" },
-                  ],
-                  value: [],
-                 }
+                  multi_choice: {
+                    list: [
+                      { id: "1", label: "Pedestrian" },
+                      { id: "2", label: "Bicycle" },
+                      { id: "3", label: "2 Wheel Drive" },
+                      { id: "4", label: "Light vehicles" },
+                      { id: "5", label: "Heavy vehicles" },
+                      { id: "other", label: "" },
+                    ],
+                    value: [],
+                  },
                 },
               },
               {
@@ -1090,37 +1091,37 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   multi_choice: {
-                   list: [
-                     { id: "1", label: "Pedestrian" },
-                     { id: "2", label: "Bicycle" },
-                     { id: "3", label: "2 Wheel Drive" },
-                     { id: "4", label: "Light vehicles" },
-                     { id: "5", label: "Heavy vehicles" },
-                     { id: "other", label: "" },
-                   ],
-                   value: [],
-                  }
-                 },
+                    list: [
+                      { id: "1", label: "Pedestrian" },
+                      { id: "2", label: "Bicycle" },
+                      { id: "3", label: "2 Wheel Drive" },
+                      { id: "4", label: "Light vehicles" },
+                      { id: "5", label: "Heavy vehicles" },
+                      { id: "other", label: "" },
+                    ],
+                    value: [],
+                  },
+                },
               },
               {
                 id: "4.2.1.3",
-                name: "Road users type on the crossing traffic lane(s)",  
+                name: "Road users type on the crossing traffic lane(s)",
                 active: false,
                 input: {
                   multi_choice: {
-                   list: [
-                     { id: "1", label: "Pedestrian" },
-                     { id: "2", label: "Bicycle" },
-                     { id: "3", label: "2 Wheel Drive" },
-                     { id: "4", label: "Light vehicles" },
-                     { id: "5", label: "Heavy vehicles" },
-                     { id: "other", label: "" },
-                   ],
-                   value: [],
-                  }
-                 },
+                    list: [
+                      { id: "1", label: "Pedestrian" },
+                      { id: "2", label: "Bicycle" },
+                      { id: "3", label: "2 Wheel Drive" },
+                      { id: "4", label: "Light vehicles" },
+                      { id: "5", label: "Heavy vehicles" },
+                      { id: "other", label: "" },
+                    ],
+                    value: [],
+                  },
+                },
               },
-            ]
+            ],
           },
           {
             id: "4.2.2",
@@ -1132,14 +1133,14 @@ export let layersInitial: L1[] = [
                 name: "Road users type on the ego direction traffic lane(s)",
                 active: false,
                 input: {
-                 one_choice: {
-                  list: [
-                    { id: "1", label: "Low (30-59 km/h)" },
-                    { id: "2", label: "Medium (60-79 km/h)" },
-                    { id: "3", label: "High (80-130 km/h)" },
-                  ],
-                  value: "",
-                 }
+                  one_choice: {
+                    list: [
+                      { id: "1", label: "Low (30-59 km/h)" },
+                      { id: "2", label: "Medium (60-79 km/h)" },
+                      { id: "3", label: "High (80-130 km/h)" },
+                    ],
+                    value: "",
+                  },
                 },
               },
               {
@@ -1148,32 +1149,32 @@ export let layersInitial: L1[] = [
                 active: false,
                 input: {
                   one_choice: {
-                   list: [
-                     { id: "1", label: "Low (30-59 km/h)" },
-                     { id: "2", label: "Medium (60-79 km/h)" },
-                     { id: "3", label: "High (80-130 km/h)" },
-                   ],
-                   value: "",
-                  }
-                 },
+                    list: [
+                      { id: "1", label: "Low (30-59 km/h)" },
+                      { id: "2", label: "Medium (60-79 km/h)" },
+                      { id: "3", label: "High (80-130 km/h)" },
+                    ],
+                    value: "",
+                  },
+                },
               },
               {
                 id: "4.2.2.3",
-                name: "Road users type on the crossing traffic lane(s)",  
+                name: "Road users type on the crossing traffic lane(s)",
                 active: false,
                 input: {
                   one_choice: {
-                   list: [
-                     { id: "1", label: "Low (30-59 km/h)" },
-                     { id: "2", label: "Medium (60-79 km/h)" },
-                     { id: "3", label: "High (80-130 km/h)" },
-                   ],
-                   value: "",
-                  }
-                 },
+                    list: [
+                      { id: "1", label: "Low (30-59 km/h)" },
+                      { id: "2", label: "Medium (60-79 km/h)" },
+                      { id: "3", label: "High (80-130 km/h)" },
+                    ],
+                    value: "",
+                  },
+                },
               },
-            ]
-          }
+            ],
+          },
         ],
       },
     ],
@@ -1198,11 +1199,14 @@ export let layersInitial: L1[] = [
                   { id: "2", label: "RTK" },
                   { id: "3", label: "PPP (Precise Point Positioning)" },
                   { id: "4", label: "DGPS (Differential GPS)" },
-                  { id: "5", label: "SBAS (Satellite-Based Augmentation System)" },
+                  {
+                    id: "5",
+                    label: "SBAS (Satellite-Based Augmentation System)",
+                  },
                   { id: "other", label: "" },
                 ],
                 value: [],
-              }
+              },
             },
           },
           {
@@ -1354,10 +1358,10 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
-              ]
-            }
-          }
-        ]
+              ],
+            },
+          },
+        ],
       },
       {
         id: "5.3",
@@ -1496,8 +1500,7 @@ export let layersInitial: L1[] = [
                   { id: "1", label: "Equipped VRUs protection" },
                   {
                     id: "2",
-                    label:
-                      "UAV based VRU protection for closed environments",
+                    label: "UAV based VRU protection for closed environments",
                   },
                   { id: "3", label: "Road workers in the field" },
                   {
@@ -1518,7 +1521,6 @@ export let layersInitial: L1[] = [
                   },
                   { id: "10", label: "Emergency vehicle approaching" },
                   { id: "11", label: "Traffic management optimization" },
-
                 ],
                 value: [],
               },
@@ -1544,7 +1546,7 @@ export let layersInitial: L1[] = [
                   { id: "5", label: "GPS" },
                   { id: "6", label: "Meteorogical sensors" },
                   { id: "7", label: "RSU" },
-                  { id: "other", label: ""}
+                  { id: "other", label: "" },
                 ],
                 value: [],
               },
@@ -1586,7 +1588,8 @@ export let layersInitial: L1[] = [
             id: "5.5.1",
             name: "Layer 1 : Road network and traffic guidance objects",
             active: false,
-            description: "Includes Roadwork geometry, Road shoulders and sidewalks, Parking spaces, Road markings, Traffic signs and traffic lights, Intersections, Pedestrian crossing, Bicycle lane, Speed bumps",
+            description:
+              "Includes Roadwork geometry, Road shoulders and sidewalks, Parking spaces, Road markings, Traffic signs and traffic lights, Intersections, Pedestrian crossing, Bicycle lane, Speed bumps",
             input: {
               text: "",
             },
@@ -1595,7 +1598,8 @@ export let layersInitial: L1[] = [
             id: "5.5.2",
             name: "Layer 2 : Roadside structures and permanent furniture",
             active: false,
-            description: "Includes Buildings, Tunnels, Bridges, Road side furniture : bench, bus station, Vegetation (grass, trees, bushes), Safety furniture: guardrails, construction plot, barrier, concrete separator, Street lamps, Road signs: advertising boards and pillars",
+            description:
+              "Includes Buildings, Tunnels, Bridges, Road side furniture : bench, bus station, Vegetation (grass, trees, bushes), Safety furniture: guardrails, construction plot, barrier, concrete separator, Street lamps, Road signs: advertising boards and pillars",
             input: {
               text: "",
             },
@@ -1604,7 +1608,8 @@ export let layersInitial: L1[] = [
             id: "5.5.3",
             name: "Layer 3 : Temporary modification of Level1 and Level2",
             active: false,
-            description: "Includes Roadwork signs, Temporary road marking, Covered road marking, Fallen branch and tree on the road surface, Pothole, Speed bump",
+            description:
+              "Includes Roadwork signs, Temporary road marking, Covered road marking, Fallen branch and tree on the road surface, Pothole, Speed bump",
             input: {
               text: "",
             },
@@ -1613,7 +1618,8 @@ export let layersInitial: L1[] = [
             id: "5.5.4",
             name: "Layer 4 : Static and dynamic modeling",
             active: false,
-            description: "Includes Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer), Vulnerable (pedestrian, cyclist, motorcyclist), Animals (flying, walking), Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...), Static objects (box, tree and branch, leave, ball, beverage can,...), Ground truth: observers, mask, bounding boxes",
+            description:
+              "Includes Vehicles (moving and non moving): conventional car, pick-up, shuttle, bus, truck (with or without trailer), Vulnerable (pedestrian, cyclist, motorcyclist), Animals (flying, walking), Moving objects (box, tree, falling, flying leave and papers, ball, beverage can,...), Static objects (box, tree and branch, leave, ball, beverage can,...), Ground truth: observers, mask, bounding boxes",
             input: {
               text: "",
             },
@@ -1622,7 +1628,8 @@ export let layersInitial: L1[] = [
             id: "5.5.5",
             name: "Layer 5 : Environment conditions and disturbers",
             active: false,
-            description: "Includes Adverse and degraded conditions: Rain, snow, fog, dust, Energy sources: sun, lamp, heat, electromagnetic wave, front headlight, Wind, Shadows and cloud effect, Specific effect on material (environment reflection,...)",
+            description:
+              "Includes Adverse and degraded conditions: Rain, snow, fog, dust, Energy sources: sun, lamp, heat, electromagnetic wave, front headlight, Wind, Shadows and cloud effect, Specific effect on material (environment reflection,...)",
             input: {
               text: "",
             },
@@ -1631,7 +1638,8 @@ export let layersInitial: L1[] = [
             id: "5.5.6",
             name: "Layer 6 : Digital information and sensors",
             active: false,
-            description: "Includes State of traffic lights and switchable traffic signs, Variable message sign, V2X messages, Cellular network coverage, Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...)), GPS and satellite constellation (ref station), Road Side Unit, Meteo station",
+            description:
+              "Includes State of traffic lights and switchable traffic signs, Variable message sign, V2X messages, Cellular network coverage, Infra sensors (LiDAR, RADAR, camera (IR, neuromorphic, cyclop, fisheye,...)), GPS and satellite constellation (ref station), Road Side Unit, Meteo station",
             input: {
               text: "",
             },
@@ -1822,7 +1830,7 @@ export let layersInitial: L1[] = [
             description: "Functionalities",
             input: {
               text: "",
-            }
+            },
           },
           {
             id: "6.1.8",
@@ -1918,7 +1926,7 @@ export let layersInitial: L1[] = [
                       { id: "13", label: "Herringbone parking maneuver" },
                       { id: "14", label: "In-line parking maneuver" },
                       { id: "15", label: "Station stop" },
-                      { id: "other", label: ""}
+                      { id: "other", label: "" },
                     ],
                     value: [],
                   },
@@ -1963,7 +1971,8 @@ export let layersInitial: L1[] = [
             id: "6.2.8",
             name: "Tire state",
             active: false,
-            description: "For Tire grip : 0.5-1 (Mu value), for Tire pressure : in bar, for Slippage rate G : in %",
+            description:
+              "For Tire grip : 0.5-1 (Mu value), for Tire pressure : in bar, for Slippage rate G : in %",
             input: {
               newClass: [
                 {
@@ -2004,8 +2013,8 @@ export let layersInitial: L1[] = [
                   label: "Deceleration capability (m/s²)",
                   value: "",
                   active: false,
-                }
-              ]
+                },
+              ],
             },
           },
           {
@@ -2039,7 +2048,8 @@ export let layersInitial: L1[] = [
             id: "6.3.1",
             name: "Vehicle body (size)",
             active: false,
-            description: "For each dimension, please provide the value in centimeters",
+            description:
+              "For each dimension, please provide the value in centimeters",
             input: {
               newClass: [
                 {

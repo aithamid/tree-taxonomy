@@ -16,7 +16,7 @@ const Layer2Component: React.FC<{
   layer2: L2;
   form: any;
   child: string;
-}> = ({ layer2, form, child}) => {
+}> = ({ layer2, form, child }) => {
   const him = child;
   return (
     <div>

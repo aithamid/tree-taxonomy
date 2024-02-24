@@ -123,27 +123,24 @@ function NewClass(input: InputType) {
         .filter((item) => item.active)
         .map((item, index) => (
           <div key={index}>
-            <li >
+            <li>
               {item.label}
               {item.value !== "" && <a> : {item.value}</a>}
             </li>
           </div>
-
         ))}
     </div>
   );
 }
 
 function Double(input: InputType) {
-  const double : string | undefined = input.double;
+  const double: string | undefined = input.double;
   {
     if (double !== "") {
       return <a>{double}</a>;
-    }
-    else {
+    } else {
       return <a className="text-red-500 font-bold">To be declared</a>;
     }
-    
   }
 }
 
