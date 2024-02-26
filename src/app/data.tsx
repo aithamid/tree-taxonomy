@@ -694,69 +694,97 @@ export let layersInitial: L1[] = [
       {
         id: "2.2",
         name: "Region / State",
-        input: {
-          newClass: [
-            {
-              id: "1",
-              label: "Country",
-              value: "",
-              active: false,
+        children: [
+          {
+            id: "2.2.1",
+            name: "Region / State",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label: "Country",
+                  value: "",
+                  active: false,
+                },
+                {
+                  id: "2",
+                  label: "Geographic Area",
+                  value: "",
+                  active: false,
+                },
+              ],
             },
-            {
-              id: "2",
-              label: "Geographic Area",
-              value: "",
-              active: false,
-            },
-          ],
-        },
+          }
+        ],
       },
       {
         id: "2.3",
         name: "Interference zones",
-        input: {
-          multi_choice: {
-            list: [
-              { id: "1", label: "Tunnels" },
-              { id: "2", label: "Garages / Parking" },
-              { id: "other", label: "" },
-            ],
-            value: [],
+        children: [
+          {
+          id: "2.3.1",
+          name: "Interference zones",
+          active: false,
+          input: {
+            multi_choice: {
+              list: [
+                { id: "1", label: "Tunnels" },
+                { id: "2", label: "Garages / Parking" },
+                { id: "other", label: "" },
+              ],
+              value: [],
+            },
           },
-        },
+          }
+        ],
       },
       {
         id: "2.4",
         name: "Geo-fencing",
-        input: {
-          newClass: [
-            {
-              id: "1",
-              label:
-                "Limitation of the areas in which the travel of ego vehicle is allowed",
-              value: "",
-              active: false,
+        children: [
+          {
+            id: "2.4.1",
+            name: "Geo-fencing",
+            active: false,
+            input: {
+              newClass: [
+                {
+                  id: "1",
+                  label:
+                    "Limitation of the areas in which the travel of ego vehicle is allowed",
+                  value: "",
+                  active: false,
+                },
+              ],
             },
-          ],
-        },
+          }
+        ],
       },
       {
         id: "2.5",
         name: "Landmark",
-        input: {
-          multi_choice: {
-            list: [
-              { id: "1", label: "Bridge" },
-              { id: "2", label: "Tunnels" },
-              { id: "3", label: "Specific buildings with specific shapes" },
-              { id: "4", label: "Signatures at building's roof" },
-              { id: "5", label: "Electrical poles" },
-              { id: "6", label: "Wind turbines" },
-              { id: "other", label: "" },
-            ],
-            value: [],
-          },
-        },
+        children: [
+          {
+            id: "2.5.1",
+            name: "Landmark",
+            active: false,
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Bridge" },
+                  { id: "2", label: "Tunnels" },
+                  { id: "3", label: "Specific buildings with specific shapes" },
+                  { id: "4", label: "Signatures at building's roof" },
+                  { id: "5", label: "Electrical poles" },
+                  { id: "6", label: "Wind turbines" },
+                  { id: "other", label: "" },
+                ],
+                value: [],
+              },
+            },
+          }
+        ],
       },
     ],
   },
@@ -840,37 +868,52 @@ export let layersInitial: L1[] = [
       {
         id: "3.2",
         name: "Particulates",
-        input: {
-          multi_choice: {
-            list: [
-              { id: "1", label: "Smoke" },
-              { id: "2", label: "Sand" },
-              { id: "3", label: "Dust" },
-              { id: "4", label: "Wind-blown debris" },
-              { id: "other", label: "" },
-            ],
-            value: [],
-          },
-        },
+        children: [
+          {
+            id: "3.2.1",
+            name: "Particulates",
+            active: false,
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Smoke" },
+                  { id: "2", label: "Sand" },
+                  { id: "3", label: "Dust" },
+                  { id: "4", label: "Wind-blown debris" },
+                  { id: "other", label: "" },
+                ],
+                value: [],
+              },
+            },
+          }
+        ],
       },
       {
         id: "3.3",
         name: "Weather-induced roadway conditions",
-        input: {
-          multi_choice: {
-            list: [
-              { id: "1", label: "Normal" },
-              { id: "2", label: "Wet" },
-              { id: "3", label: "Puddles, accumulations" },
-              { id: "4", label: "Flooded" },
-              { id: "5", label: "Snowy" },
-              { id: "6", label: "Muddy" },
-              { id: "7", label: "Icy" },
-              { id: "other", label: "" },
-            ],
-            value: [],
-          },
-        },
+        children: [
+          {
+            id: "3.3.1",
+            name: "Road surface state",
+            active: false,
+            input: {
+              multi_choice: {
+                list: [
+                  { id: "1", label: "Normal" },
+                  { id: "2", label: "Wet" },
+                  { id: "3", label: "Puddles, accumulations" },
+                  { id: "4", label: "Flooded" },
+                  { id: "5", label: "Snowy" },
+                  { id: "6", label: "Muddy" },
+                  { id: "7", label: "Icy" },
+                  { id: "other", label: "" },
+                ],
+                value: [],
+              },
+            },
+          }
+        ],
+
       },
       {
         id: "3.4",

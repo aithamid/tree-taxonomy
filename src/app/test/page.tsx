@@ -15,10 +15,10 @@ import { GlobalView } from "@/components/flow/datahandler";
 import { Files } from "@prisma/client";
 import { on } from "events";
 import { updateFile } from "@/server/helper-dashboard";
+import { layersInitial } from "../data";
 
-export function FileRenderer(file : Files) {
-  const json = file.jsonfile as Taxo;
-  const [layers, setLayers] = useState<Layers>(json.layers);
+export default function Home() {
+  const [layers, setLayers] = useState<Layers>(layersInitial);
 
   function handleLayersUpdate(updatedLayers: Layers) {
     setLayers(updatedLayers);
@@ -44,11 +44,6 @@ export function FileRenderer(file : Files) {
     handleLayersUpdate(data.layers);
   }
 
-  async function onSubmit(data: z.infer<typeof taxonomySchema>) {
-    const update = await updateFile(data, file.id);
-    console.log("test");
-  }
-
   return (
     <div>
       <div className="h-full">
@@ -58,7 +53,6 @@ export function FileRenderer(file : Files) {
           <Form {...form}>
             <form
               onChange={form.handleSubmit(onChange)}
-              onSubmit={form.handleSubmit(onSubmit)}
               className="w-full"
             >
               <Tabs defaultValue={layers[0].id} className="space-y-4">
@@ -79,16 +73,6 @@ export function FileRenderer(file : Files) {
                   </TabsList>
                   <div className="flex-1 text-right  text-2xl font-semibold grid-cols-2  items-start">
                     <h1>ODD Descriptor</h1>
-                    <Button type="submit" className="text-right"
-                    onClick={() => {
-                      toast({
-                        title: "File updated!",
-                        description: "The file has been updated successfully! 🎉",
-                      })
-                    }}
-                    >
-                      Save
-                    </Button>
                   </div>
                 </div>
                 {layers.map((layer1, index) => (
