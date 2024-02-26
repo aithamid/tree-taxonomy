@@ -45,9 +45,6 @@ export default async function AuthenticationPage() {
         <div className="lg:p-8 lg:col-span-3">
           <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
             <div className="flex flex-col space-y-2 text-center">
-              <h1 className="text-2xl font-semibold tracking-tight">
-                Enter to your taxonomy account
-              </h1>
               <LoginForm />
             </div>
           </div>

@@ -38,14 +38,20 @@ export default function LoginForm() {
   }
 
   return (
+    
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="space-y-3">
+        <h1 className="text-2xl font-semibold tracking-tight">
+                Enter to your account
+              </h1>
         <Input type="text" placeholder="E-mail" {...form.register("email")} />
-        <PasswordInput
+        <Input
           id="password"
           {...form.register("password")}
           autoComplete="current-password"
           placeholder="Password"
+          type="password"
         />
         <Button
           onClick={async () => {
@@ -60,6 +66,7 @@ export default function LoginForm() {
         >
           Sign in
         </Button>
+        </div>
       </form>
     </Form>
   );

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import prisma from "@/db/prisma";
 import { Files } from "@prisma/client";
 import { FileRenderer } from "./filehelper";
+import { Navbar } from "@/components/login/Navbar";
 
 async function getFile (fileId: string) {
     const data = await prisma.files.findUnique({
@@ -37,6 +38,9 @@ export default async function Home({params} : {
     }
 
     return (
-       <FileRenderer {...file}/>
+        <>
+        <Navbar />
+        <FileRenderer {...file}/>
+        </>
     );
 }

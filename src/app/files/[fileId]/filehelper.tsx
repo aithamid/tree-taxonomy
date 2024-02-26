@@ -53,8 +53,7 @@ export function FileRenderer(file : Files) {
     <div>
       <div className="h-full">
         <div className="px-8 h-full">
-          <div className="flex items-center justify-between space-y-2 m-5">
-            <h2 className="text-3xl font-bold tracking-tight">Taxonomy</h2>
+          <div className="flex items-center justify-between my-3">
           </div>
           <Form {...form}>
             <form
