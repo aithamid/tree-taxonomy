@@ -32,15 +32,6 @@ export function FileRenderer(file : Files) {
   });
 
   function onChange(data: z.infer<typeof taxonomySchema>) {
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
-    console.log(data);
     handleLayersUpdate(data.layers);
   }
 
