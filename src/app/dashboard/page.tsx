@@ -10,12 +10,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { FileForm } from "@/server/addfile";
-import { FileType, Prisma } from "@prisma/client";
+import { FileType, Files, Prisma } from "@prisma/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { EditFileName } from "@/components/EditFileName";
 
 async function getData() {
   const session = await getRequiredAuthSession();
@@ -80,7 +81,7 @@ export default async function Home() {
     return newFile;
   }
 
-  const data = await getData();
+  const data : Files[] = await getData();
   const types : FileType[] = await getFileType();
   return (
     <>
@@ -99,6 +100,9 @@ export default async function Home() {
             <div className="w-full h-full relative flex justify-between items-center">
                 <div className="w-full">
                     <a>{file.name}</a>
+                </div>
+                <div className="mr-2">
+                  <EditFileName file={file} />
                 </div>
                 <form action={duplicateFile}>
                     <Button hidden className=" bg-green-500 hover:bg-green-400" type="submit" name="duplicate-id" value={file.id}>Duplicate</Button>

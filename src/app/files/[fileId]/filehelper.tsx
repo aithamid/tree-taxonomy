@@ -14,7 +14,7 @@ import { Form } from "@/components/ui/form";
 import { GlobalView } from "@/components/flow/datahandler";
 import { Files } from "@prisma/client";
 import { on } from "events";
-import { updateFile } from "@/server/helper-dashboard";
+import { updateFile } from "@/server/actions";
 
 export function FileRenderer(file : Files) {
   const json = file.jsonfile as Taxo;

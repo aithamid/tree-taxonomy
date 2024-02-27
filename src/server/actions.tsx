@@ -7,6 +7,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { taxonomySchema } from "@/interfaces/taxonomy";
 import { Prisma } from "@prisma/client";
+import { FormRenameFile } from "@/components/EditFileName";
 
 export const createFile = async (formData: z.infer<typeof typeformSchema>) => {
     const type = formData.filetypes.value;
@@ -56,6 +57,20 @@ export const updateFile = async (formData: z.infer<typeof taxonomySchema>, fileI
         },
         data: {
             jsonfile: formData,
+        }
+    });
+    revalidatePath('/')
+
+    return updatedFile;
+}
+
+export const renameFile = async (formData: FormRenameFile) => {
+    const updatedFile = await prisma.files.update({
+        where: {
+            id: formData.fileId
+        },
+        data: {
+            name: formData.name,
         }
     });
     revalidatePath('/')
