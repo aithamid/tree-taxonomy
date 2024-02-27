@@ -368,7 +368,6 @@ export let layersInitial: L1[] = [
                   { id: "6", label: "Double traffic round about" },
                   { id: "7", label: "Triple traffic round about" },
                   { id: "8", label: "Left turn" },
-                  { id: "9", label: "Merging lane" },
                   { id: "10", label: "Merging of lanes" },
                   { id: "11", label: "Roundabout" },
                   { id: "12", label: "Railway level crossing platform" },
@@ -1291,7 +1290,7 @@ export let layersInitial: L1[] = [
               multi_choice: {
                 list: [
                   { id: "1", label: "Position of the cone" },
-                  { id: "2", label: "Topology of the roadwork," },
+                  { id: "2", label: "Topology of the roadwork" },
                   { id: "other", label: "" },
                 ],
                 value: [],
