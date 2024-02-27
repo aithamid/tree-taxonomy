@@ -422,6 +422,9 @@ export let layersInitial: L1[] = [
             id: "1.4.4",
             name: "Particularity of the intersection",
             active: false,
+            input: {
+              text: "",
+            }
           },
         ],
       },
@@ -433,11 +436,17 @@ export let layersInitial: L1[] = [
             id: "1.5.1",
             name: "Workzone",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.5.2",
             name: "FLR",
             active: false,
+            input: {
+              text: "",
+            }
           },
         ],
       },
@@ -498,6 +507,9 @@ export let layersInitial: L1[] = [
             id: "1.7.1",
             name: "Marking of cycle zone on the ego lane",
             active: false,
+            input: {
+              text: "",
+            }
           },
         ],
       },
@@ -557,31 +569,49 @@ export let layersInitial: L1[] = [
             id: "1.8.2",
             name: "Traffic lights",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.3",
             name: "Road markings (horizontal markings)",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.4",
             name: "Guidance equipment",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.5",
             name: "Boundary markers",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.6",
             name: "Closing devices",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.7",
             name: "Dynamic signs ",
             active: false,
+            input: {
+              text: "",
+            }
           },
           {
             id: "1.8.8",
@@ -811,6 +841,7 @@ export let layersInitial: L1[] = [
                 { id: "3", label: "Opacity level", value: "", active: false },
                 { id: "4", label: "Speed (m/s)", value: "", active: false },
                 { id: "5", label: "Direction", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -824,6 +855,7 @@ export let layersInitial: L1[] = [
                 { id: "2", label: "Visibility (m)", value: "", active: false },
                 { id: "3", label: "Speed (m/s)", value: "", active: false },
                 { id: "4", label: "Direction", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -836,6 +868,7 @@ export let layersInitial: L1[] = [
                 { id: "1", label: "Size (µm)", value: "", active: false },
                 { id: "2", label: "Visibility (m)", value: "", active: false },
                 { id: "3", label: "Speed (m/s)", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -847,6 +880,7 @@ export let layersInitial: L1[] = [
               newClass: [
                 { id: "1", label: "Size (µm)", value: "", active: false },
                 { id: "2", label: "Visibility (m)", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -859,6 +893,7 @@ export let layersInitial: L1[] = [
                 { id: "1", label: "Speed (m/s)", value: "", active: false },
                 { id: "2", label: "Speed gradient", value: "", active: false },
                 { id: "3", label: "Direction", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -1742,6 +1777,12 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
+                {
+                  id: "other",
+                  label: "Other",
+                  value: "",
+                  active: false,
+                }
               ],
             },
           },
@@ -1761,6 +1802,7 @@ export let layersInitial: L1[] = [
                 { id: "2", label: "Radar", value: "", active: false },
                 { id: "3", label: "Lidar", value: "", active: false },
                 { id: "4", label: "GPS", value: "", active: false },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -1807,6 +1849,7 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -1828,6 +1871,7 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -1862,6 +1906,7 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -1901,6 +1946,7 @@ export let layersInitial: L1[] = [
                   value: "",
                   active: false,
                 },
+                { id: "other", label: "Other", value: "", active: false },
               ],
             },
           },
@@ -2004,6 +2050,7 @@ export let layersInitial: L1[] = [
                       value: "",
                       active: false,
                     },
+                    { id: "other", label: "Other", value: "", active: false },
                   ],
                 },
               },
@@ -2131,6 +2178,7 @@ export let layersInitial: L1[] = [
                   { id: "7", label: "Truck (with or without trailer)" },
                   { id: "8", label: "SUV" },
                   { id: "9", label: "4DW" },
+                  { id: "other", label: "" },
                 ],
                 value: "",
               },

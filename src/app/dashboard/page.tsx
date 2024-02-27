@@ -10,7 +10,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { FileForm } from "@/server/addfile";
-import { FileType } from "@prisma/client";
+import { FileType, Prisma } from "@prisma/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { revalidatePath } from "next/cache";
@@ -56,6 +56,30 @@ export default async function Home() {
     return data;
   }
 
+  async function duplicateFile(formData: FormData) {
+    "use server";
+    const id = formData.get("duplicate-id") as string;
+    const data = await prisma.files.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if(!data) {
+      return null;
+    }
+
+    const newFile = await prisma.files.create({
+      data: {
+        name: data.name + " (copy)",
+        jsonfile: data.jsonfile as Prisma.JsonObject,
+        filetypeId: data.filetypeId,
+        userId: data.userId,
+      },
+    });
+    revalidatePath('/');
+    return newFile;
+  }
+
   const data = await getData();
   const types : FileType[] = await getFileType();
   return (
@@ -76,6 +100,9 @@ export default async function Home() {
                 <div className="w-full">
                     <a>{file.name}</a>
                 </div>
+                <form action={duplicateFile}>
+                    <Button hidden className=" bg-green-500 hover:bg-green-400" type="submit" name="duplicate-id" value={file.id}>Duplicate</Button>
+                </form>
                 <div className="ml-2">
                 <Link href={`/files/${file.id}`}><Button>Modify </Button></Link>
                 </div>

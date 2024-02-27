@@ -87,7 +87,7 @@ const InputComponent: React.FC<{
                         key={item.id}
                         className="flex items-center space-x-2"
                       >
-                        <RadioGroupItem value={item.id} id={item.id} />
+                        <RadioGroupItem value={item.id} id={item.id} onClick={field.onChange} />
                         {item.id !== "other" && (
                           <Label htmlFor={item.id}>{item.label}</Label>
                         )}

@@ -90,3 +90,5 @@ export type InputType = z.infer<typeof inputSchema>;
 export type NewClass = z.infer<typeof newClassItemSchema>;
 
 export type SClass = z.infer<typeof specialClassSchema>;
+
+export type OneChoice = z.infer<typeof one_choiceSchema>;
