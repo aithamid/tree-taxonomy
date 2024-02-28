@@ -17,6 +17,7 @@ import { revalidatePath } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { EditFileName } from "@/components/EditFileName";
+import { useRouter } from 'next/router';
 
 async function getData() {
   const session = await getRequiredAuthSession();
@@ -34,12 +35,15 @@ async function getData() {
 
 async function getFileType() {
     const data = await prisma.fileType.findMany();
+    revalidatePath('/dashboard');
     return data;
 }
 
 
 
 export default async function Home() {
+  let data : Files[] = await getData();
+  let types : FileType[] = await getFileType();
   const session = await getServerSession(authConfig);
   if (!session) {
     redirect('/login');
@@ -47,14 +51,12 @@ export default async function Home() {
   async function deleteFile(formData: FormData) {
     "use server";
     const id = formData.get("id") as string;
-    const data = await prisma.files.delete({
+    await prisma.files.delete({
       where: {
         id: id,
       },
-  
     });
-    revalidatePath('/');
-    return data;
+    revalidatePath('/dashboard');
   }
 
   async function duplicateFile(formData: FormData) {
@@ -69,7 +71,7 @@ export default async function Home() {
       return null;
     }
 
-    const newFile = await prisma.files.create({
+    await prisma.files.create({
       data: {
         name: data.name + " (copy)",
         jsonfile: data.jsonfile as Prisma.JsonObject,
@@ -77,12 +79,9 @@ export default async function Home() {
         userId: data.userId,
       },
     });
-    revalidatePath('/');
-    return newFile;
+    revalidatePath('/dashboard');
   }
 
-  const data : Files[] = await getData();
-  const types : FileType[] = await getFileType();
   return (
     <>
       <Navbar></Navbar>
@@ -99,20 +98,21 @@ export default async function Home() {
             <Card key={file.id} className="h-14 p-2 m-3">
             <div className="w-full h-full relative flex justify-between items-center">
                 <div className="w-full">
-                    <a>{file.name}</a>
+                    <a>{file.name}</a><br></br>
+                    <a>{file.id}</a>
                 </div>
                 <div className="mr-2">
                   <EditFileName file={file} />
                 </div>
                 <form action={duplicateFile}>
-                    <Button hidden className=" bg-green-500 hover:bg-green-400" type="submit" name="duplicate-id" value={file.id}>Duplicate</Button>
+                    <Button className=" bg-green-500 hover:bg-green-400" type="submit" name="duplicate-id" value={file.id}>Duplicate</Button>
                 </form>
                 <div className="ml-2">
                 <Link href={`/files/${file.id}`}><Button>Modify </Button></Link>
                 </div>
                 <div className="ml-2">
                 <form action={deleteFile}>
-                    <Button hidden className="bg-red-600 hover:bg-red-400" type="submit" name="id" value={file.id}>Delete</Button>
+                    <Button className="bg-red-600 hover:bg-red-400" type="submit" name="id" value={file.id}>Delete</Button>
                 </form>
                 </div>
             </div>

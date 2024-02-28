@@ -37,6 +37,7 @@ export function EditFileName({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fileId: file.id,
+      name: file.name,
     },
   });
 
@@ -63,7 +64,7 @@ export function EditFileName({
             <Label htmlFor="name" className="text-right">
               File name
             </Label>
-            <Input {...form.register("name")} type="text" defaultValue={file.name} className="col-span-3" />
+            <Input {...form.register("name")} type="text" className="col-span-3" />
           </div>
         </div>
         <SheetFooter>

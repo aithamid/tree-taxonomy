@@ -59,13 +59,13 @@ export const updateFile = async (formData: z.infer<typeof taxonomySchema>, fileI
             jsonfile: formData,
         }
     });
-    revalidatePath('/')
+    revalidatePath('/dashboard')
 
     return updatedFile;
 }
 
 export const renameFile = async (formData: FormRenameFile) => {
-    const updatedFile = await prisma.files.update({
+    const updatedFile = await prisma.files.updateMany({
         where: {
             id: formData.fileId
         },
@@ -73,7 +73,6 @@ export const renameFile = async (formData: FormRenameFile) => {
             name: formData.name,
         }
     });
-    revalidatePath('/')
-
+    revalidatePath('/dashboard');
     return updatedFile;
 }

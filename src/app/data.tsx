@@ -1342,61 +1342,40 @@ export let layersInitial: L1[] = [
             id: "5.2.1",
             name: "Protocol",
             active: false,
+            description: "Please write one of the following radio access technologies for each protocol that you have chosen: 5G, ITS-G5, C-V2X, etc.",
             input: {
-              specialClass: [
+              newClass:[
                 {
-                  id: "5.2.1",
+                  id: "1",
                   label: "V2V",
+                  value: "",
                   active: false,
-                  multi_choice: {
-                    list: [
-                      { id: "11", label: "5G" },
-                      { id: "12", label: "ITS-G5" },
-                      { id: "13", label: "C-V2X" },
-                    ],
-                    value: ["12"],
-                  },
                 },
                 {
-                  id: "5.2.2",
+                  id: "2",
                   label: "V2I",
+                  value: "",
                   active: false,
-                  multi_choice: {
-                    list: [
-                      { id: "21", label: "5G" },
-                      { id: "22", label: "ITS-G5" },
-                      { id: "23", label: "C-V2X" },
-                    ],
-                    value: [],
-                  },
                 },
                 {
-                  id: "5.2.3",
+                  id: "3",
                   label: "V2P",
+                  value: "",
                   active: false,
-                  multi_choice: {
-                    list: [
-                      { id: "31", label: "5G" },
-                      { id: "32", label: "ITS-G5" },
-                      { id: "33", label: "C-V2X" },
-                    ],
-                    value: [],
-                  },
                 },
                 {
-                  id: "5.2.4",
+                  id: "4",
                   label: "V2FLEET",
+                  value: "",
                   active: false,
-                  multi_choice: {
-                    list: [
-                      { id: "41", label: "5G" },
-                      { id: "42", label: "ITS-G5" },
-                      { id: "43", label: "C-V2X" },
-                    ],
-                    value: [],
-                  },
                 },
-              ],
+                {
+                  id: "5",
+                  label: "Other",
+                  value: "",
+                  active: false,
+                }
+              ]
             },
           },
           {
