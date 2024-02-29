@@ -8,6 +8,7 @@ import { z } from "zod";
 import { taxonomySchema } from "@/interfaces/taxonomy";
 import { Prisma } from "@prisma/client";
 import { FormRenameFile } from "@/components/EditFileName";
+import { Router } from "next/router";
 
 export const createFile = async (formData: z.infer<typeof typeformSchema>) => {
     const type = formData.filetypes.value;
@@ -50,6 +51,17 @@ export const getTaxonomyFiles = async () => {
     return data;
 }
 
+export async function deleteFile(fileId : string) {
+    "use server";
+    const id = fileId;
+    await prisma.files.delete({
+      where: {
+        id: id,
+      },
+    });
+    revalidatePath('/dashboard');
+}
+
 export const updateFile = async (formData: z.infer<typeof taxonomySchema>, fileId: string) => {
     const updatedFile = await prisma.files.update({
         where: {
@@ -65,7 +77,7 @@ export const updateFile = async (formData: z.infer<typeof taxonomySchema>, fileI
 }
 
 export const renameFile = async (formData: FormRenameFile) => {
-    const updatedFile = await prisma.files.updateMany({
+    await prisma.files.updateMany({
         where: {
             id: formData.fileId
         },
@@ -73,6 +85,28 @@ export const renameFile = async (formData: FormRenameFile) => {
             name: formData.name,
         }
     });
+
     revalidatePath('/dashboard');
-    return updatedFile;
+}
+
+export const duplicate = async (fileId: string) => {
+    // Find the file
+    await prisma.files.findUnique({
+        where: {
+            id: fileId
+        }
+    }).then(async (data) => {
+        if(data) {
+            await prisma.files.create({
+                data: {
+                    name: data.name + " (copy)",
+                    jsonfile: data.jsonfile as Prisma.JsonObject,
+                    filetypeId: data.filetypeId,
+                    userId: data.userId,
+                }
+            });
+        }
+    });
+
+    revalidatePath('/dashboard');
 }

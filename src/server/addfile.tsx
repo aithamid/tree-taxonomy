@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/select";
 import { FileType } from "@prisma/client";
 import { addFile } from "@/server/helper-addfile";
+import { useRouter } from "next/router";
 
 const listSchema = z.object({
   list: z.array(
@@ -70,7 +71,7 @@ export const FileForm = (
     </div>
     <div className="flex flex-row justify-center my-2">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(addFile)} className="flex items-center">
+        <form onSubmit={form.handleSubmit(addFile )} className="flex items-center">
           <Input {...form.register("filename")} placeholder="File name" style={{ marginRight: '8px' }} />
           <FormField
             control={form.control}

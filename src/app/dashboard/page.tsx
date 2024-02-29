@@ -13,11 +13,13 @@ import { FileForm } from "@/server/addfile";
 import { FileType, Files, Prisma } from "@prisma/client";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { EditFileName } from "@/components/EditFileName";
 import { useRouter } from 'next/router';
+import React from "react";
+import { DuplicateButton } from "./duplicate";
 
 async function getData() {
   const session = await getRequiredAuthSession();
@@ -59,28 +61,7 @@ export default async function Home() {
     revalidatePath('/dashboard');
   }
 
-  async function duplicateFile(formData: FormData) {
-    "use server";
-    const id = formData.get("duplicate-id") as string;
-    const data = await prisma.files.findUnique({
-      where: {
-        id: id,
-      },
-    });
-    if(!data) {
-      return null;
-    }
 
-    await prisma.files.create({
-      data: {
-        name: data.name + " (copy)",
-        jsonfile: data.jsonfile as Prisma.JsonObject,
-        filetypeId: data.filetypeId,
-        userId: data.userId,
-      },
-    });
-    revalidatePath('/dashboard');
-  }
 
   return (
     <>
@@ -104,9 +85,7 @@ export default async function Home() {
                 <div className="mr-2">
                   <EditFileName file={file} />
                 </div>
-                <form action={duplicateFile}>
-                    <Button className=" bg-green-500 hover:bg-green-400" type="submit" name="duplicate-id" value={file.id}>Duplicate</Button>
-                </form>
+                <DuplicateButton fileId={file.id} />
                 <div className="ml-2">
                 <Link href={`/files/${file.id}`}><Button>Modify </Button></Link>
                 </div>

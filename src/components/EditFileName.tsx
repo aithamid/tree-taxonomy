@@ -19,6 +19,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Form, FormField } from "./ui/form";
 import { renameFile } from "@/server/actions";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
     name: z.string().min(2).max(50),
@@ -33,16 +34,18 @@ export function EditFileName({
     file: Files
 })  {
 
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fileId: file.id,
-      name: file.name,
     },
   });
 
   const onSubmit = async (data: FormRenameFile) => {
     await renameFile(data);
+    router.refresh();
   }
 
   return (
@@ -64,7 +67,7 @@ export function EditFileName({
             <Label htmlFor="name" className="text-right">
               File name
             </Label>
-            <Input {...form.register("name")} type="text" className="col-span-3" />
+            <Input {...form.register("name")} type="text" defaultValue={file.name} className="col-span-3" />
           </div>
         </div>
         <SheetFooter>
