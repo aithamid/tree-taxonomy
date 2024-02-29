@@ -45,7 +45,7 @@ export function EditFileName({
 
   const onSubmit = async (data: FormRenameFile) => {
     await renameFile(data);
-    router.refresh();
+    router.replace('/dashboard');
   }
 
   return (
