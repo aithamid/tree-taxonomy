@@ -53,6 +53,16 @@ export default async function Home() {
   async function deleteFile(formData: FormData) {
     "use server";
     const id = formData.get("id") as string;
+    // find first and delete
+    const file = await prisma.files.findFirst({
+      where: {
+        id: id,
+      },
+    });
+    if (!file) {
+      return;
+    }
+
     await prisma.files.delete({
       where: {
         id: id,
