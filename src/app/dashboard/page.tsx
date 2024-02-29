@@ -85,14 +85,14 @@ export default async function Home() {
         </div>
       </div>
       <div className="grid place-items-center">
-        <div className="w-9/10">
+        <div className="w-3/4">
         <h2 className="text-2xl font-bold mb-4 text-center">Your taxonomy files</h2>
         <ul>
           {data.map((file) => (
             <Card key={file.id} className="h-14 p-2 m-3">
             <div className="w-full h-full relative flex justify-between items-center">
                 <div className="w-full">
-                    <a>{file.name}</a>
+                    <a>{file.name}</a><br/><a></a>
                 </div>
                 <div className="mr-2">
                   <EditFileName file={file} />

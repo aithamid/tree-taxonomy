@@ -15,7 +15,6 @@ export const createFile = async (formData: z.infer<typeof typeformSchema>) => {
     const name = formData.filename;
     const session = await getRequiredAuthSession();
     const userId = session.user.id
-    console.log("Type ID: ", type);
     const jsonfile_example = await prisma.fileType.findUnique(
         {
             where: {
@@ -23,8 +22,6 @@ export const createFile = async (formData: z.infer<typeof typeformSchema>) => {
             }
         }
     );
-
-    console.log("JSON File: ", jsonfile_example?.jsonfile);
 
     const newFile = await prisma.files.create({
         data: {
