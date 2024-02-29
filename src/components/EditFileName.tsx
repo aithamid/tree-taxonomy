@@ -28,17 +28,18 @@ const formSchema = z.object({
 
 export type FormRenameFile = z.infer<typeof formSchema>;
 
-export function EditFileName({
-    file,
-}: {
-    file: Files
-})  {
+interface EditFileNameProps {
+  file: Files;
+}
+
+export function EditFileName({file}:EditFileNameProps){
 
   const router = useRouter();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
+    values: {
+      name: file.name,
       fileId: file.id,
     },
   });

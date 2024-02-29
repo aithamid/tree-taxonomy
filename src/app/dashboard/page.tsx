@@ -5,7 +5,7 @@ import { LogOut } from "lucide-react";
 import { LogoutButton } from "@/components/login/logout";
 import { Navbar } from "@/components/login/Navbar";
 import prisma from "@/db/prisma";
-import { getRequiredAuthSession } from "@/db/auth";
+import { getAuthSession, getRequiredAuthSession } from "@/db/auth";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -22,7 +22,10 @@ import React from "react";
 import { DuplicateButton } from "./duplicate";
 
 async function getData() {
-  const session = await getRequiredAuthSession();
+  const session = await getAuthSession();
+  if (!session) {
+    redirect('/login');
+  }
   const data = await prisma.files.findMany({
     where: {
       userId: session.user.id,
@@ -82,15 +85,14 @@ export default async function Home() {
         </div>
       </div>
       <div className="grid place-items-center">
-        <div className="w-1/2">
+        <div className="w-9/10">
         <h2 className="text-2xl font-bold mb-4 text-center">Your taxonomy files</h2>
         <ul>
           {data.map((file) => (
             <Card key={file.id} className="h-14 p-2 m-3">
             <div className="w-full h-full relative flex justify-between items-center">
                 <div className="w-full">
-                    <a>{file.name}</a><br></br>
-                    <a>{file.id}</a>
+                    <a>{file.name}</a>
                 </div>
                 <div className="mr-2">
                   <EditFileName file={file} />

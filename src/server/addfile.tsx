@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/select";
 import { FileType } from "@prisma/client";
 import { addFile } from "@/server/helper-addfile";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 const listSchema = z.object({
   list: z.array(
@@ -64,6 +64,8 @@ export const FileForm = (
     },
   });
 
+  const router = useRouter();
+
   return (
     <>
     <div>
@@ -101,7 +103,7 @@ export const FileForm = (
               </FormItem>
             )}
           />
-          <Button type="submit">Create</Button>
+          <Button type="submit" onClick={router.refresh}>Create</Button>
         </form>
       </Form>
     </div>
