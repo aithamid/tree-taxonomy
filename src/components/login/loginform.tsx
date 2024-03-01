@@ -38,7 +38,7 @@ export default function LoginForm() {
         <h1 className="text-2xl font-semibold tracking-tight">
                 Enter to your account
               </h1>
-        <Input type="text" placeholder="E-mail" {...form.register("email")} />
+        <Input type="text" placeholder="User" {...form.register("email")} />
         <Input
           id="password"
           {...form.register("password")}
