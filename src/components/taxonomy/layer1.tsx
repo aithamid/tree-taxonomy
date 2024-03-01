@@ -19,8 +19,8 @@ import { Button } from "@/components/ui/button";
 import { L1 } from "@/interfaces/taxonomy";
 import { toast } from "@/components/ui/use-toast";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Flow } from "@/components/flow/index";
-import { DataHandler } from "../flow/datahandler";
+import { Flow } from "@/components/diagram/index";
+import { DataHandler } from "../diagram/datahandler";
 
 const Layer1Component: React.FC<{ Layer1: L1; child: string; form: any }> = ({
   Layer1,

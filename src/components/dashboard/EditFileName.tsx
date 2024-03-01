@@ -17,7 +17,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Files } from "@prisma/client"
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Form, FormField } from "./ui/form";
+import { Form, FormField } from "../ui/form";
 import { renameFile } from "@/server/actions";
 import { useRouter } from "next/navigation";
 

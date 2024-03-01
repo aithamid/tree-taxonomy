@@ -16,10 +16,10 @@ import { Button } from "@/components/ui/button";
 import { revalidatePath, revalidateTag } from "next/cache";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { EditFileName } from "@/components/EditFileName";
+import { EditFileName } from "@/components/dashboard/EditFileName";
 import { useRouter } from 'next/router';
 import React from "react";
-import { DuplicateButton } from "./duplicate";
+import { DuplicateButton } from "@/components/dashboard/duplicate";
 
 async function getData() {
   const session = await getAuthSession();

@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { taxonomySchema } from "@/interfaces/taxonomy";
 import { Prisma } from "@prisma/client";
-import { FormRenameFile } from "@/components/EditFileName";
+import { FormRenameFile } from "@/components/dashboard/EditFileName";
 import { Router } from "next/router";
 
 export const createFile = async (formData: z.infer<typeof typeformSchema>) => {

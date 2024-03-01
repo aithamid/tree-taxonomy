@@ -11,7 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "@/components/ui/use-toast";
 import { Form } from "@/components/ui/form";
-import { GlobalView } from "@/components/flow/datahandler";
+import { GlobalView } from "@/components/diagram/datahandler";
 import { Files } from "@prisma/client";
 import { on } from "events";
 import { updateFile } from "@/server/actions";
@@ -69,7 +69,7 @@ export function FileRenderer(file : Files) {
                     </TabsTrigger>
                   </TabsList>
                   <div className="flex-1 text-right  text-2xl font-semibold grid-cols-2  items-start">
-                    <h1>ODD Descriptor</h1>
+                    <h1>ODD Descriptor - {file.name}</h1>
                     <Button type="submit" className="text-right"
                     onClick={() => {
                       toast({

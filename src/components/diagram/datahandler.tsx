@@ -12,7 +12,7 @@ import ReactFlow, {
   Position,
   MiniMap,
 } from "reactflow";
-import { Flow } from "@/components/flow/index";
+import { Flow } from "@/components/diagram/index";
 import { off } from "process";
 
 const edgeType = "smoothstep";

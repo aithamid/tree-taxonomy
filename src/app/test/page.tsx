@@ -11,11 +11,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "@/components/ui/use-toast";
 import { Form } from "@/components/ui/form";
-import { GlobalView } from "@/components/flow/datahandler";
+import { GlobalView } from "@/components/diagram/datahandler";
 import { Files } from "@prisma/client";
 import { on } from "events";
 import { updateFile } from "@/server/actions";
-import { layersInitial } from "../data";
+import { layersInitial } from "./data";
 
 export default function Home() {
   const [layers, setLayers] = useState<Layers>(layersInitial);
